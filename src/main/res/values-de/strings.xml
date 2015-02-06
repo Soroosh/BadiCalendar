@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Tab und Sektions Ueberschriften-->
+    <string name="title_section2">Monate</string>
+    <string name="title_section1">Feiertage</string>
+    <string name="titleOut1">Der erste Tag der Monate und Ayyam\'i\'Ha:</string>
+    <string name="titleOut2">Die Baha\'i Feier- und Gedenktage:</string>
+
+    <string name="app_name">Baha\'i Kalender</string>
+
+    <!--Place holder-->
+    <string name="gregorian_date">Gregorianische Datum</string>
+    <string name="badi_date">Badi Datum</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="upcoming">Kommende Feiertage</string>
+
+    <string name="fast">Fastenzeit</string>
+
+    <!--Fuer die Anzeige: "In x Tagen" oder "In 1 Tag"-->
+    <string name="in_prep">In </string>
+    <string name="days"> Tagen</string>
+    <string name="day"> Tag</string>
+
+    <!--Liste mit Feiertagen-->
+    <string-array name="holyday">
+        <item>Naw Ruz</item>
+        <item>1. Ridvan</item>
+        <item>9. Ridvan</item>
+        <item>12. Ridvan</item>
+        <item>Erklärung des Bab</item>
+        <item>Hinscheiden Baha\'u\'llah</item>
+        <item>Märtyertod des Bab</item>
+        <item>Geburt des Bab</item>
+        <item>Geburt Baha\'u\'llah</item>
+        <item>Tag des Bundes</item>
+        <item>Hinscheiden Abdu\'l-Bahas</item>
+    </string-array>
+
+    <!--Arabische Name der Monate-->
+    <string-array name="monthArabic">
+        <item>Baha</item>
+        <item>Jalal</item>
+        <item>Jamal</item>
+        <item>Azamat</item>
+        <item>Nur</item>
+        <item>Rahmat</item>
+        <item>Kalimat</item>
+        <item>Kamal</item>
+        <item>Asma</item>
+        <item>Izzat</item>
+        <item>Mashiyyat</item>
+        <item>Ilm</item>
+        <item>Qudat</item>
+        <item>Qawl</item>
+        <item>Masa\'il</item>
+        <item>Sharaf</item>
+        <item>Sultan</item>
+        <item>Mulk</item>
+        <item>Ayyam\'i\'Ha</item>
+        <item>Ala</item>
+    </string-array>
+
+    <!--Uebersetzung der Monatsnamen-->
+    <string-array name="month">
+        <item>Glanz</item>
+        <item>Ruhm</item>
+        <item>Schönheit</item>
+        <item>Größe</item>
+        <item>Licht</item>
+        <item>Barmherzigkeit</item>
+        <item>Worte</item>
+        <item>Vollkommenheit</item>
+        <item>Namen</item>
+        <item>Macht</item>
+        <item>Wille</item>
+        <item>Erkenntnis</item>
+        <item>Kraft</item>
+        <item>Sprache</item>
+        <item>Fragen</item>
+        <item>Ehre</item>
+        <item>Herrschaft</item>
+        <item>Oberherrschaft</item>
+        <item>Eingeschobene Tage</item>
+        <item>Erhabenheit</item>
+    </string-array>
+
+</resources>

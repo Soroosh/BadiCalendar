@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Tab and section titles-->
+    <string name="title_section2">Feasts</string>
+    <string name="title_section1">Holydays</string>
+    <string name="titleOut1">The first day of the months and of Ayyam\'i\'Ha:</string>
+    <string name="titleOut2">The Baha\'i Holydays:</string>
+
+    <string name="app_name">Baha\'i Calendar</string>
+
+    <!--Place holders-->
+    <string name="gregorian_date">Gregorian Date</string>
+    <string name="badi_date">Badi Date</string>
+    <string name="action_settings">Settings</string>
+    <string name="upcoming">Upcoming Holy days</string>
+
+    <!--For dates in the 19th month-->
+    <string name="fast">Period of fast</string>
+
+    <!--To indicate "In x days" or "In 1 day"-->
+    <string name="in_prep">In </string>
+    <string name="days"> days</string>
+    <string name="day"> day</string>
+
+    <!--Array with Holydays-->
+    <string-array name="holyday">
+        <item>Naw Ruz</item>
+        <item>1st day of Ridvan</item>
+        <item>9th day of Ridvan</item>
+        <item>12th day of Ridvan</item>
+        <item>Declaration of the Bab</item>
+        <item>Ascension of Baha\'u\'llah</item>
+        <item>Martyrdom of the Bab</item>
+        <item>Birth of the Bab</item>
+        <item>Birth of Baha\'u\'llah</item>
+        <item>Day of the Covenant</item>
+        <item>Ascension of Abdu\'l-Baha</item>
+    </string-array>
+
+
+    <!--The Arabic month names-->
+    <string-array name="monthArabic">
+        <item>Baha</item>
+        <item>Jalal</item>
+        <item>Jamal</item>
+        <item>Azamat</item>
+        <item>Nur</item>
+        <item>Rahmat</item>
+        <item>Kalimat</item>
+        <item>Kamal</item>
+        <item>Asma</item>
+        <item>Izzat</item>
+        <item>Mashiyyat</item>
+        <item>Ilm</item>
+        <item>Qudat</item>
+        <item>Qawl</item>
+        <item>Masa\'il</item>
+        <item>Sharaf</item>
+        <item>Sultan</item>
+        <item>Mulk</item>
+        <item>Ayyam\'i\'Ha</item>
+        <item>Ala</item>
+    </string-array>
+
+ <!--The Translation of the month names-->
+    <string-array name="month">
+        <item>Splendour</item>
+        <item>Glory</item>
+        <item>Beauty</item>
+        <item>Grandeur</item>
+        <item>Light</item>
+        <item>Mercy</item>
+        <item>Words</item>
+        <item>Perfection</item>
+        <item>Names</item>
+        <item>Might</item>
+        <item>Will</item>
+        <item>Knowledge</item>
+        <item>Power</item>
+        <item>Speech</item>
+        <item>Questions</item>
+        <item>Honour</item>
+        <item>Sovereignty</item>
+        <item>Dominion</item>
+        <item>The Days of Ha</item>
+        <item>Loftiness</item>
+    </string-array>
+
+</resources>
