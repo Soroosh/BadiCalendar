@@ -147,7 +147,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         @Override
         public int getCount() {
             // Show 2 total pages.
-            return 2;
+            return 3;
         }
 
         @Override
@@ -158,6 +158,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     return getString(R.string.title_section1).toUpperCase(l);
                 case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
+                case 2:
+                    return getString(R.string.title_section3).toUpperCase(l);
             }
             return null;
         }
@@ -169,7 +171,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     public static class SectionFragment extends Fragment {
 
         public static final String ARG_SECTION_NUMBER = "section_number";
-        String months1="", months2="", holydays1="", holydays2="";
+        String months1="", months2="", holydays1="", holydays2="", fulldateString="";
         String badiDateString, gregorianDateString;
         View rootView;
 
@@ -193,6 +195,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 ((TextView) rootView.findViewById(R.id.upcoming)).setText(holydays1+holydays2);
             }else if (args.getInt(ARG_SECTION_NUMBER)==2) {
                 ((TextView) rootView.findViewById(R.id.upcoming)).setText(months1+months2);
+            }else if (args.getInt(ARG_SECTION_NUMBER)==3) {
+                ((TextView) rootView.findViewById(R.id.upcoming)).setText(fulldateString);
             }
         }
         @Override
@@ -217,19 +221,21 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
             months1=getResources().getString(R.string.titleOut1)+"\n\n";
             holydays1=getResources().getString(R.string.titleOut2)+"\n\n";
+            fulldateString=getResources().getString(R.string.titleOut3)+"\n\n";
             months2=""; holydays2="";
 
             int[] badiDate = badiDateFunction(doy, year);
             badiYear = badiDate[2];
             dayOfBadiYear = badiDate[3];
             badiDateString = bdoyToString(badiDate);
+            fulldateString += fullDate(badiDate);
             if (badiDate[1] == 20) badiDateString +=  "\n" + getResources().getString(R.string.fast);
 
             if (doy < dayOffset){
                 nextYearIndex = yearIndex;
                 nextYear = year;
             }
-            int nextBadiYear = badiYear + 1;
+//            int nextBadiYear = badiYear + 1;
             int nawRuzNextYear = nawRuzParameter(nextYearIndex);
             int leapNextyear = isLeapYear(nextYear);
             int nawRuzLastYear = nawRuzParameter(yearIndex - 1);
@@ -261,10 +267,10 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     holydays1 += tmpString + "\n";
                     int diff=hdday-dayOfBadiYear;
                     if (diff<19){
-                        if (diff>1) {
-                            holydays1 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.days) + "\n\n";
-                        }else{
+                        if (diff==1) {
                             holydays1 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.day) + "\n\n";
+                        }else{
+                            holydays1 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.days) + "\n\n";
                         }
                     }else{
                         holydays1 += "\n";
@@ -283,6 +289,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     holydays2 += tmpString + "\n";
                     tmpString = doyToGregorian(hdDoy, nextYear);
                     holydays2 += tmpString + "\n\n";
+                    int diff=hdday-dayOfBadiYear;
+                    if (diff<19){
+                        if (diff==1) {
+                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.day) + "\n\n";
+                        }else if (diff>1){
+                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.days) + "\n\n";
+                        }
+                    }else{
+                        holydays2 += "\n";
+                    }
                 }
             }
 
@@ -304,10 +320,10 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     months1 += tmpString + "\n";
                     int diff=mDay-dayOfBadiYear;
                     if (diff<19){
-                        if (diff>1) {
-                            months1 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.days)+"\n\n";
-                        }else{
+                        if (diff==1) {
                             months1 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.day)+"\n\n";
+                        }else{
+                            months1 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.days)+"\n\n";
                         }
                     }else{
                         months1 += "\n";
@@ -321,10 +337,86 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     months2 += tmpString + "\n";
                     tmpString = doyToGregorian(mDoy, nextYear);
                     months2 += tmpString + "\n\n";
+                    int diff=mDay-dayOfBadiYear;
+                    if (diff<19){
+                        if (diff==1) {
+                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.day)+"\n\n";
+                        }else if (diff>1){
+                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.days)+"\n\n";
+                        }
+                    }else{
+                        months2 += "\n";
+                    }
                 }
             }
 
             badiDateString += "\n";
+        }
+
+        public String fullDate(int[] badiDate) {
+            // saves the full Bahai date in the string fulldateString
+            // input: the array badiDay,badiMonth,badiYear,dayOfBadiYear
+
+            String out;
+            Date date = new Date();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            int weekday = cal.get(Calendar.DAY_OF_WEEK);
+//            DateFormat dateFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+//            String weekGName = dateFormat.format(cal.getTime());
+            String[] weekArrabic = getResources().getStringArray(R.array.weekArabic);
+            String[] weekTrans = getResources().getStringArray(R.array.week);
+            out = getResources().getString(R.string.fdweek) +" ";
+//            out+= weekGName+ " ";
+            out+= weekArrabic[weekday-1] + " - "+ weekTrans[weekday-1] +"\n\n";
+
+            int bm=badiDate[1];
+            String[] monthArrabic = getResources().getStringArray(R.array.monthArabic);
+            String[] monthTrans = getResources().getStringArray(R.array.month);
+
+            if(bm==19){
+                out += " "+ monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")\n\n";
+            }else {
+                int bd=badiDate[0];
+                String monthName, dayName;
+
+                dayName = monthArrabic[bd - 1] + " - " + monthTrans[bd - 1] + " (" + bd + ")\n\n";
+                if (bm == 19)
+                    dayName = monthArrabic[bd] + " - " + monthTrans[bd] + " (19)\n\n";
+                out += getResources().getString(R.string.fdday) +" "+  dayName;
+
+                monthName = monthArrabic[bm - 1] + " - " + monthTrans[bm - 1] + " (" + bm + ")\n\n";
+                if (bm == 20)
+                    monthName = monthArrabic[bm - 1] + " - " + monthTrans[bm - 1] + " (19)\n\n";
+                out += getResources().getString(R.string.fdmonth) +" "+  monthName;
+            }
+
+            int year=badiDate[2];
+            int vahid, yearInVahid, nextvahid, gregNextVahid;
+            int kull, tmpkull, nextkull, gregNextkull;
+            out += getResources().getString(R.string.fdyear) +" "+ year+"\n";
+
+            yearInVahid = year%19;
+            if(yearInVahid==0) yearInVahid=19;
+            vahid=(year-yearInVahid)/19+1;
+            nextvahid=(vahid)*19+1;
+            gregNextVahid=nextvahid+1843;
+            tmpkull = year%361;
+            if (tmpkull==0) tmpkull=361;
+            kull = (year-tmpkull)/361+1;
+            nextkull=(kull)*361+1;
+            gregNextkull=nextkull+1843;
+            String[] vahidArrabic = getResources().getStringArray(R.array.vahidArabic);
+            String[] vahidTrans = getResources().getStringArray(R.array.vahid);
+            out += getResources().getString(R.string.fdyearInVahid) +" "+vahidArrabic[yearInVahid-1];
+            out += " - " + vahidTrans[yearInVahid-1] + " ("+  yearInVahid +")\n";
+            out += getResources().getString(R.string.fdvahid) +" "+  vahid+"\n";
+            out += getResources().getString(R.string.fdNvahid) +" "+  nextvahid + " ("+ gregNextVahid +")\n";
+            out += getResources().getString(R.string.fdkull) +" "+  kull +"\n";
+            out += getResources().getString(R.string.fdNkull) +" "+  nextkull + " ("+ gregNextkull +")\n";
+
+            return out;
+
         }
 
         public int bdoyToDoy1(int bdoy, int leapyear, int nawRuz) {

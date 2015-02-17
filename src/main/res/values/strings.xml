@@ -4,8 +4,10 @@
     <!--Tab and section titles-->
     <string name="title_section2">Feasts</string>
     <string name="title_section1">Holydays</string>
+    <string name="title_section3">Full Date</string>
     <string name="titleOut1">The first day of the months and of Ayyam\'i\'Ha:</string>
     <string name="titleOut2">The Baha\'i Holydays:</string>
+    <string name="titleOut3">The full Badi date:</string>
 
     <string name="app_name">Baha\'i Calendar</string>
 
@@ -22,6 +24,18 @@
     <string name="in_prep">In </string>
     <string name="days"> days</string>
     <string name="day"> day</string>
+
+    <!--Full date titles-->
+    <string name="fdweek">Weekday: </string>
+    <string name="fdday">Day of the month: </string>
+    <string name="fdmonth">Month: </string>
+    <string name="fdyear">Year: </string>
+    <string name="fdvahid">Vahid: </string>
+    <string name="fdyearInVahid">Year in Vahid: </string>
+    <string name="fdNvahid">Next Vahid in year: </string>
+    <string name="fdkull">Kull-i-Shay: </string>
+    <string name="fdNkull">Next Kull-i-Shay in year: </string>
+
 
     <!--Array with Holydays-->
     <string-array name="holyday">
@@ -85,6 +99,74 @@
         <item>Dominion</item>
         <item>The Days of Ha</item>
         <item>Loftiness</item>
+    </string-array>
+
+    <!--The Arabic weekday names-->
+    <string-array name="weekArabic">
+        <item>Jamal</item>
+        <item>Kamal</item>
+        <item>Fidal</item>
+        <item>Idal</item>
+        <item>Istijlál</item>
+        <item>Istiqlál</item>
+        <item>Jalál</item>
+    </string-array>
+
+    <!--The Translation of the weekday names-->
+    <string-array name="week">
+        <item>Beauty</item>
+        <item>Perfection</item>
+        <item>Grace</item>
+        <item>Justice</item>
+        <item>Majesty</item>
+        <item>Independence</item>
+        <item>Glory</item>
+    </string-array>
+
+    <!--The Translation of the year in vahid names-->
+    <string-array name="vahid">
+        <item>A</item>
+        <item>B</item>
+        <item>Father</item>
+        <item>D</item>
+        <item>Gate</item>
+        <item>V</item>
+        <item>Eternity</item>
+        <item>Generosity</item>
+        <item>Splendour</item>
+        <item>Love</item>
+        <item>Delightful</item>
+        <item>Answer</item>
+        <item>Single</item>
+        <item>Bountiful</item>
+        <item>Affection</item>
+        <item>Beginning</item>
+        <item>Luminous</item>
+        <item>Most Luminous</item>
+        <item>Unity</item>
+    </string-array>
+
+    <!--The arabic of the year in Vahid names-->
+    <string-array name="vahidArabic">
+        <item>Alif</item>
+        <item>Ba</item>
+        <item>Ab</item>
+        <item>Dal</item>
+        <item>Bab</item>
+        <item>Vav</item>
+        <item>Abad</item>
+        <item>Jad</item>
+        <item>Baha</item>
+        <item>Hubb</item>
+        <item>Bahhaj</item>
+        <item>Javab</item>
+        <item>Ahad</item>
+        <item>Vahhab</item>
+        <item>Vidad</item>
+        <item>Badi</item>
+        <item>Bahi</item>
+        <item>Abha</item>
+        <item>Vahid</item>
     </string-array>
 
 </resources>

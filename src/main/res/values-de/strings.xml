@@ -3,8 +3,10 @@
     <!--Tab und Sektions Ueberschriften-->
     <string name="title_section2">Monate</string>
     <string name="title_section1">Feiertage</string>
+    <string name="title_section3">Datum</string>
     <string name="titleOut1">Der erste Tag der Monate und Ayyam\'i\'Ha:</string>
     <string name="titleOut2">Die Baha\'i Feier- und Gedenktage:</string>
+    <string name="titleOut3">Der vollständige Badi Datum:</string>
 
     <string name="app_name">Baha\'i Kalender</string>
 
@@ -20,6 +22,19 @@
     <string name="in_prep">In </string>
     <string name="days"> Tagen</string>
     <string name="day"> Tag</string>
+
+    <!--Full date titles-->
+    <string name="fdweek">Wochentag: </string>
+    <string name="fdday">Tag des Monats: </string>
+    <string name="fdmonth">Monat: </string>
+    <string name="fdyear">Jahr: </string>
+    <string name="fdvahid">Vahid: </string>
+    <string name="fdyearInVahid">Jahr in Vahid: </string>
+    <string name="fdNvahid">Nächster Vahid im Jahr: </string>
+    <string name="fdkull">Kull-i-Shay: </string>
+    <string name="fdNkull">Nächster Kull-i-Shay im Jahr: </string>
+
+
 
     <!--Liste mit Feiertagen-->
     <string-array name="holyday">
@@ -71,17 +86,85 @@
         <item>Worte</item>
         <item>Vollkommenheit</item>
         <item>Namen</item>
-        <item>Macht</item>
+        <item>Würde</item>
         <item>Wille</item>
-        <item>Erkenntnis</item>
-        <item>Kraft</item>
+        <item>Wissen</item>
+        <item>Macht</item>
         <item>Sprache</item>
         <item>Fragen</item>
         <item>Ehre</item>
         <item>Herrschaft</item>
-        <item>Oberherrschaft</item>
+        <item>Hoheit</item>
         <item>Eingeschobene Tage</item>
         <item>Erhabenheit</item>
+    </string-array>
+
+    <!--The Arabic weekday names-->
+    <string-array name="weekArabic">
+        <item>Jamal</item>
+        <item>Kamal</item>
+        <item>Fidal</item>
+        <item>Idal</item>
+        <item>Istijlál</item>
+        <item>Istiqlál</item>
+        <item>Jalál</item>
+    </string-array>
+
+    <!--The Translation of the weekday names-->
+    <string-array name="week">
+        <item>Schönheit</item>
+        <item>Vollkommenheit</item>
+        <item>Anmut</item>
+        <item>Gerechtigkeit</item>
+        <item>Majestät</item>
+        <item>Unabhängigkeit</item>
+        <item>Herrlichkeit</item>
+    </string-array>
+
+    <!--The Translation of the year in vahid names-->
+    <string-array name="vahid">
+        <item>A</item>
+        <item>B</item>
+        <item>Vater</item>
+        <item>D</item>
+        <item>Tor</item>
+        <item>V</item>
+        <item>Ewigkeit</item>
+        <item>Edelmut</item>
+        <item>Pracht</item>
+        <item>Liebe</item>
+        <item>Entzückend</item>
+        <item>Antwort</item>
+        <item>Einzig</item>
+        <item>Mildtätig</item>
+        <item>Zuneigung</item>
+        <item>Anfang</item>
+        <item>Strahlend</item>
+        <item>Überaus strahlend</item>
+        <item>Einheit</item>
+    </string-array>
+
+    <!--The arabic of the year in Vahid names-->
+    <string-array name="vahidArabic">
+        <item>Alif</item>
+        <item>Ba</item>
+        <item>Ab</item>
+        <item>Dal</item>
+        <item>Bab</item>
+        <item>Vav</item>
+        <item>Abad</item>
+        <item>Jad</item>
+        <item>Baha</item>
+        <item>Hubb</item>
+        <item>Bahhaj</item>
+        <item>Javab</item>
+        <item>Ahad</item>
+        <item>Vahhab</item>
+        <item>Vidad</item>
+        <item>Badi</item>
+        <item>Bahi</item>
+        <item>Abha</item>
+        <item>Vahid</item>
     </string-array>
 
 </resources>
