@@ -6,24 +6,33 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Point;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-//import android.app.ActionBar;
-//import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.content.Intent;
+//import android.support.v4.app.FragmentActivity;
+//import android.app.ActionBar;
+//import android.app.FragmentTransaction;
+//import android.view.Gravity;
+//import android.view.Menu;
+//import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
@@ -43,6 +52,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+    ImageView structureImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,9 +147,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a SectionFragment (defined as a static inner class below).
-            Fragment fragment = new SectionFragment();
             Bundle args = new Bundle();
+            DisplayMetrics displaymetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+//            int height = displaymetrics.heightPixels;
+            int width = displaymetrics.widthPixels;
+
+            Fragment fragment = new SectionFragment();
             args.putInt(SectionFragment.ARG_SECTION_NUMBER, position + 1);
+//            args.putInt(SectionFragment.dispH, height);
+            args.putInt(SectionFragment.dispW, width);
             fragment.setArguments(args);
             return fragment;
         }
@@ -159,11 +176,23 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
                 case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
+                  return getString(R.string.title_section3).toUpperCase(l);
             }
             return null;
         }
     }
+
+//    public static final String ARG_SECTION_NUMBER = "section_number";
+    public void showFigure(View view) {
+        // change view on click
+//        Bundle args = getArguments();
+//        if (args.getInt(ARG_SECTION_NUMBER)==3) {
+            Intent intent = new Intent(this, DisplayFigureActivity.class);
+            startActivity(intent);
+//        }
+    }
+
+
 
     /**
      * A fragment representing a section of the app, that simply displays different tabs.
@@ -171,6 +200,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     public static class SectionFragment extends Fragment {
 
         public static final String ARG_SECTION_NUMBER = "section_number";
+        public static final String dispW = "display Width";
         String months1="", months2="", holydays1="", holydays2="", fulldateString="";
         String badiDateString, gregorianDateString;
         View rootView;
@@ -186,24 +216,24 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             gregorianDateString = doyToGregorian(doy, year);
             calculateBadi(doy, year);
 
-            Bundle args = getArguments();
-
-            ((TextView) rootView.findViewById(R.id.gregrorian_date)).setText(gregorianDateString);
-            ((TextView) rootView.findViewById(R.id.badi_date)).setText(badiDateString);
-
-            if (args.getInt(ARG_SECTION_NUMBER)==1) {
-                ((TextView) rootView.findViewById(R.id.upcoming)).setText(holydays1+holydays2);
-            }else if (args.getInt(ARG_SECTION_NUMBER)==2) {
-                ((TextView) rootView.findViewById(R.id.upcoming)).setText(months1+months2);
-            }else if (args.getInt(ARG_SECTION_NUMBER)==3) {
-                ((TextView) rootView.findViewById(R.id.upcoming)).setText(fulldateString);
-            }
         }
         @Override
         public void onResume() {
             super.onResume();
             // rerun when coming back from background
+            Bundle args = getArguments();
             getDate();
+            if (args.getInt(ARG_SECTION_NUMBER)==1) {
+                ((TextView) rootView.findViewById(R.id.upcomingH)).setText(holydays1+holydays2);
+            }else if (args.getInt(ARG_SECTION_NUMBER)==2) {
+                ((TextView) rootView.findViewById(R.id.upcomingF)).setText(months1+months2);
+            }else if (args.getInt(ARG_SECTION_NUMBER)==3) {
+                ((TextView) rootView.findViewById(R.id.textViewFullDate)).setText(fulldateString);
+            }
+
+            ((TextView) rootView.findViewById(R.id.gregrorian_date)).setText(gregorianDateString);
+            ((TextView) rootView.findViewById(R.id.badi_date)).setText(badiDateString);
+
         }
 
         public void calculateBadi(int doy, int year) {
@@ -289,16 +319,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     holydays2 += tmpString + "\n";
                     tmpString = doyToGregorian(hdDoy, nextYear);
                     holydays2 += tmpString + "\n\n";
-                    int diff=hdday-dayOfBadiYear;
-                    if (diff<19){
-                        if (diff==1) {
-                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.day) + "\n\n";
-                        }else if (diff>1){
-                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.days) + "\n\n";
-                        }
-                    }else{
-                        holydays2 += "\n";
-                    }
+//                    int diff=(hdday-dayOfBadiYear)%(365+leapyear);
+//                    if (diff<19){
+//                        if (diff==1) {
+//                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.day) + "\n\n";
+//                        }else if (diff>1){
+//                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.days) + "\n\n";
+//                        }
+//                    }else{
+//                        holydays2 += "\n";
+//                    }
                 }
             }
 
@@ -314,7 +344,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     if (i>15) mDoy = bdoyToDoy1(mDay, leapLastYear, nawRuzLastYear);
                     if (i==19) mDoy = bdoyToDoy1(mDay, leapyear, nawRuzLastYear);
                     int[] mDate = badiDateFunction(mDoy,year);
-                    tmpString = bdoyToString(mDate);
+                    tmpString = monthToString(i);
                     months1 += tmpString + "\n";
                     tmpString = doyToGregorian(mDoy, year);
                     months1 += tmpString + "\n";
@@ -333,20 +363,20 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     if (i>15) mDoy = bdoyToDoy2(mDay, leapyear, nawRuz);
                     if (i==19) mDoy = bdoyToDoy2(mDay, leapNextyear, nawRuz);
                     int[] mDate = badiDateFunction(mDoy, year);
-                    tmpString = bdoyToString(mDate);
+                    tmpString = monthToString(i);
                     months2 += tmpString + "\n";
                     tmpString = doyToGregorian(mDoy, nextYear);
                     months2 += tmpString + "\n\n";
-                    int diff=mDay-dayOfBadiYear;
-                    if (diff<19){
-                        if (diff==1) {
-                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.day)+"\n\n";
-                        }else if (diff>1){
-                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.days)+"\n\n";
-                        }
-                    }else{
-                        months2 += "\n";
-                    }
+//                    int diff=(mDay-dayOfBadiYear)%(365+leapyear);
+//                    if (diff<19){
+//                        if (diff==1) {
+//                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.day)+"\n\n";
+//                        }else{
+//                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.days)+"\n\n";
+//                        }
+//                    }else{
+//                        months2 += "\n";
+//                    }
                 }
             }
 
@@ -358,44 +388,19 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             // input: the array badiDay,badiMonth,badiYear,dayOfBadiYear
 
             String out;
+            int year=badiDate[2];
             Date date = new Date();
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
             int weekday = cal.get(Calendar.DAY_OF_WEEK);
-//            DateFormat dateFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
-//            String weekGName = dateFormat.format(cal.getTime());
+
             String[] weekArrabic = getResources().getStringArray(R.array.weekArabic);
             String[] weekTrans = getResources().getStringArray(R.array.week);
-            out = getResources().getString(R.string.fdweek) +" ";
-//            out+= weekGName+ " ";
-            out+= weekArrabic[weekday-1] + " - "+ weekTrans[weekday-1] +"\n\n";
+
 
             int bm=badiDate[1];
-            String[] monthArrabic = getResources().getStringArray(R.array.monthArabic);
-            String[] monthTrans = getResources().getStringArray(R.array.month);
-
-            if(bm==19){
-                out += " "+ monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")\n\n";
-            }else {
-                int bd=badiDate[0];
-                String monthName, dayName;
-
-                dayName = monthArrabic[bd - 1] + " - " + monthTrans[bd - 1] + " (" + bd + ")\n\n";
-                if (bm == 19)
-                    dayName = monthArrabic[bd] + " - " + monthTrans[bd] + " (19)\n\n";
-                out += getResources().getString(R.string.fdday) +" "+  dayName;
-
-                monthName = monthArrabic[bm - 1] + " - " + monthTrans[bm - 1] + " (" + bm + ")\n\n";
-                if (bm == 20)
-                    monthName = monthArrabic[bm - 1] + " - " + monthTrans[bm - 1] + " (19)\n\n";
-                out += getResources().getString(R.string.fdmonth) +" "+  monthName;
-            }
-
-            int year=badiDate[2];
             int vahid, yearInVahid, nextvahid, gregNextVahid;
             int kull, tmpkull, nextkull, gregNextkull;
-            out += getResources().getString(R.string.fdyear) +" "+ year+"\n";
-
             yearInVahid = year%19;
             if(yearInVahid==0) yearInVahid=19;
             vahid=(year-yearInVahid)/19+1;
@@ -408,12 +413,38 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             gregNextkull=nextkull+1843;
             String[] vahidArrabic = getResources().getStringArray(R.array.vahidArabic);
             String[] vahidTrans = getResources().getStringArray(R.array.vahid);
-            out += getResources().getString(R.string.fdyearInVahid) +" "+vahidArrabic[yearInVahid-1];
-            out += " - " + vahidTrans[yearInVahid-1] + " ("+  yearInVahid +")\n";
+            String[] monthArrabic = getResources().getStringArray(R.array.monthArabic);
+            String[] monthTrans = getResources().getStringArray(R.array.month);
+
+            out = weekArrabic[weekday-1] + " ("+ weekTrans[weekday-1] +"), ";
+            out += vahidArrabic[yearInVahid-1] + " (" + vahidTrans[yearInVahid-1] + ")- ";
+
+            if(bm==19){
+                out += monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")\n";
+                out += getResources().getString(R.string.fdformatAy) +"\n\n";
+            }else {
+                int bd=badiDate[0];
+                String monthName, dayName;
+
+                dayName = monthArrabic[bd - 1] + " (" + monthTrans[bd - 1] + ")\n";
+                monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
+                if (bm == 20)
+                    monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
+
+                out += monthName+"-"+dayName;
+                out += getResources().getString(R.string.fdformat) +"\n\n";
+            }
+
+
+            out += getResources().getString(R.string.fdyearInVahid) + " " + yearInVahid +"\n";
             out += getResources().getString(R.string.fdvahid) +" "+  vahid+"\n";
             out += getResources().getString(R.string.fdNvahid) +" "+  nextvahid + " ("+ gregNextVahid +")\n";
             out += getResources().getString(R.string.fdkull) +" "+  kull +"\n";
-            out += getResources().getString(R.string.fdNkull) +" "+  nextkull + " ("+ gregNextkull +")\n";
+            out += getResources().getString(R.string.fdNkull) +" "+  nextkull + " ("+ gregNextkull +")\n\n";
+
+            out += getResources().getString(R.string.fdExplain) + "\n";
+
+//            drawStructure();
 
             return out;
 
@@ -473,7 +504,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         public String doyToGregorian(int doy, int year) {
             // Return the date; input day of the year and year
-            DateFormat dateFormat = new SimpleDateFormat("EEEE, dd MMMM yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("EEEE, yyyy-MM-dd");
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.DAY_OF_YEAR, doy);
             calendar.set(Calendar.YEAR, year);
@@ -485,15 +516,37 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             int bm;
             String badiString;
             String monthName;
+            String zeroM="", zeroD="";
             String[] monthArrabic = getResources().getStringArray(R.array.monthArabic);
             String[] monthTrans = getResources().getStringArray(R.array.month);
 
             bm = badiDate[1];
-            monthName = monthArrabic[bm-1] + " - " + monthTrans[bm-1] + " (" + bm + ") ";
-            if (bm == 20) monthName = monthArrabic[bm-1] + " - " + monthTrans[bm-1] + " (19) ";
-            badiString = badiDate[0] + ". " + monthName + "." + badiDate[2];
-            if (bm == 19) badiString = monthArrabic[bm-1] + " (" +monthTrans[bm-1]+ ") " + badiDate[2];
+            // pre leading zero for days and months 1-9
+            if (bm<10) zeroM="0";
+            if (badiDate[0]<10) zeroD="0";
+
+//            monthName = monthArrabic[bm-1] + " - " + monthTrans[bm-1] + " (" + bm + ") ";
+//            if (bm == 20) monthName = monthArrabic[bm-1] + " - " + monthTrans[bm-1] + " (19) ";
+//            badiString = badiDate[0] + ". " + monthName + "." + badiDate[2];
+//            if (bm == 19) badiString = monthArrabic[bm-1] + " (" +monthTrans[bm-1]+ ") " + badiDate[2];
+            monthName = "-" + zeroM + bm + "-";
+            if (bm == 20) monthName = "-19-";
+            badiString = badiDate[2] + monthName + zeroD + badiDate[0];
+            if (bm == 19) badiString = badiDate[2]+"-"+monthArrabic[bm-1] + " - " +monthTrans[bm-1];
             return badiString;
+        }
+
+        public String monthToString(int bm) {
+            // Return the month name and the translation
+            int bi=bm+1;
+            String monthName;
+            String[] monthArabic = getResources().getStringArray(R.array.monthArabic);
+            String[] monthTrans = getResources().getStringArray(R.array.month);
+
+            monthName = monthArabic[bm] + " - " + monthTrans[bm] + " (" + bi + ") ";
+            if (bm == 19) monthName = monthArabic[bm] + " - " + monthTrans[bm] + " (19) ";
+            if (bm == 18) monthName = monthArabic[bm] + " - " +monthTrans[bm];
+            return monthName;
         }
 
         public String hdName(int i){
@@ -532,12 +585,93 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             }
         }
 
+        public void drawStructure(){
+            Bundle args = getArguments();
+            int width=args.getInt(dispW);
+            ImageView structureImage= (ImageView) rootView.findViewById(R.id.structure);
+            Paint mPaint;
+            Bitmap mBitmap = null;
+            Bitmap bm1 = null;
+            Canvas canvas;
+            Path mPath = new Path();
+            Paint   mBitmapPaint;
+            mPaint = new Paint();
+            mPaint.setAntiAlias(true);
+            mPaint.setDither(true);
+            mPaint.setStyle(Paint.Style.STROKE);
+            mPaint.setStrokeJoin(Paint.Join.ROUND);
+            mBitmapPaint = new Paint(Paint.DITHER_FLAG);
+            mBitmap = Bitmap.createBitmap(width, 500, Bitmap.Config.ARGB_8888);
+            canvas = new Canvas(mBitmap);
+//            canvas.drawColor(0xFFFFFFFF);
+
+
+            String text;
+            float x=width*0.1f ,y=-10.f, textsize=32.0f;
+
+            int minX=50, maxX=width-50, diffX= maxX-minX ;
+
+
+            text=getResources().getString(R.string.fdkull);
+            // canvas.drawLine(mX, mY, Mx1, My1, mPaint);
+            // canvas.drawLine(mX, mY, x, y, mPaint);
+            mPaint.setTextSize(textsize);
+            canvas.drawBitmap(mBitmap, 0, 0, mBitmapPaint);
+            canvas.drawPath(mPath, mPaint);
+            mPaint.setColor(0xFF000000);
+            mPath.reset();
+            mPath.moveTo(minX, 100);
+            mPath.lineTo(maxX, 100);
+            mPaint.setStrokeWidth(5);
+            canvas.drawPath(mPath, mPaint);
+            mPaint.setStrokeWidth(1);
+            canvas.drawTextOnPath(text, mPath, x, y, mPaint);
+            y = 0.f;
+            x = 0.f;
+            for (int i=0;i<20;i++) {
+                int ix = i * diffX / 19 + minX;
+                mPath.reset();
+                mPath.moveTo(ix, 100);
+                mPath.lineTo(ix, 150);
+                mPaint.setStrokeWidth(5);
+                canvas.drawPath(mPath, mPaint);
+            }
+            for (int i=1;i<20;i++) {
+                int ix = i * diffX / 19 + minX;
+                int ixx = (i-1) * diffX / 19 + minX;
+                mPath.reset();
+                mPath.moveTo(ixx, 140);
+                mPath.lineTo(ix, 140);
+                text = "" + i;
+                mPaint.setStrokeWidth(1);
+                canvas.drawTextOnPath(text, mPath, x, y, mPaint);
+            }
+
+            if(structureImage != null && mBitmap != null) {
+                structureImage.setImageBitmap(mBitmap);
+            }
+        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            rootView = inflater.inflate(R.layout.fragment_holyday, container, false);
+            Bundle args = getArguments();
+
             getDate();
+
+            if (args.getInt(ARG_SECTION_NUMBER)==1) {
+                ((TextView) rootView.findViewById(R.id.upcomingH)).setText(holydays1+holydays2);
+            }else if (args.getInt(ARG_SECTION_NUMBER)==2) {
+                rootView = inflater.inflate(R.layout.fragment_feast, container, false);
+                ((TextView) rootView.findViewById(R.id.upcomingF)).setText(months1+months2);
+            }else if (args.getInt(ARG_SECTION_NUMBER)==3) {
+                rootView = inflater.inflate(R.layout.fragment_fulldate, container, false);
+                ((TextView) rootView.findViewById(R.id.textViewFullDate)).setText(fulldateString);
+            }
+
+            ((TextView) rootView.findViewById(R.id.gregrorian_date)).setText(gregorianDateString);
+            ((TextView) rootView.findViewById(R.id.badi_date)).setText(badiDateString);
 
 
             return rootView;

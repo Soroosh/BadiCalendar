@@ -26,15 +26,17 @@
     <string name="day"> day</string>
 
     <!--Full date titles-->
-    <string name="fdweek">Weekday: </string>
-    <string name="fdday">Day of the month: </string>
-    <string name="fdmonth">Month: </string>
-    <string name="fdyear">Year: </string>
+    <string name="fdformat">(Weekday, year - month - day)</string>
+    <string name="fdformatAy">(Weekday, year - day)</string>
+    <string name="fdExplain">Each of the 19 days of a month has a name. The names are the same as
+        the month names- the first day of the month is the day Baha and the last day of the month is
+        the day Ala. \nThe Badi Calendar defines Vahid which is a period of 19 years. Each year in
+        the Vahid has a name. 19 Vahids (361 years) are a Kull-i-Shay.</string>
     <string name="fdvahid">Vahid: </string>
     <string name="fdyearInVahid">Year in Vahid: </string>
-    <string name="fdNvahid">Next Vahid in year: </string>
+    <string name="fdNvahid">Next Vahid begins in year: </string>
     <string name="fdkull">Kull-i-Shay: </string>
-    <string name="fdNkull">Next Kull-i-Shay in year: </string>
+    <string name="fdNkull">Next Kull-i-Shay begins in year: </string>
 
 
     <!--Array with Holydays-->
@@ -168,5 +170,8 @@
         <item>Abha</item>
         <item>Vahid</item>
     </string-array>
+    <string name="title_activity_display_figure">Structure</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

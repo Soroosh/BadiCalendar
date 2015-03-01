@@ -24,15 +24,21 @@
     <string name="day"> Tag</string>
 
     <!--Full date titles-->
-    <string name="fdweek">Wochentag: </string>
-    <string name="fdday">Tag des Monats: </string>
-    <string name="fdmonth">Monat: </string>
-    <string name="fdyear">Jahr: </string>
+    <!--<string name="fdweek">Wochentag: </string>-->
+    <!--<string name="fdday">Tag des Monats: </string>-->
+    <!--<string name="fdmonth">Monat: </string>-->
+    <!--<string name="fdyear">Jahr: </string>-->
+    <string name="fdformat">(Wochentag, Jahr - Moant - Tag)</string>
+    <string name="fdformatAy">(Wochentag, Jahr - Tag)</string>
+    <string name="fdExplain">Jeder der 19 Tag eines Monats hat einen Namen. Die Namen der Tage sind die
+        gleichen wie die Monatsnamen- der erste Tag des Monats is t der Tag Baha, der letzte Tag ist
+        der Tag Ala. \nIm Badi Kalender ist ein Vahid die Zeitdauer von 19 Jahren. Jedes der 19 Jahre
+        hat einen Namen. 19 Vahids (361 Jahre) sind ein Kull-i-Shay.</string>
     <string name="fdvahid">Vahid: </string>
     <string name="fdyearInVahid">Jahr in Vahid: </string>
-    <string name="fdNvahid">Nächster Vahid im Jahr: </string>
+    <string name="fdNvahid">Nächster Vahid beginnt im Jahr: </string>
     <string name="fdkull">Kull-i-Shay: </string>
-    <string name="fdNkull">Nächster Kull-i-Shay im Jahr: </string>
+    <string name="fdNkull">Nächster Kull-i-Shay beginnt im Jahr: </string>
 
 
 
@@ -166,5 +172,8 @@
         <item>Abha</item>
         <item>Vahid</item>
     </string-array>
+    <string name="title_activity_display_figure">Structure</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
