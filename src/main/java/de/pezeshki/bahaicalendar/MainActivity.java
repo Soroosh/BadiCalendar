@@ -428,8 +428,11 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
                 dayName = monthArrabic[bd - 1] + " (" + monthTrans[bd - 1] + ")\n";
                 monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
-                if (bm == 20)
-                    monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
+//                if (bm == 20)
+//                    monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
+                // the 19th day is the day of Ala and not Ayyam'i'Ha
+                if (bd == 19)
+                    dayName = monthArrabic[bd] + " (" + monthTrans[bd] + ")\n";
 
                 out += monthName+"-"+dayName;
                 out += getResources().getString(R.string.fdformat) +"\n\n";
