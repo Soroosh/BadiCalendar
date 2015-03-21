@@ -261,7 +261,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             fulldateString += fullDate(badiDate);
             if (badiDate[1] == 20) badiDateString +=  "\n" + getResources().getString(R.string.fast);
 
-            if (doy < dayOffset){
+            if (doy <= dayOffset){
                 nextYearIndex = yearIndex;
                 nextYear = year;
             }
@@ -286,14 +286,17 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 if (hdday == dayOfBadiYear) {
                     // Today is a holy day
                     badiDateString += "\n" + hdName + "\n";
-                } else if (hdday > dayOfBadiYear) {
+                }
+                if (hdday >= dayOfBadiYear) {
                     // The next Holy days
                     holydays1 += hdName + "\n" ;
-                    hdDoy = bdoyToDoy1(hdday, leapyear, nawRuz);
-                    int[] hdDate = badiDateFunction(hdDoy, year);
+                    int [] a_gdate = func_bdoyToGDate(hdday, badiYear);
+//                    hdDoy = bdoyToDoy1(hdday, leapyear, nawRuz);
+                    int[] hdDate = badiDateFunction(a_gdate[0], a_gdate[1]);
                     tmpString = bdoyToString(hdDate);
                     holydays1 += tmpString + "\n";
-                    tmpString = doyToGregorian(hdDoy, year);
+                    tmpString = doyToGregorian(a_gdate[0], a_gdate[1]);
+//                    tmpString = doyToGregorian(hdDoy, year);
                     holydays1 += tmpString + "\n";
                     int diff=hdday-dayOfBadiYear;
                     if (diff<19){
@@ -313,22 +316,15 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                         hdday = twinBDays(nextYearIndex) + 1;
                     }
                     holydays2 += hdName + "\n";
-                    hdDoy = bdoyToDoy2(hdday, leapNextyear, nawRuzNextYear);
-                    int[] hdDate = badiDateFunction(hdDoy, nextYear);
+                    int [] a_gdate = func_bdoyToGDate(hdday, badiYear+1);
+//                    hdDoy = bdoyToDoy2(hdday, leapNextyear, nawRuzNextYear);
+                    int[] hdDate = badiDateFunction(a_gdate[0], a_gdate[1]);
+//                    int[] hdDate = badiDateFunction(hdDoy, nextYear);
                     tmpString = bdoyToString(hdDate);
                     holydays2 += tmpString + "\n";
-                    tmpString = doyToGregorian(hdDoy, nextYear);
+                    tmpString = doyToGregorian(a_gdate[0], a_gdate[1]);
+//                    tmpString = doyToGregorian(hdDoy, nextYear);
                     holydays2 += tmpString + "\n\n";
-//                    int diff=(hdday-dayOfBadiYear)%(365+leapyear);
-//                    if (diff<19){
-//                        if (diff==1) {
-//                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.day) + "\n\n";
-//                        }else if (diff>1){
-//                            holydays2 += getResources().getString(R.string.in_prep) + " " + diff + " " + getResources().getString(R.string.days) + "\n\n";
-//                        }
-//                    }else{
-//                        holydays2 += "\n";
-//                    }
                 }
             }
 
@@ -340,13 +336,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 if (i==19) mDay = 347 + nawRuz*(1-nawRuzLastYear);
 //            if (i==19) mDay = 347;
                 if (mDay >= dayOfBadiYear) {
-                    mDoy = bdoyToDoy1(mDay, leapyear, nawRuz);
-                    if (i>15) mDoy = bdoyToDoy1(mDay, leapLastYear, nawRuzLastYear);
-                    if (i==19) mDoy = bdoyToDoy1(mDay, leapyear, nawRuzLastYear);
-                    int[] mDate = badiDateFunction(mDoy,year);
+                    int [] a_gdate = func_bdoyToGDate(mDay, badiYear);
+//                    mDoy = bdoyToDoy1(mDay, leapyear, nawRuz);
+//                    if (i>15) mDoy = bdoyToDoy1(mDay, leapLastYear, nawRuzLastYear);
+//                    if (i==19) mDoy = bdoyToDoy1(mDay, leapyear, nawRuzLastYear);
+                    int[] mDate = badiDateFunction(a_gdate[0], a_gdate[1]);
+//                    int[] mDate = badiDateFunction(mDoy,year);
                     tmpString = monthToString(i);
                     months1 += tmpString + "\n";
-                    tmpString = doyToGregorian(mDoy, year);
+//                    tmpString = doyToGregorian(mDoy, year);
+                    tmpString = doyToGregorian(a_gdate[0], a_gdate[1]);
                     months1 += tmpString + "\n";
                     int diff=mDay-dayOfBadiYear;
                     if (diff<19){
@@ -359,24 +358,17 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                         months1 += "\n";
                     }
                 }else{
-                    mDoy = bdoyToDoy2(mDay, leapNextyear, nawRuzNextYear);
-                    if (i>15) mDoy = bdoyToDoy2(mDay, leapyear, nawRuz);
-                    if (i==19) mDoy = bdoyToDoy2(mDay, leapNextyear, nawRuz);
-                    int[] mDate = badiDateFunction(mDoy, year);
+                    int[] a_gdate = func_bdoyToGDate(mDay, badiYear+1);
+//                    mDoy = bdoyToDoy2(mDay, leapNextyear, nawRuzNextYear);
+//                    if (i>15) mDoy = bdoyToDoy2(mDay, leapyear, nawRuz);
+//                    if (i==19) mDoy = bdoyToDoy2(mDay, leapNextyear, nawRuz);
+//                    int[] mDate = badiDateFunction(mDoy, year);
+                    int[] mDate = badiDateFunction(a_gdate[0], a_gdate[1]);
                     tmpString = monthToString(i);
                     months2 += tmpString + "\n";
-                    tmpString = doyToGregorian(mDoy, nextYear);
+                    tmpString = doyToGregorian(a_gdate[0], a_gdate[1]);
+//                    tmpString = doyToGregorian(mDoy, nextYear);
                     months2 += tmpString + "\n\n";
-//                    int diff=(mDay-dayOfBadiYear)%(365+leapyear);
-//                    if (diff<19){
-//                        if (diff==1) {
-//                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.day)+"\n\n";
-//                        }else{
-//                            months2 += getResources().getString(R.string.in_prep) +" "+ diff  +" "+ getResources().getString(R.string.days)+"\n\n";
-//                        }
-//                    }else{
-//                        months2 += "\n";
-//                    }
                 }
             }
 
@@ -426,13 +418,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 int bd=badiDate[0];
                 String monthName, dayName;
 
-                dayName = monthArrabic[bd - 1] + " (" + monthTrans[bd - 1] + ")\n";
+                dayName = dayToString(bd - 1) + "\n";
                 monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
-//                if (bm == 20)
-//                    monthName = monthArrabic[bm - 1] + " (" + monthTrans[bm - 1] + ")";
-                // the 19th day is the day of Ala and not Ayyam'i'Ha
-                if (bd == 19)
-                    dayName = monthArrabic[bd] + " (" + monthTrans[bd] + ")\n";
 
                 out += monthName+"-"+dayName;
                 out += getResources().getString(R.string.fdformat) +"\n\n";
@@ -447,23 +434,48 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
             out += getResources().getString(R.string.fdExplain) + "\n";
 
-//            drawStructure();
-
             return out;
-
         }
 
-        public int bdoyToDoy1(int bdoy, int leapyear, int nawRuz) {
-            // Returns the day of the Gregorian year; day is < 365 or 366
-            // Input: Day of the Badi year, leapyear (1 yes, 0 no), and Nawruz on March 21 (1 yes, 0 no
-            return (bdoy + 78 + leapyear + nawRuz)%(365+leapyear);
+        public int[] func_bdoyToGDate(int bdoy, int byear) {
+            // Returns the Gregorian date from the Bahai year and doy
+            int doy,
+                    gyear = byear + 1843,
+                    yearIndex = gyear - 2014,
+                    leapyear = isLeapYear(gyear),
+                    nawRuz = nawRuzParameter(yearIndex),
+                    d, m, day, ndate, date;
+
+            doy = bdoy + 78 + leapyear + nawRuz;
+            if (doy > 365+leapyear){
+                doy = bdoy - 287 + nawRuz;
+                gyear = byear + 1844;
+            }
+            int[] tmp = {doy, gyear};
+            return tmp;
         }
 
-        public int bdoyToDoy2(int bdoy, int leapyear, int nawRuz) {
-            // Returns the day of the Gregorian year; day can be more than 365 or 366
-            // Input: Day of the Badi year, leapyear (1 yes, 0 no), and Nawruz on March 21 (1 yes, 0 no
-            return (bdoy + 78 + leapyear + nawRuz);
+
+        public String doyToGregorian(int doy, int year) {
+            // Return the date; input day of the year and year
+            DateFormat dateFormat = new SimpleDateFormat("EEEE, yyyy-MM-dd");
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.DAY_OF_YEAR, doy);
+            calendar.set(Calendar.YEAR, year);
+            return dateFormat.format(calendar.getTime());
         }
+
+//        public int bdoyToDoy1(int bdoy, int leapyear, int nawRuz) {
+//            // Returns the day of the Gregorian year; day is < 365 or 366
+//            // Input: Day of the Badi year, leapyear (1 yes, 0 no), and Nawruz on March 21 (1 yes, 0 no
+//            return (bdoy + 78 + leapyear + nawRuz)%(365+leapyear);
+//        }
+//
+//        public int bdoyToDoy2(int bdoy, int leapyear, int nawRuz) {
+//            // Returns the day of the Gregorian year; day can be more than 365 or 366
+//            // Input: Day of the Badi year, leapyear (1 yes, 0 no), and Nawruz on March 21 (1 yes, 0 no
+//            return (bdoy + 78 + leapyear + nawRuz);
+//        }
 
         public int[] badiDateFunction(int doy,int year) {
             // Returns an array with the Badi Dates: Day of th month, month, year, day of the year
@@ -476,7 +488,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             int nawRuzLastYear = nawRuzParameter(yearIndex - 1);
 
             // Calculate day number of the Badi Year
-            if (doy < 78 + leapyear + nawRuz) {
+            if (doy < 79 + leapyear + nawRuz) {
                 dayOfBadiYear = doy + 287 - nawRuzLastYear;
                 badiYear = year - 1844;
             } else {
@@ -503,15 +515,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             // Is it a leap year?
             boolean isleapyear = ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0));
             return (isleapyear) ? 1 : 0;
-        }
-
-        public String doyToGregorian(int doy, int year) {
-            // Return the date; input day of the year and year
-            DateFormat dateFormat = new SimpleDateFormat("EEEE, yyyy-MM-dd");
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(Calendar.DAY_OF_YEAR, doy);
-            calendar.set(Calendar.YEAR, year);
-            return dateFormat.format(calendar.getTime());
         }
 
         public String bdoyToString(int[] badiDate) {
@@ -552,6 +555,18 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             return monthName;
         }
 
+        public String dayToString(int bd) {
+            // Return the day name and the translation
+            // takes care of the day of the 19 day (Ala not Ayyam-i-Ha)
+            String dayName;
+            String[] dayArabic = getResources().getStringArray(R.array.monthArabic);
+            String[] dayTrans = getResources().getStringArray(R.array.month);
+
+            dayName = dayArabic[bd] + " - " + dayTrans[bd];
+            if (bd == 18) dayName = dayArabic[19] + " - " + dayTrans[19];
+            return dayName;
+        }
+
         public String hdName(int i){
             // Return the name of the Holy day
             String[] tmp;
@@ -566,7 +581,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             return hdArray[i];
         }
 
-
         public int nawRuzParameter(int yearIndex) {
             // Naw Ruz on March 21st; list for the years 2014-2064
             int[] nrArray = {1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0};
@@ -577,7 +591,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             }
         }
 
-
         public int twinBDays(int yearIndex) {
             // Return the Day of the year for the Birth of Bab; list for the years 2014-2064
             int[] nrArray = {236,238,227,216,234,223,213,232,220,210,228,217,235,224,214,233,223,211,230,219,238,226,215,234,224,213,232,221,210,228,217,236,225,214,233,223,212,230,219,237,227,215,234,224,213,232,220,209,228,218,236};
@@ -585,73 +598,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 return nrArray[yearIndex];
             }else{
                 return -1;
-            }
-        }
-
-        public void drawStructure(){
-            Bundle args = getArguments();
-            int width=args.getInt(dispW);
-            ImageView structureImage= (ImageView) rootView.findViewById(R.id.structure);
-            Paint mPaint;
-            Bitmap mBitmap = null;
-            Bitmap bm1 = null;
-            Canvas canvas;
-            Path mPath = new Path();
-            Paint   mBitmapPaint;
-            mPaint = new Paint();
-            mPaint.setAntiAlias(true);
-            mPaint.setDither(true);
-            mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setStrokeJoin(Paint.Join.ROUND);
-            mBitmapPaint = new Paint(Paint.DITHER_FLAG);
-            mBitmap = Bitmap.createBitmap(width, 500, Bitmap.Config.ARGB_8888);
-            canvas = new Canvas(mBitmap);
-//            canvas.drawColor(0xFFFFFFFF);
-
-
-            String text;
-            float x=width*0.1f ,y=-10.f, textsize=32.0f;
-
-            int minX=50, maxX=width-50, diffX= maxX-minX ;
-
-
-            text=getResources().getString(R.string.fdkull);
-            // canvas.drawLine(mX, mY, Mx1, My1, mPaint);
-            // canvas.drawLine(mX, mY, x, y, mPaint);
-            mPaint.setTextSize(textsize);
-            canvas.drawBitmap(mBitmap, 0, 0, mBitmapPaint);
-            canvas.drawPath(mPath, mPaint);
-            mPaint.setColor(0xFF000000);
-            mPath.reset();
-            mPath.moveTo(minX, 100);
-            mPath.lineTo(maxX, 100);
-            mPaint.setStrokeWidth(5);
-            canvas.drawPath(mPath, mPaint);
-            mPaint.setStrokeWidth(1);
-            canvas.drawTextOnPath(text, mPath, x, y, mPaint);
-            y = 0.f;
-            x = 0.f;
-            for (int i=0;i<20;i++) {
-                int ix = i * diffX / 19 + minX;
-                mPath.reset();
-                mPath.moveTo(ix, 100);
-                mPath.lineTo(ix, 150);
-                mPaint.setStrokeWidth(5);
-                canvas.drawPath(mPath, mPaint);
-            }
-            for (int i=1;i<20;i++) {
-                int ix = i * diffX / 19 + minX;
-                int ixx = (i-1) * diffX / 19 + minX;
-                mPath.reset();
-                mPath.moveTo(ixx, 140);
-                mPath.lineTo(ix, 140);
-                text = "" + i;
-                mPaint.setStrokeWidth(1);
-                canvas.drawTextOnPath(text, mPath, x, y, mPaint);
-            }
-
-            if(structureImage != null && mBitmap != null) {
-                structureImage.setImageBitmap(mBitmap);
             }
         }
 
