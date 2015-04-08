@@ -10,4 +10,5 @@ Ideas for future releases:
 User can set date format (default: yyyy-mm-dd; dd-mm-yyyy, mm-dd-yyyy; show/hide month and day name)
 Widget with Badi date
 Optimization for Tablets
+User can set date to get the Badi date
 
