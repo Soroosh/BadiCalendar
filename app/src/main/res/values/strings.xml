@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--     Badi Calendar Android App
     Copyright (C) 2015  Soroosh Pezeshki
 
@@ -15,7 +16,6 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. -->
     
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!--Tab and section titles-->

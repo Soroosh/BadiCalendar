@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--     Badi Calendar Android App
     Copyright (C) 2015  Soroosh Pezeshki
 
@@ -15,7 +16,6 @@
     with this program; if not, write to the Free Software Foundation, Inc.,
     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. -->
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Tab und Sektions Ueberschriften-->
     <string name="title_section2">Monate</string>
@@ -23,7 +23,7 @@
     <string name="title_section3">Datum</string>
     <string name="titleOut1">Der erste Tag der Monate und Ayyam\'i\'Ha:</string>
     <string name="titleOut2">Die Baha\'i Feier- und Gedenktage:</string>
-    <string name="titleOut3">Der vollständige Badi Datum:</string>
+    <string name="titleOut3">Das vollständige Badi Datum:</string>
 
     <string name="app_name">Baha\'i Kalender</string>
 
@@ -47,8 +47,8 @@
     <!--<string name="fdyear">Jahr: </string>-->
     <string name="fdformat">(Wochentag, Jahr - Moant - Tag)</string>
     <string name="fdformatAy">(Wochentag, Jahr - Tag)</string>
-    <string name="fdExplain">Jeder der 19 Tag eines Monats hat einen Namen. Die Namen der Tage sind die
-        gleichen wie die Monatsnamen- der erste Tag des Monats is t der Tag Baha, der letzte Tag ist
+    <string name="fdExplain">Jeder der 19 Tage eines Monats hat einen Namen. Die Namen der Tage sind die
+        gleichen wie die Monatsnamen- der erste Tag des Monats ist der Tag Baha, der letzte Tag ist
         der Tag Ala. \nIm Badi Kalender ist ein Vahid die Zeitdauer von 19 Jahren. Jedes der 19 Jahre
         hat einen Namen. 19 Vahids (361 Jahre) sind ein Kull-i-Shay.</string>
     <string name="fdvahid">Vahid: </string>

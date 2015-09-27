@@ -14,8 +14,7 @@
             android:textSize="22sp" android:layout_height="wrap_content" android:id="@+id/badi_date"/>
 
         <TextView android:text="@string/upcoming" android:layout_width="wrap_content"
-            android:textSize="20sp" android:layout_height="wrap_content" android:id="@+id/upcomingF"/>
-
+            android:textSize="20sp" android:layout_height="wrap_content" android:id="@+id/fragmentMain"/>
 
     </LinearLayout>
 </ScrollView>
