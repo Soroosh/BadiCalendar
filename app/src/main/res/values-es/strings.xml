@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--     Badi Calendar Android App
+    Copyright (C) 2015  Soroosh Pezeshki
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. -->
+    
+<resources>
+
+    <!--Tab and section titles-->
+    <string name="title_section2">Festividades</string>
+    <string name="title_section1">Días Sagrados</string>
+    <string name="title_section3">Día Completo</string>
+    <string name="titleOut1">El primer dìa de los meses y de Ayyam’i’Ha:</string>
+    <string name="titleOut2">Los dìas sagrados Baha’is:</string>
+    <string name="titleOut3">Día Completo Badi:</string>
+
+    <string name="app_name">Calendario Baha’i</string>
+
+    <!--Place holders-->
+    <string name="gregorian_date">Fecha gregoriana</string>
+    <string name="badi_date">Fecha Badi</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="upcoming">Siguientes Dìas Sagrados</string>
+
+    <!--For dates in the 19th month-->
+    <string name="fast">Período de Ayuno</string>
+
+    <!--To indicate "In x days" or "In 1 day"-->
+    <string name="in_prep">En </string>
+    <string name="days"> días</string>
+    <string name="day"> día</string>
+
+    <!--Full date titles-->
+    <string name="fdformat">(Día de semana, </string>
+    <string name="fdformatAy">(Día de semana, año-día)</string>
+    <string name="fdExplain">Cada mes tiene 19 días y cada día perteneciente al més se llama de
+        acuerdo al mes en sí. El primer día del mes se llama Baha y el último día del mes se llama
+        Ala. El calendario Badi define el Vahid, el cual es un período de 19 años. Cada año en el
+        perído Vahid tiene un nombre. 19 Vahid (361 años) conforman un Kull-i-Shay.</string>
+    <string name="fdvahid">Vahid: </string>
+    <string name="fdyearInVahid">Año en Vahid: </string>
+    <string name="fdNvahid">El siguiente Vahid comienza en el año: </string>
+    <string name="fdkull">Kull-i-Shay: </string>
+    <string name="fdNkull">El siguiente Kull-i-Shay comienza en el año: </string>
+
+
+    <!--Array with Holydays-->
+    <string-array name="holyday">
+        <item>Naw Ruz</item>
+        <item>Primer día de Ridvan</item>
+        <item>Noveno día de Ridvan</item>
+        <item>Duodécimo día de Ridvan</item>
+        <item>Declaración de Él Bab</item>
+        <item>Ascensión de Baha’u’llah</item>
+        <item>Martirio de Él Bab</item>
+        <item>Nacimiento de Él Bab</item>
+        <item>Nacimiento de Baha’u’llah</item>
+        <item>Día del Convenio</item>
+        <item>Ascensión de Abdu’l-Baha</item>
+    </string-array>
+
+
+    <!--The Arabic month names-->
+    <string-array name="monthArabic">
+        <item>Baha</item>
+        <item>Jalal</item>
+        <item>Jamal</item>
+        <item>Azamat</item>
+        <item>Nur</item>
+        <item>Rahmat</item>
+        <item>Kalimat</item>
+        <item>Kamal</item>
+        <item>Asma</item>
+        <item>Izzat</item>
+        <item>Mashiyyat</item>
+        <item>Ilm</item>
+        <item>Qudrat</item>
+        <item>Qawl</item>
+        <item>Masa\'il</item>
+        <item>Sharaf</item>
+        <item>Sultan</item>
+        <item>Mulk</item>
+        <item>Ayyam\'i\'Ha</item>
+        <item>Ala</item>
+    </string-array>
+
+ <!--The Translation of the month names-->
+    <string-array name="month">
+        <item>Esplendor</item>
+        <item>Gloria</item>
+        <item>Belleza</item>
+        <item>Grandeza</item>
+        <item>Luz</item>
+        <item>Misericordia</item>
+        <item>Palabra</item>
+        <item>Perfección</item>
+        <item>Nombres</item>
+        <item>Fuerza</item>
+        <item>Voluntad</item>
+        <item>Conocimiento</item>
+        <item>Poder</item>
+        <item>Discurso</item>
+        <item>Preguntas</item>
+        <item>Honor</item>
+        <item>Soberanía</item>
+        <item>Dominio</item>
+        <item>Días de Ha</item>
+        <item>Sublimidad</item>
+    </string-array>
+
+    <!--The Arabic weekday names-->
+    <string-array name="weekArabic">
+        <item>Jamal</item>
+        <item>Kamal</item>
+        <item>Fidal</item>
+        <item>Idal</item>
+        <item>Istijlál</item>
+        <item>Istiqlál</item>
+        <item>Jalál</item>
+    </string-array>
+
+    <!--The Translation of the weekday names-->
+    <string-array name="week">
+        <item>Belleza</item>
+        <item>Perfección</item>
+        <item>Gracia</item>
+        <item>Justicia</item>
+        <item>Majestuocidad</item>
+        <item>Independencia</item>
+        <item>Gloria</item>
+    </string-array>
+
+    <!--The Translation of the year in vahid names-->
+    <string-array name="vahid">
+        <item>A</item>
+        <item>B</item>
+        <item>Padre</item>
+        <item>D</item>
+        <item>Puerta</item>
+        <item>V</item>
+        <item>Eternidad</item>
+        <item>Generosidad</item>
+        <item>Esplendor</item>
+        <item>Amor</item>
+        <item>Encantador</item>
+        <item>Respuesta</item>
+        <item>Solo</item>
+        <item>Bondad</item>
+        <item>Afecto</item>
+        <item>Comienzo</item>
+        <item>Luminoso</item>
+        <item>Más Luminoso</item>
+        <item>Unidad</item>
+    </string-array>
+
+    <!--The arabic of the year in Vahid names-->
+    <string-array name="vahidArabic">
+        <item>Alif</item>
+        <item>Ba</item>
+        <item>Ab</item>
+        <item>Dal</item>
+        <item>Bab</item>
+        <item>Vav</item>
+        <item>Abad</item>
+        <item>Jad</item>
+        <item>Baha</item>
+        <item>Hubb</item>
+        <item>Bahhaj</item>
+        <item>Javab</item>
+        <item>Ahad</item>
+        <item>Vahhab</item>
+        <item>Vidad</item>
+        <item>Badi</item>
+        <item>Bahi</item>
+        <item>Abha</item>
+        <item>Vahid</item>
+    </string-array>
+    <string name="title_activity_display_figure">Structure</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="language">Lengua</string>
+    <string name="format">Formato de fecha</string>
+
+    <string-array name="pref_availableLanguage">
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>Français</item>
+        <item>Español</item>
+    </string-array>
+
+    <string-array name="pref_language">
+        <item>en</item>
+        <item>de</item>
+        <item>fr</item>
+        <item>es</item>
+    </string-array>
+    <string name="pref_defaultLanguage">es</string>
+
+    <string-array name="pref_format">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="pref_availableFormat">
+        <item>semana-mes-día</item>
+        <item>día.mes.semana</item>
+        <item>mes/día/semana</item>
+    </string-array>
+
+</resources>

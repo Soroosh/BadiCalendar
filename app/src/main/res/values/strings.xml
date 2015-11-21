@@ -43,7 +43,7 @@
     <string name="day"> day</string>
 
     <!--Full date titles-->
-    <string name="fdformat">(Weekday, year - month - day)</string>
+    <string name="fdformat">(Weekday, </string>
     <string name="fdformatAy">(Weekday, year - day)</string>
     <string name="fdExplain">Each of the 19 days of a month has a name. The names are the same as
         the month names- the first day of the month is the day Baha and the last day of the month is
@@ -86,7 +86,7 @@
         <item>Izzat</item>
         <item>Mashiyyat</item>
         <item>Ilm</item>
-        <item>Qudat</item>
+        <item>Qudrat</item>
         <item>Qawl</item>
         <item>Masa\'il</item>
         <item>Sharaf</item>
@@ -190,5 +190,34 @@
     <string name="title_activity_display_figure">Structure</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="language">Language</string>
+    <string name="format">Date format</string>
+
+    <string-array name="pref_availableLanguage">
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>Français</item>
+        <item>Español</item>
+    </string-array>
+
+    <string-array name="pref_language">
+        <item>en</item>
+        <item>de</item>
+        <item>fr</item>
+        <item>es</item>
+    </string-array>
+    <string name="pref_defaultLanguage">en</string>
+
+    <string-array name="pref_format">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="pref_availableFormat">
+        <item>Year-Month-Day</item>
+        <item>Day.Month.Year</item>
+        <item>Month/Day/Year</item>
+    </string-array>
 
 </resources>
