@@ -8,8 +8,8 @@ android {
         applicationId "de.pezeshki.badidate"
         minSdkVersion 11
         targetSdkVersion 21
-        versionCode 9
-        versionName "2.0"
+        versionCode 10
+        versionName "2.1"
     }
     buildTypes {
         release {

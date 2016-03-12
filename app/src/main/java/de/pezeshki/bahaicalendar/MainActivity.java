@@ -317,12 +317,21 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             final int bd = badiDate.getBadiDay();
             final int by = badiDate.getBadiYear();
             final String m0 = bm<10?"0":"";
+            final String month = bm==20
+                    ? "19"
+                    : m0+bm;
             final String d0 = bd<10?"0":"";
+            // Ayyam'i'Ha
+            if(bm==19){
+                return format==0
+                        ? by+"-"+getString(R.string.ayyamIHa)
+                        : getString(R.string.ayyamIHa)+" "+by;
+            }
             return format==0
-                    ? by+"-"+m0+bm+"-"+d0+bd
+                    ? by+"-"+month+"-"+d0+bd
                     : format==1
-                        ? d0+bd+"."+m0+bm+"."+by
-                        : m0+bm+"/"+d0+bd+"/"+by;
+                        ? d0+bd+"."+month+"."+by
+                        : month+"/"+d0+bd+"/"+by;
         }
 
         /**
@@ -333,17 +342,19 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             StringBuffer output = new StringBuffer(20*255);
             output.append(getResources().getString(R.string.titleOut1));
             output.append("\n\n");
-            final int doyToday = badiDate.getBadiDayOfYear();
-            final int yearToday = badiDate.getBadiYear();
             BaseBadiDate nextFeast = badiDate.getNextFeastDate();
             for (int i = 0; i < 20; i++) {
                 StringBuilder entry = new StringBuilder(255);
                 final int m = nextFeast.getBadiMonth();
                 final String feastString = monthToString(m-1, false) + "\n" + gregorianDateToString(nextFeast.getCalendar());
                 entry.append(feastString);
-                // Append in how many days if less than 19
-                int diff=nextFeast.getBadiDayOfYear()-doyToday;
-                if ( (diff<19 && yearToday==nextFeast.getBadiYear()) ){
+                 // Append in how many days if less than 19
+                if(i==0||(i==1&&nextFeast.getBadiMonth()==20)){
+                    int diff=20-badiDate.getBadiDay();
+                    // Special case Ayyam-i-Ha
+                    if(nextFeast.getBadiMonth()==20){
+                        diff=nextFeast.getBadiDayOfYear()-badiDate.getBadiDayOfYear();
+                    }
                     final String inDays = "\n"+ getResources().getString(R.string.in_prep) + " " + diff + " ";
                     entry.append(inDays);
                     if (diff==1) {
@@ -378,7 +389,11 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 entry.append(holydayString);
                 // Append in how many days if less than 19
                 int diff=nextHolyday.getBadiDayOfYear()-doyToday;
-                if ( (diff<19 && badiDate.getBadiYear()==nextHolyday.getBadiYear()) ){
+                // Special case Naw-Ruz
+                if(i==0&&nextHolyday.getBadiMonth()==1){
+                    diff=20-badiDate.getBadiDay();
+                }
+                if ( (diff>-1&&diff<20) ){
                     final String inDays = "\n" + getResources().getString(R.string.in_prep) + " " + diff + " ";
                     entry.append(inDays);
                     if (diff== 1) {

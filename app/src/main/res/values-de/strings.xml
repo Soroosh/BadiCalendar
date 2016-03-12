@@ -21,18 +21,19 @@
     <string name="title_section2">Monate</string>
     <string name="title_section1">Feiertage</string>
     <string name="title_section3">Datum</string>
-    <string name="titleOut1">Der erste Tag der Monate und Ayyam\'i\'Ha:</string>
-    <string name="titleOut2">Die Baha\'i Feier- und Gedenktage:</string>
-    <string name="titleOut3">Das vollständige Badi Datum:</string>
+    <string name="titleOut1">Der erste Tag der Monate und Ayyám-i-Há:</string>
+    <string name="titleOut2">Die Bahá’í Feier- und Gedenktage:</string>
+    <string name="titleOut3">Das vollständige Badí‘ Datum:</string>
 
-    <string name="app_name">Baha\'i Kalender</string>
+    <string name="app_name">Bahá’í Kalender</string>
 
     <!--Place holder-->
     <string name="gregorian_date">Gregorianische Datum</string>
-    <string name="badi_date">Badi Datum</string>
+    <string name="badi_date">Badí‘ Datum</string>
     <string name="action_settings">Einstellungen</string>
     <string name="upcoming">Kommende Feiertage</string>
 
+    <string name="ayyamIHa">Ayyám-i-Há</string>
     <string name="fast">Fastenzeit</string>
 
     <!--Fuer die Anzeige: "In x Tagen" oder "In 1 Tag"-->
@@ -48,59 +49,59 @@
     <string name="fdformat">(Wochentag, </string>
     <string name="fdformatAy">(Wochentag, Jahr - Tag)</string>
     <string name="fdExplain">Jeder der 19 Tage eines Monats hat einen Namen. Die Namen der Tage sind die
-        gleichen wie die Monatsnamen- der erste Tag des Monats ist der Tag Baha, der letzte Tag ist
-        der Tag Ala. \nIm Badi Kalender ist ein Vahid die Zeitdauer von 19 Jahren. Jedes der 19 Jahre
-        hat einen Namen. 19 Vahids (361 Jahre) sind ein Kull-i-Shay.</string>
-    <string name="fdvahid">Vahid: </string>
-    <string name="fdyearInVahid">Jahr in Vahid: </string>
-    <string name="fdNvahid">Nächster Vahid beginnt im Jahr: </string>
-    <string name="fdkull">Kull-i-Shay: </string>
-    <string name="fdNkull">Nächster Kull-i-Shay beginnt im Jahr: </string>
+        gleichen wie die Monatsnamen- der erste Tag des Monats ist der Tag Bahá, der letzte Tag ist
+        der Tag Ala. \nIm Badí‘ Kalender ist ein Váḥid die Zeitdauer von 19 Jahren. Jedes der 19 Jahre
+        hat einen Namen. 19 Váḥids (361 Jahre) sind ein Kull-i-Shay’.</string>
+    <string name="fdvahid">Váḥid: </string>
+    <string name="fdyearInVahid">Jahr in Váḥid: </string>
+    <string name="fdNvahid">Nächster Váḥid beginnt im Jahr: </string>
+    <string name="fdkull">Kull-i-Shay’: </string>
+    <string name="fdNkull">Nächster Kull-i-Shay’ beginnt im Jahr: </string>
 
 
 
     <!--Liste mit Feiertagen-->
     <string-array name="holyday">
-        <item>Naw Ruz</item>
-        <item>1. Ridvan</item>
-        <item>9. Ridvan</item>
-        <item>12. Ridvan</item>
-        <item>Erklärung des Bab</item>
-        <item>Hinscheiden Baha\'u\'llah</item>
-        <item>Märtyertod des Bab</item>
-        <item>Geburt des Bab</item>
-        <item>Geburt Baha\'u\'llah</item>
+        <item>Naw-Rúz</item>
+        <item>1. Riḍván</item>
+        <item>9. Riḍván</item>
+        <item>12. Riḍván</item>
+        <item>Erklärung des Báb</item>
+        <item>Hinscheiden Bahá’u’lláhs</item>
+        <item>Märtyertod des Báb</item>
+        <item>Geburt des Báb</item>
+        <item>Geburt Bahá’u’lláhs</item>
         <item>Tag des Bundes</item>
-        <item>Hinscheiden Abdu\'l-Bahas</item>
+        <item>Hinscheiden `Abdu’l-Bahás</item>
     </string-array>
 
-    <!--Arabische Name der Monate-->
+    <!--The Arabic month names-->
     <string-array name="monthArabic">
-        <item>Baha</item>
-        <item>Jalal</item>
-        <item>Jamal</item>
-        <item>Azamat</item>
-        <item>Nur</item>
-        <item>Rahmat</item>
-        <item>Kalimat</item>
-        <item>Kamal</item>
-        <item>Asma</item>
-        <item>Izzat</item>
-        <item>Mashiyyat</item>
-        <item>Ilm</item>
+        <item>Bahá</item>
+        <item>Jalál</item>
+        <item>Jamál</item>
+        <item>‘Aẓamat</item>
+        <item>Núr</item>
+        <item>Raḥmat</item>
+        <item>Kalimát</item>
+        <item>Kamál</item>
+        <item>Asmá’</item>
+        <item>‘Izzat</item>
+        <item>Mashíyyat</item>
+        <item>‘Ilm</item>
         <item>Qudrat</item>
         <item>Qawl</item>
-        <item>Masa\'il</item>
+        <item>Masá’il</item>
         <item>Sharaf</item>
-        <item>Sultan</item>
+        <item>Sulṭán</item>
         <item>Mulk</item>
-        <item>Ayyam\'i\'Ha</item>
-        <item>Ala</item>
+        <item>Ayyám-i-Há</item>
+        <item>‘Alá’</item>
     </string-array>
 
     <!--Uebersetzung der Monatsnamen-->
     <string-array name="month">
-        <item>Glanz</item>
+        <item>Herrlichkeit</item>
         <item>Ruhm</item>
         <item>Schönheit</item>
         <item>Größe</item>
@@ -109,25 +110,25 @@
         <item>Worte</item>
         <item>Vollkommenheit</item>
         <item>Namen</item>
-        <item>Würde</item>
+        <item>Macht</item>
         <item>Wille</item>
         <item>Wissen</item>
-        <item>Macht</item>
+        <item>Kraft</item>
         <item>Sprache</item>
         <item>Fragen</item>
         <item>Ehre</item>
-        <item>Herrschaft</item>
         <item>Hoheit</item>
+        <item>Herrschaft</item>
         <item>Eingeschobene Tage</item>
         <item>Erhabenheit</item>
     </string-array>
 
     <!--The Arabic weekday names-->
     <string-array name="weekArabic">
-        <item>Jamal</item>
-        <item>Kamal</item>
-        <item>Fidal</item>
-        <item>Idal</item>
+        <item>Jamál</item>
+        <item>Kamál</item>
+        <item>Fiḍál</item>
+        <item>‘Idál</item>
         <item>Istijlál</item>
         <item>Istiqlál</item>
         <item>Jalál</item>
@@ -137,11 +138,11 @@
     <string-array name="week">
         <item>Schönheit</item>
         <item>Vollkommenheit</item>
-        <item>Anmut</item>
+        <item>Gnade</item>
         <item>Gerechtigkeit</item>
         <item>Majestät</item>
         <item>Unabhängigkeit</item>
-        <item>Herrlichkeit</item>
+        <item>Ruhm</item>
     </string-array>
 
     <!--The Translation of the year in vahid names-->
@@ -170,24 +171,24 @@
     <!--The arabic of the year in Vahid names-->
     <string-array name="vahidArabic">
         <item>Alif</item>
-        <item>Ba</item>
+        <item>Bá’</item>
         <item>Ab</item>
-        <item>Dal</item>
-        <item>Bab</item>
-        <item>Vav</item>
+        <item>Dál</item>
+        <item>Báb</item>
+        <item>Váv</item>
         <item>Abad</item>
-        <item>Jad</item>
-        <item>Baha</item>
-        <item>Hubb</item>
-        <item>Bahhaj</item>
-        <item>Javab</item>
-        <item>Ahad</item>
-        <item>Vahhab</item>
-        <item>Vidad</item>
-        <item>Badi</item>
-        <item>Bahi</item>
-        <item>Abha</item>
-        <item>Vahid</item>
+        <item>Jád</item>
+        <item>Bahá’</item>
+        <item>Ḥubb</item>
+        <item>Bahháj</item>
+        <item>Javáb</item>
+        <item>Aḥad</item>
+        <item>Vahháb</item>
+        <item>Vidád</item>
+        <item>Badí‘</item>
+        <item>Bahí</item>
+        <item>Abhá</item>
+        <item>Váḥid</item>
     </string-array>
     <string name="title_activity_display_figure">Structure</string>
 

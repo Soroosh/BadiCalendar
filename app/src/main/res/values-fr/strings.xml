@@ -21,20 +21,21 @@
     <!--Tab and section titles-->
     <string name="title_section2">Fêtes</string>
     <string name="title_section1">Jours fériés</string>
-    <string name="title_section3">Date badi</string>
-    <string name="titleOut1">Le premier jour des mois et des Ayyam\'i\'Ha:</string>
-    <string name="titleOut2">Les jours fériés du calendrier Baha\'i:</string>
-    <string name="titleOut3">Date Baha\'i:</string>
+    <string name="title_section3">Date Badí‘</string>
+    <string name="titleOut1">Le premier jour des mois et des Ayyám-i-Há:</string>
+    <string name="titleOut2">Les jours fériés du calendrier Bahá’í:</string>
+    <string name="titleOut3">Date Bahá’í:</string>
 
     <string name="app_name">Calendrier badīʿ</string>
 
     <!--Place holders-->
     <string name="gregorian_date">Date grégorienne</string>
-    <string name="badi_date">Date badi</string>
+    <string name="badi_date">Date Badí‘</string>
     <string name="action_settings">Paramètres</string>
     <string name="upcoming">Prochain jours fériés</string>
 
     <!--For dates in the 19th month-->
+    <string name="ayyamIHa">Ayyám-i-Há</string>
     <string name="fast">Mois du Jeûne</string>
 
     <!--To indicate "In x days" or "In 1 day"-->
@@ -55,7 +56,7 @@
 
     <!--Array with Holydays-->
     <string-array name="holyday">
-        <item>Naw Ruz</item>
+        <item>Naw-Rúz</item>
         <item>Premier jour de Riḍvān</item>
         <item>Neuvième jour de Riḍvān</item>
         <item>Douzième jour de Riḍvān</item>
@@ -71,26 +72,26 @@
 
     <!--The Arabic month names-->
     <string-array name="monthArabic">
-        <item>Baha</item>
-        <item>Jalal</item>
-        <item>Jamal</item>
-        <item>Azamat</item>
-        <item>Nur</item>
-        <item>Rahmat</item>
-        <item>Kalimat</item>
-        <item>Kamal</item>
-        <item>Asma</item>
-        <item>Izzat</item>
-        <item>Mashiyyat</item>
-        <item>Ilm</item>
+        <item>Bahá</item>
+        <item>Jalál</item>
+        <item>Jamál</item>
+        <item>‘Aẓamat</item>
+        <item>Núr</item>
+        <item>Raḥmat</item>
+        <item>Kalimát</item>
+        <item>Kamál</item>
+        <item>Asmá’</item>
+        <item>‘Izzat</item>
+        <item>Mashíyyat</item>
+        <item>‘Ilm</item>
         <item>Qudrat</item>
         <item>Qawl</item>
-        <item>Masa\'il</item>
+        <item>Masá’il</item>
         <item>Sharaf</item>
-        <item>Sultan</item>
+        <item>Sulṭán</item>
         <item>Mulk</item>
-        <item>Ayyam\'i\'Ha</item>
-        <item>Ala</item>
+        <item>Ayyám-i-Há</item>
+        <item>‘Alá’</item>
     </string-array>
 
  <!--The Translation of the month names-->
@@ -119,10 +120,10 @@
 
     <!--The Arabic weekday names-->
     <string-array name="weekArabic">
-        <item>Jamal</item>
-        <item>Kamal</item>
-        <item>Fidal</item>
-        <item>Idal</item>
+        <item>Jamál</item>
+        <item>Kamál</item>
+        <item>Fiḍál</item>
+        <item>‘Idál</item>
         <item>Istijlál</item>
         <item>Istiqlál</item>
         <item>Jalál</item>
@@ -165,24 +166,24 @@
     <!--The arabic of the year in Vahid names-->
     <string-array name="vahidArabic">
         <item>Alif</item>
-        <item>Ba</item>
+        <item>Bá’</item>
         <item>Ab</item>
-        <item>Dal</item>
-        <item>Bab</item>
-        <item>Vav</item>
+        <item>Dál</item>
+        <item>Báb</item>
+        <item>Váv</item>
         <item>Abad</item>
-        <item>Jad</item>
-        <item>Baha</item>
-        <item>Hubb</item>
-        <item>Bahhaj</item>
-        <item>Javab</item>
-        <item>Ahad</item>
-        <item>Vahhab</item>
-        <item>Vidad</item>
-        <item>Badi</item>
-        <item>Bahi</item>
-        <item>Abha</item>
-        <item>Vahid</item>
+        <item>Jád</item>
+        <item>Bahá’</item>
+        <item>Ḥubb</item>
+        <item>Bahháj</item>
+        <item>Javáb</item>
+        <item>Aḥad</item>
+        <item>Vahháb</item>
+        <item>Vidád</item>
+        <item>Badí‘</item>
+        <item>Bahí</item>
+        <item>Abhá</item>
+        <item>Váḥid</item>
     </string-array>
 
     <string name="title_activity_display_figure">Structure</string>
