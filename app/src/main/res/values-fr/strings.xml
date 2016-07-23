@@ -44,9 +44,8 @@
     <string name="day"> jour</string>
 
     <!--Full date titles-->
-    <string name="fdformat">(Jour de la semaine, </string>
+    <string name="fdformat">Jour de la semaine,</string>
     <string name="fdformatAy">(Jour de la semaine, année - jour)</string>
-    <string name="fdExplain">.</string>
     <string name="fdvahid">Wāḥid: </string>
     <string name="fdyearInVahid">Année dans Wāḥid: </string>
     <string name="fdNvahid">Suivant Wāḥid commence dans l\'année: </string>
@@ -191,19 +190,6 @@
     <string name="language">Langue</string>
     <string name="format">Format de date</string>
 
-    <string-array name="pref_availableLanguage">
-        <item>English</item>
-        <item>Deutsch</item>
-        <item>Français</item>
-        <item>Español</item>
-    </string-array>
-
-    <string-array name="pref_language">
-        <item>en</item>
-        <item>de</item>
-        <item>fr</item>
-        <item>es</item>
-    </string-array>
     <string name="pref_defaultLanguage">fr</string>
 
     <string-array name="pref_format">
@@ -217,5 +203,30 @@
         <item>jour.mois.année</item>
         <item>mois/jour/année</item>
     </string-array>
+    <string name="fdExplain">Each of the 19 days of a month has a name. The names are the same as         the month names- the first day of the month is the day Bahá and the last day of the month is         the day Ala. \nThe Badí‘ Calendar defines Váḥid which is a period of 19 years. Each year in         the Váḥid has a name. 19 Váḥids (361 years) are a Kull-i-Shay’.</string>
+
+    <string-array name="pref_availableLanguage">
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>فارسی</item>
+        <item>Français</item>
+        <item>Español</item>
+        <item>Türk</item>
+    </string-array>
+
+    <string-array name="pref_language">
+        <item>en</item>
+        <item>de</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>es</item>
+        <item>tr</item>
+    </string-array>
+    <string-array name="format_separator">
+        <item>-</item>
+        <item>.</item>
+        <item>/</item>
+    </string-array>
+
 
 </resources>

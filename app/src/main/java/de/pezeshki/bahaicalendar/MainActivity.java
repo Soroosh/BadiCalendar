@@ -22,6 +22,7 @@
 package de.pezeshki.bahaicalendar;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -51,6 +52,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import de.pezeshki.bahaiCalendarLibrary.BadiDate;
+import de.pezeshki.bahaiCalendarLibrary.BahaiHolyday;
 import de.pezeshki.bahaiCalendarLibrary.BaseBadiDate;
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
@@ -69,7 +71,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
-    ImageView structureImage;
+    static Locale locale;
     static String dateFormat;
 
     @Override
@@ -130,7 +132,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         dateFormat = sharedPref.getString(SettingsActivity.KEY_PREF_DATE_FORMAT, "");
         String languageToLoad  = sharedPref.getString(SettingsActivity.KEY_PREF_LANGUAGE, "");
-        Locale locale = new Locale(languageToLoad);
+        locale = new Locale(languageToLoad);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.locale = locale;
@@ -196,9 +198,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         public Fragment getItem(int position) {
             Bundle args = new Bundle();
 
-            DisplayMetrics displaymetrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-
             Fragment fragment = new SectionFragment();
             args.putInt(SectionFragment.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
@@ -241,16 +240,28 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         private void setView() {
             final Calendar gregorianDate = getGregorianDate();
+            final NumberFormat nf = NumberFormat.getInstance(locale);
+            nf.setGroupingUsed(false);
             if(gregorianDate!=_gregorianDate) {
                 final String gregorianDateString = gregorianDateToString(gregorianDate);
                 final BaseBadiDate badiDate = getBadiDate(gregorianDate);
-                final String badiDateString = badiDateToString(badiDate);
-                _holydays = getHolyday(badiDate);
-                _feasts = getFeasts(badiDate);
-                _fullDate = getFullDate(badiDate);
+                final String badiDateString = badiDateToString(badiDate, nf);
+                _holydays = getHolyday(badiDate, nf);
+                _feasts = getFeasts(badiDate, nf);
+                _fullDate = getFullDate(badiDate, nf);
                 ((TextView) rootView.findViewById(R.id.gregrorian_date)).setText(gregorianDateString);
-                ((TextView) rootView.findViewById(R.id.badi_date)).setText(badiDateString+"\n");
+                ((TextView) rootView.findViewById(R.id.badi_date)).setText(badiDateString);
+
+                // If today is a holy day, write below the date
+                final BahaiHolyday holydayToday = badiDate.getHolyday();
+                if(holydayToday!=null) {
+                    final String[] holydayName = getResources().getStringArray(R.array.holyday);
+                    ((TextView) rootView.findViewById(R.id.holiday_today)).setText(String.format("\n%s\n",holydayName[holydayToday.getIndex()]));
+                }else {
+                    ((TextView) rootView.findViewById(R.id.holiday_today)).setText("\n");
+                }
                 _gregorianDate=gregorianDate;
+
             }
             Bundle args = getArguments();
             if (args.getInt(ARG_SECTION_NUMBER) == 1) {
@@ -290,11 +301,12 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
          */
         @NonNull
         private String gregorianDateToString( @NonNull final Calendar gregotianDate ) {
+            final String separator = getResources().getStringArray(R.array.format_separator)[format];
             final String dateFormatString = format==0
-                    ? "yyyy-MM-dd"
+                    ? "yyyy"+separator+"MM"+separator+"dd"
                     : format==1
-                        ? "dd.MM.yyyy"
-                        : "MM/dd/yyyy";
+                        ? "dd"+separator+"MM"+separator+"yyyy"
+                        : "MM"+separator+"dd"+separator+"yyyy";
             final DateFormat dateFormat = new SimpleDateFormat("EEEE, "+dateFormatString);
             return dateFormat.format(gregotianDate.getTime());
         }
@@ -311,34 +323,48 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
          * Return the date as a formated string; input gregorian date as integer array.
          */
         @NonNull
-        private String badiDateToString( @NonNull final BaseBadiDate badiDate ) {
+        private String badiDateToString( @NonNull final BaseBadiDate badiDate, @NonNull NumberFormat nf ) {
 
             final int bm = badiDate.getBadiMonth();
             final int bd = badiDate.getBadiDay();
-            final int by = badiDate.getBadiYear();
-            final String m0 = bm<10?"0":"";
-            final String month = bm==20
-                    ? "19"
-                    : m0+bm;
-            final String d0 = bd<10?"0":"";
+            final String separator = getResources().getStringArray(R.array.format_separator)[format];
+            final String by = nf.format(badiDate.getBadiYear());
+            final String m0 = bm<10 ? nf.format(0) : "";
+            final String month = (bm == 20)
+                    ? nf.format(19)
+                    : String.format("%s%s", m0, nf.format(bm));
+            final String d0 = bd<10 ? nf.format(0) : "";
+            final String day = String.format("%s%s",d0,nf.format(bd));
+            final String first;
+            final String second;
+            final String third;
+            if(format==1){
+                first=day;
+                second=month;
+                third=by;
+            }else if(format==2){
+                first=month;
+                second=day;
+                third=by;
+            }else{
+                first=by;
+                second=month;
+                third=day;
+            }
             // Ayyam'i'Ha
             if(bm==19){
                 return format==0
                         ? by+"-"+getString(R.string.ayyamIHa)
                         : getString(R.string.ayyamIHa)+" "+by;
             }
-            return format==0
-                    ? by+"-"+month+"-"+d0+bd
-                    : format==1
-                        ? d0+bd+"."+month+"."+by
-                        : month+"/"+d0+bd+"/"+by;
+            return String.format("%s%s%s%s%s", first, separator, second, separator, third);
         }
 
         /**
          * List the first days of each month of the next 365 days.
          */
         @NonNull
-        private String getFeasts(@NonNull final BaseBadiDate badiDate ){
+        private String getFeasts(@NonNull final BaseBadiDate badiDate, @NonNull final NumberFormat nf ){
             StringBuffer output = new StringBuffer(20*255);
             output.append(getResources().getString(R.string.titleOut1));
             output.append("\n\n");
@@ -355,7 +381,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     if(nextFeast.getBadiMonth()==20){
                         diff=nextFeast.getBadiDayOfYear()-badiDate.getBadiDayOfYear();
                     }
-                    final String inDays = "\n"+ getResources().getString(R.string.in_prep) + " " + diff + " ";
+                    final String inDays = String.format("\n%s %s ", getResources().getString(R.string.in_prep), nf.format(diff));
                     entry.append(inDays);
                     if (diff==1) {
                         entry.append(getResources().getString(R.string.day));
@@ -375,7 +401,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
          * List the first days of all holydays of the next 365 days.
          */
         @NonNull
-        private String getHolyday(@NonNull final BaseBadiDate badiDate){
+        private String getHolyday(@NonNull final BaseBadiDate badiDate, @NonNull final NumberFormat nf){
             StringBuffer output = new StringBuffer(11*255);
             output.append(getResources().getString(R.string.titleOut2));
             output.append("\n\n");
@@ -385,7 +411,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             for (int i = 0; i < 11; i++) {
                 final Calendar gregorianDate = nextHolyday.getCalendar();
                 StringBuilder entry = new StringBuilder(255);
-                final String holydayString = holydayName[nextHolyday.getHolyday().getIndex()] + "\n" + badiDateToString(nextHolyday) + "\n" + gregorianDateToString(gregorianDate);
+                final String holydayString = String.format("%s\n%s\n%s",holydayName[nextHolyday.getHolyday().getIndex()], badiDateToString(nextHolyday, nf),gregorianDateToString(gregorianDate));
                 entry.append(holydayString);
                 // Append in how many days if less than 19
                 int diff=nextHolyday.getBadiDayOfYear()-doyToday;
@@ -393,8 +419,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 if(i==0&&nextHolyday.getBadiMonth()==1){
                     diff=20-badiDate.getBadiDay();
                 }
-                if ( (diff>-1&&diff<20) ){
-                    final String inDays = "\n" + getResources().getString(R.string.in_prep) + " " + diff + " ";
+                if ( (diff>0&&diff<20) ){
+                    final String inDays = String.format("\n%s %s ",getResources().getString(R.string.in_prep), nf.format(diff));
                     entry.append(inDays);
                     if (diff== 1) {
                         entry.append(getResources().getString(R.string.day));
@@ -415,14 +441,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
          * Returns the full Badi date and some explanation.
          */
         @NonNull
-        public String getFullDate(@NonNull final BaseBadiDate badiDate) {
+        public String getFullDate(@NonNull final BaseBadiDate badiDate, @NonNull final NumberFormat nf) {
+
+            final String separator = getResources().getStringArray(R.array.format_separator)[format];
             StringBuilder output = new StringBuilder(2047);
             output.append(getResources().getString(R.string.titleOut3));
             output.append("\n");
             final int bm=badiDate.getBadiMonth();
             final int bd=badiDate.getBadiDay();
-            final String[] arabicName = getResources().getStringArray(R.array.monthArabic);
-            final String[] translatedName = getResources().getStringArray(R.array.month);
             Date date = new Date();
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
@@ -435,14 +461,20 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             final int gregNextkull=nextkull+1843;
             String[] vahidArrabic = getResources().getStringArray(R.array.vahidArabic);
             String[] vahidTrans = getResources().getStringArray(R.array.vahid);
-            final String week = weekArrabic[weekday - 1] + " (" + weekTrans[weekday - 1] + "), ";
+            final String weekTranslation = weekTrans[weekday - 1].length()>0 ?String.format(" (%s)", weekTrans[weekday - 1]) :"";
+            final String week = String.format("%s%s,", weekArrabic[weekday - 1], weekTranslation);
             output.append(week);
-            final String vahidString = vahidArrabic[badiDate.getYearInVahid() - 1] + " (" + vahidTrans[badiDate.getYearInVahid() - 1] + ") ";
-
+            String vahidTran = vahidTrans[badiDate.getYearInVahid() - 1];
+            final String vahidString;
+            if(vahidTran.length()<1){
+                vahidString = vahidArrabic[badiDate.getYearInVahid() - 1];
+            } else {
+                vahidString = String.format("%s (%s) ",vahidArrabic[badiDate.getYearInVahid() - 1], vahidTran);
+            }
             if(bm==19){
                 output.append(vahidString);
-                final String monthString = "- " + monthToString(bm-1,false) + "\n";
-                output.append( monthString);
+                final String monthString = String.format("- %s\n", monthToString(bm-1,false));
+                output.append( monthString );
                 output.append(getResources().getString(R.string.fdformatAy));
             }else {
                 String monthName, dayName;
@@ -450,26 +482,26 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 monthName = monthToString(bm-1, false);
                 final String dateString;
                 if(format==1){
-                    dateString = dayName +  "." + "." + monthName + vahidString + "\n";
+                    dateString = dayName +  separator + monthName + separator + vahidString + "\n";
                 }else if(format==2){
-                    dateString =  monthName + "/" + dayName + "/" + vahidString + "\n";
+                    dateString =  monthName + separator + dayName + separator + vahidString + "\n";
                 }else {
-                    dateString = vahidString + "-" + monthName + "-" + dayName + "\n";
+                    dateString = vahidString + separator + monthName + separator + dayName + "\n";
                 }
                 output.append( dateString );
-                output.append( getResources().getString(R.string.fdformat) + " " +
-                        getResources().getStringArray(R.array.pref_availableFormat)[format] +")");
+                output.append( String.format("(%s %s)", getResources().getString(R.string.fdformat),
+                        getResources().getStringArray(R.array.pref_availableFormat)[format]));
             }
             output.append("\n\n");
-            final String yearInVahid = getResources().getString(R.string.fdyearInVahid) + " " + badiDate.getYearInVahid() +"\n";
+            final String yearInVahid = String.format("%s %s\n", getResources().getString(R.string.fdyearInVahid), nf.format(badiDate.getYearInVahid()));
             output.append( yearInVahid );
-            final String vahid = getResources().getString(R.string.fdvahid) + " " + badiDate.getVahid() + "\n";
+            final String vahid = String.format("%s %s\n", getResources().getString(R.string.fdvahid), nf.format(badiDate.getVahid()));
             output.append( vahid );
-            final String nVahid = getResources().getString(R.string.fdNvahid) + " " +  nextvahid + " ("+ gregNextVahid +")\n";
+            final String nVahid = String.format("%s %s (%s)\n", getResources().getString(R.string.fdNvahid),  nf.format(nextvahid), nf.format(gregNextVahid));
             output.append( nVahid );
-            final String kull = getResources().getString(R.string.fdkull) + " " + badiDate.getKullIShay() + "\n";
+            final String kull = String.format("%s %s\n", getResources().getString(R.string.fdkull), nf.format(badiDate.getKullIShay()));
             output.append( kull );
-            final String nKull = getResources().getString(R.string.fdNkull) + " " +  nextkull + " ("+ gregNextkull +")\n\n";
+            final String nKull = String.format("%s %s (%s)\n\n", getResources().getString(R.string.fdNkull), nf.format(nextkull), nf.format(gregNextkull));
             output.append( nKull );
             return output.toString() + getResources().getString(R.string.fdExplain) + "\n";
         }
@@ -481,10 +513,13 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         private String monthOrDayName(final int i, final boolean hyphen){
             final String[] arabicName = getResources().getStringArray(R.array.monthArabic);
             final String[] translatedName = getResources().getStringArray(R.array.month);
-            if(hyphen) {
-                return arabicName[i] + " - " + translatedName[i];
+            if(translatedName[i].length()<1){
+                return arabicName[i];
             }
-            return arabicName[i] + " ( " + translatedName[i] + " )";
+            if(hyphen) {
+                return String.format("%s - %s", arabicName[i], translatedName[i]);
+            }
+            return String.format("%s (%s)", arabicName[i], translatedName[i]);
         }
 
         /**
@@ -499,7 +534,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             } else if (bm == 18) {
                 return monthOrDayName(bm, hyphen);
             }
-            return monthOrDayName(bm, hyphen) + (hyphen?" (" + bi + ") ":"");
+            return monthOrDayName(bm, hyphen) + (hyphen? String.format(" (%s)", bi) :"");
         }
 
         /**
@@ -513,4 +548,5 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             return monthOrDayName(bd, false);
         }
     }
+
 }

@@ -46,7 +46,7 @@
     <!--<string name="fdday">Tag des Monats: </string>-->
     <!--<string name="fdmonth">Monat: </string>-->
     <!--<string name="fdyear">Jahr: </string>-->
-    <string name="fdformat">(Wochentag, </string>
+    <string name="fdformat">Wochentag,</string>
     <string name="fdformatAy">(Wochentag, Jahr - Tag)</string>
     <string name="fdExplain">Jeder der 19 Tage eines Monats hat einen Namen. Die Namen der Tage sind die
         gleichen wie die Monatsnamen- der erste Tag des Monats ist der Tag Bahá, der letzte Tag ist
@@ -196,19 +196,6 @@
     <string name="language">Sprache</string>
     <string name="format">Datum Format</string>
 
-    <string-array name="pref_availableLanguage">
-        <item>English</item>
-        <item>Deutsch</item>
-        <item>Français</item>
-        <item>Español</item>
-    </string-array>
-
-    <string-array name="pref_language">
-        <item>en</item>
-        <item>de</item>
-        <item>fr</item>
-        <item>es</item>
-    </string-array>
     <string name="pref_defaultLanguage">de</string>
 
     <string-array name="pref_format">
@@ -222,5 +209,29 @@
         <item>Tag.Monat.Jahr</item>
         <item>Monat/Tag/Jahr</item>
     </string-array>
+
+    <string-array name="pref_availableLanguage">
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>فارسی</item>
+        <item>Français</item>
+        <item>Español</item>
+        <item>Türk</item>
+    </string-array>
+
+    <string-array name="pref_language">
+        <item>en</item>
+        <item>de</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>es</item>
+        <item>tr</item>
+    </string-array>
+    <string-array name="format_separator">
+        <item>-</item>
+        <item>.</item>
+        <item>/</item>
+    </string-array>
+
 
 </resources>

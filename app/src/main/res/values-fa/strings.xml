@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تقویم بهایی</string>
+    <string name="pref_defaultLanguage">fa</string>
+    <string name="title_section2">ضیافات نوزده روزه</string>
+    <string name="title_section1">ایام متبرکه</string>
+    <string name="title_section3">تاریخ</string>
+    <string name="titleOut1">اولین روز ماه و ایام ها</string>
+    <string name="ayyamIHa">ایام ها</string>
+    <string name="titleOut2">ایام متبرکه بهایی</string>
+    <string name="titleOut3">تقویم بدیع</string>
+    <string name="gregorian_date">تقویم میلادی</string>
+    <string name="badi_date">تقویم بدیع</string>
+    <string name="action_settings">تنظیم</string>
+    <string name="upcoming">ایام متبرکه</string>
+    <string name="in_prep">در</string>
+    <string name="day">روز</string>
+    <string name="days">روز</string>
+    <string name="fast">ایام صیام</string>
+    <string name="fdyearInVahid">سال در واحد</string>
+    <string name="fdNvahid">سال شروع واحد بعد</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="fdExplain">    ماه بهایی ۱۹ روز است. سال بهایی ۱۹ ماه است. ۱۹*۱۹= ۳۶۱. ۳۶۵-۳۶۱=۴ ایم ها. هر ماه بهایی با یک اسم جدا نامیده می‌شود. هر روز ماه هم با همان اسمها نامیده میشود.</string>
+    <string name="fdformat">روز هفته</string>
+    <string name="fdformatAy">روز هفته، سال - ماه - روز</string>
+    <string name="fdvahid">واحد</string>
+    <string name="language">زبان</string>
+    <string name="fdkull">كل شيء</string>
+    <string name="fdNkull">سال شروع كل شيء بعد</string>
+    <string name="format">قالب</string>
+
+
+    <!--Array with Holydays-->
+    <string-array name="holyday">
+        <item>نوروز</item>
+        <item>اول رضوان</item>
+        <item>نهم رضوان</item>
+        <item>دوازدهم رضوان</item>
+        <item>اظهار امر حضرت باب</item>
+        <item>صعود حضرت بهاالله</item>
+        <item>شهادت حضرت باب</item>
+        <item>تولد حضرت باب</item>
+        <item>تولد حضرت بهاالله</item>
+        <item>روز عهد</item>
+        <item>صعود حضرت عبدالبها</item>
+    </string-array>
+
+
+    <!--The Arabic month names-->
+    <string-array name="monthArabic">
+        <item>بهاء</item>
+        <item>جلال</item>
+        <item>جمال</item>
+        <item>عظمة</item>
+        <item>نور</item>
+        <item>رحمة</item>
+        <item>كلمات</item>
+        <item>كمال</item>
+        <item>اسماء</item>
+        <item>عزة</item>
+        <item>مشية</item>
+        <item>علم</item>
+        <item>قدرة</item>
+        <item>قول</item>
+        <item>مسائل</item>
+        <item>شرف</item>
+        <item>سلطان</item>
+        <item>ملك</item>
+        <item>ايام الهاء</item>
+        <item>علاء</item>
+    </string-array>
+
+    <!--The Translation of the month names-->
+    <string-array name="month">
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+
+    <!--The Arabic weekday names-->
+    <string-array name="weekArabic">
+        <item>جمال</item>
+        <item>كمال</item>
+        <item>فضال</item>
+        <item>عدال</item>
+        <item>استجلال</item>
+        <item>استقلال</item>
+        <item>جلال</item>
+    </string-array>
+
+    <!--The Translation of the weekday names-->
+    <string-array name="week">
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+
+    <!--The Translation of the year in vahid names-->
+    <string-array name="vahidArabic">
+        <item>ألف</item>
+        <item>باء</item>
+        <item>أب</item>
+        <item>دﺍﻝ</item>
+        <item>باب</item>
+        <item>وﺍو</item>
+        <item>أبد</item>
+        <item>جاد</item>
+        <item>بهاء</item>
+        <item>حب</item>
+        <item>بهاج</item>
+        <item>جواب</item>
+        <item>احد</item>
+        <item>وﻫﺎب</item>
+        <item>وداد</item>
+        <item>بدیع</item>
+        <item>بهي</item>
+        <item>ابهى</item>
+        <item>واحد</item>
+    </string-array>
+
+    <!--The arabic of the year in Vahid names-->
+    <string-array name="vahid">
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+    </string-array>
+    <string name="title_activity_display_figure">Structure</string>
+
+
+    <string-array name="pref_availableFormat">
+        <item>سال ؍ ماه ؍ روز</item>
+        <item>روز؍ ماه؍ سال</item>
+        <item>ماه ؍روز؍ سال</item>
+    </string-array>
+
+    <string-array name="pref_availableLanguage">
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>فارسی</item>
+        <item>Français</item>
+        <item>Español</item>
+        <item>Türk</item>
+    </string-array>
+
+    <string-array name="pref_language">
+        <item>en</item>
+        <item>de</item>
+        <item>fa</item>
+        <item>fr</item>
+        <item>es</item>
+        <item>tr</item>
+    </string-array>
+    <string-array name="format_separator">
+        <item>؍</item>
+        <item>؍</item>
+        <item>؍</item>
+    </string-array>
+    <string-array name="pref_format">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

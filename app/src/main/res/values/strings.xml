@@ -44,7 +44,7 @@
     <string name="day"> day</string>
 
     <!--Full date titles-->
-    <string name="fdformat">(Weekday, </string>
+    <string name="fdformat">Weekday, </string>
     <string name="fdformatAy">(Weekday, year - day)</string>
     <string name="fdExplain">Each of the 19 days of a month has a name. The names are the same as
         the month names- the first day of the month is the day Bahá and the last day of the month is
@@ -197,17 +197,22 @@
     <string-array name="pref_availableLanguage">
         <item>English</item>
         <item>Deutsch</item>
+        <item>فارسی</item>
         <item>Français</item>
         <item>Español</item>
+        <item>Türk</item>
     </string-array>
 
     <string-array name="pref_language">
         <item>en</item>
         <item>de</item>
+        <item>fa</item>
         <item>fr</item>
         <item>es</item>
+        <item>tr</item>
     </string-array>
     <string name="pref_defaultLanguage">en</string>
+
 
     <string-array name="pref_format">
         <item>0</item>
@@ -219,6 +224,12 @@
         <item>Year-Month-Day</item>
         <item>Day.Month.Year</item>
         <item>Month/Day/Year</item>
+    </string-array>
+
+    <string-array name="format_separator">
+        <item>-</item>
+        <item>.</item>
+        <item>/</item>
     </string-array>
 
 </resources>
