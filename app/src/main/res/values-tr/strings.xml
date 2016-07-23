@@ -19,7 +19,7 @@
     <string name="fdyearInVahid">Vahid\'in şu yılı:</string>
     <string name="fdNvahid">Sonraki Vahid\'in başladığı yıl:</string>
     <string name="fdvahid">Vahid:</string>
-    <string name="fdkull">Kull-i-Shay’:</string>
+    <string name="fdkull">Külli-Şey:</string>
     <string name="in_prep"> </string>
     <string name="pref_defaultLanguage">tr</string>
 
@@ -43,26 +43,26 @@
 
     <!--The Arabic month names-->
     <string-array name="monthArabic">
-        <item>Bahá</item>
-        <item>Jalál</item>
-        <item>Jamál</item>
-        <item>‘Aẓamat</item>
-        <item>Núr</item>
-        <item>Raḥmat</item>
-        <item>Kalimát</item>
-        <item>Kamál</item>
-        <item>Asmá’</item>
-        <item>‘Izzat</item>
-        <item>Mashíyyat</item>
-        <item>‘Ilm</item>
-        <item>Qudrat</item>
-        <item>Qawl</item>
-        <item>Masá’il</item>
-        <item>Sharaf</item>
-        <item>Sulṭán</item>
-        <item>Mulk</item>
-        <item>Ayyám-i-Há</item>
-        <item>‘Alá’</item>
+        <item>Baha</item>
+        <item>Celal</item>
+        <item>Cemal</item>
+        <item>Azamet</item>
+        <item>Nur</item>
+        <item>Rahmet</item>
+        <item>Kelimat</item>
+        <item>Kemal</item>
+        <item>Esma</item>
+        <item>İzzet</item>
+        <item>Meşiyyet</item>
+        <item>İlim</item>
+        <item>Kudret</item>
+        <item>Kavl</item>
+        <item>Mesail</item>
+        <item>Şeref</item>
+        <item>Sultan</item>
+        <item>Mülk</item>
+        <item>Eyyam-ı Ha</item>
+        <item>Ala</item>
     </string-array>
 
     <!--The Translation of the month names-->
@@ -91,13 +91,13 @@
 
     <!--The Arabic weekday names-->
     <string-array name="weekArabic">
-        <item>Jamál</item>
-        <item>Kamál</item>
+        <item>Cemal</item>
+        <item>Kemal</item>
         <item>Fiḍál</item>
         <item>‘Idál</item>
         <item>Istijlál</item>
         <item>Istiqlál</item>
-        <item>Jalál</item>
+        <item>Celal</item>
     </string-array>
 
     <!--The Translation of the weekday names-->
@@ -136,24 +136,24 @@
 
     <!--The arabic of the year in Vahid names-->
     <string-array name="vahidArabic">
-        <item>Alif</item>
+        <item>Elif</item>
         <item>Bá’</item>
         <item>Ab</item>
         <item>Dál</item>
         <item>Báb</item>
         <item>Váv</item>
         <item>Abad</item>
-        <item>Jád</item>
+        <item>Cad</item>
         <item>Bahá’</item>
-        <item>Ḥubb</item>
-        <item>Bahháj</item>
-        <item>Javáb</item>
+        <item>Hub</item>
+        <item>Behhac</item>
+        <item>Cevab</item>
         <item>Aḥad</item>
         <item>Vahháb</item>
         <item>Vidád</item>
-        <item>Badí‘</item>
+        <item>Bedi</item>
         <item>Bahí</item>
-        <item>Abhá</item>
+        <item>Ebha</item>
         <item>Váḥid</item>
     </string-array>
     <string name="title_activity_display_figure">Structure</string>
@@ -183,7 +183,7 @@
         <item>فارسی</item>
         <item>Français</item>
         <item>Español</item>
-        <item>Türk</item>
+        <item>Türkçe</item>
     </string-array>
 
     <string-array name="pref_language">
