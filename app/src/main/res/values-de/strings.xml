@@ -21,7 +21,7 @@
     <string name="title_section2">Monate</string>
     <string name="title_section1">Feiertage</string>
     <string name="title_section3">Datum</string>
-    <string name="titleOut1">Der erste Tag der Monate und Ayyám-i-Há:</string>
+    <string name="titleOut1">Die ersten Tage der Monate und Ayyám-i-Há:</string>
     <string name="titleOut2">Die Bahá’í Feier- und Gedenktage:</string>
     <string name="titleOut3">Das vollständige Badí‘ Datum:</string>
 
@@ -68,7 +68,7 @@
         <item>12. Riḍván</item>
         <item>Erklärung des Báb</item>
         <item>Hinscheiden Bahá’u’lláhs</item>
-        <item>Märtyertod des Báb</item>
+        <item>Märtyrertod des Báb</item>
         <item>Geburt des Báb</item>
         <item>Geburt Bahá’u’lláhs</item>
         <item>Tag des Bundes</item>
