@@ -1,0 +1,51 @@
+{
+    "showOriginal": "true",
+    "appName": "Bahá’í Kalender",
+    "dayDifference": "{count, plural, =0{Heute}, =1{Morgen}, other{In {count} Tagen}}",
+    "ayyamiha": "Ayyám-i-Há",
+    "begin": "Vom {begin}",
+    "end": "Bis {end}",
+
+    "settingsTitle": "Einstellungen",
+    "dateFormat": "Datumsformat",
+    "dateFormatFromIndex": "{count, plural, =0{Jahr-Monat-Tag} =1{Tag.Monat.Jahr} =2{Monat/Tag/Jahr} other{{count} not set}}",
+    "locationSettingsTitle": "Positionierungsmethode",
+    "locationSettingsMethod": "{index, plural, =0{Geräteposition}, =1{Manuell setzten}, =other{Position nicht verwenden}}",
+    "longitude": "Längengrad",
+    "longitudeHelper": "Dezimalzahl - Negativer Wert für West.",
+    "latitude": "Breitengrad",
+    "latitudeHelper": "Dezimalzahl - Negativer Wert für Süd.",
+    "locationError": "Eintrag ist fehlerhaft. Bitte ändern.",
+    "languageSettingsTitle": "Sprache",
+
+    "feasts": "19-Tage-Feste",
+
+    "holyDayTab": "Feiertage",
+    "upcoming": "Die nächste Feiertage und besondere Tage",
+
+    "fullDate": "Datum",
+    "ok": "OK",
+    "cancel": "ABBRECHEN",
+    "selectADate": "Datum auswählen",
+    "specialDay": "Feiertage und besondere Tage:",
+    "periodOfFast": "Fastenzeit",
+    "sunset": "Sonnenuntergang um {time}",
+    "sunrise": "Sonnenaufgang um {time}",
+    "dayAndMonth": "Der Name des Tages ist {day} im Monat {month}",
+    "dayAndMonthTitle": "Monats- und Tagesname:",
+    "dayAndMonthExplanation": "Jedes der 19 Tage eines Monats hat einen Namen. Die Namen sind dieselben wie die Monatsnamen - der erste Tag des Monats ist der Tag Bahá und der letzte Tag des Monats ist der Tag ‘Alá’.",
+    "feastHint": "Es ist der erste Tag des Monats. Es ist ein 19-Tagefest Tag.",
+    "dayOfTheWeek": "Der Wochentag ist {day}.",
+    "weekDayTitle": "Wochentag:",
+    "vahidTitle": "Jahr, Vahid, und Kull-i-Shay:",
+    "vahidExplanation": "Der Badí‘ Kalender hat die Zeiteinheit Váḥid, welches eine Periode von 19 Jahren ist. Jedes Jahr in einem Váḥid hat einen Namen. 19 Váḥids (361 Jahre) sind ein Kull-i-Shay’.",
+    "vahid": "Das Jahr {year} im Badi Kalender ist das Jahr {yearInVahid} im Váḥid {vahid} des ersten Kull-i-Shay und hat den Namen {yearName}.",
+
+    "skip": "ABBRECHEN",
+    "next": "WEITER",
+    "fin": "FERTIG",
+    "selectLanguage": "Stellen Sie die Sprache und gewünschte Datumsformat ein",
+    "locationDescription": "Dieses App kann Ihr Standort verwenden um die Zeit des Sonnenuntergangs zu berechnen. Sie können entweder den Standort des Gerätes benutzten, Ihren Standort manuell einstellen, oder keinen Standort verwenden. Wenn sie keinen Standort verwenden, wird der Sonnenuntergang auf 18 Uhr geschätzt. Sie können die Einstellungen jederzeit ändern.",
+    "selectLocationMethod": "Stellen sie die gewünschte Positionierungsmethode ein"
+}
+  

@@ -1,0 +1,52 @@
+{
+    "showOriginal": "true",
+    "appName": "Calendario Bahá’í",
+    "dayDifference": "{count, plural, =0{Hoy}, =1{Mañana}, other{En {count} días}}",
+    "ayyamiha": "Días de Há",
+    "begin": "De {begin}",
+    "end": "Hasta {end}",
+
+    "settingsTitle": "Configuración",
+    "dateFormat": "Formato de fecha",
+    "dateFormatFromIndex": "{count, plural, =0{aaa-mm-dd} =1{dd.mm.aaa} =2{mm/dd/aaa} other{{count} not set}}",
+    "locationSettingsTitle": "método de localización",
+    "locationSettingsMethod": "{index, plural, =0{localización automática}, =1{localización manual}, =other{No usar localización}}",
+    "longitude": "Longitud",
+    "longitudeHelper": "Cifra decimal. Cifras negativas para Oeste.",
+    "latitude": "Latitude",
+    "latitudeHelper": "Cifra decimal. Cifraas negativas para el Sur.",
+    "locationError": "Cifrs errónea. Por favor, verifique.",
+    "languageSettingsTitle": "Idioma",
+
+    "feasts": "Fiestas",
+
+    "holyDayTab": "Días Sagrados",
+    "upcoming": "Los próximos Días Sagrados y días especiales",
+
+    "fullDate": "Fecha",
+    "ok": "OK",
+    "cancel": "CANCELAR",
+    "selectADate": "Selecciona una fecha",
+    "specialDay": "Día Sagrado ó día especial:",
+    "periodOfFast": "Período de ayuno",
+    "sunset": "Puesta de sol {time}",
+    "sunrise": "Salida de sol {time}",
+    "dayAndMonth": "El nombre del día es {day} del mes {month}",
+    "dayAndMonthTitle": "Nomnre del mes y del día:",
+    "dayAndMonthExplanation": "Cada uno de los 19 días de un mes tiene un nombre. Los día del mes tienen los mismos nombres que los meses del año.- El primer día del mes es el día Bahá y el último día del mes es el día ‘Alá’.",
+    "feastHint": "Este es el primer dá del mes. Es un día de fiesta de 19 días.",
+    "dayOfTheWeek": "El día de la semana es {day}.",
+    "weekDayTitle": "Día de la semana:",
+    "vahidTitle": "Año, Vahid, and Kull-i-Shay:",
+    "vahidExplanation": "El calendario Badí‘ Calendar define un Váḥid como un período de 19 años. Cada año en el Váḥid tiene un nombre. 19 Váḥids (361 años) forman un Kull-i-Shay’.",
+    "vahid": "El año {year} en el calendario badí {yearInVahid} en el Váḥid {vahid} del primer Kull-i-Shay y se llama {yearName}.",
+    
+    "skip": "OMITIR",
+    "next": "SIGUIENTE",
+    "fin": "FINALIZAR",
+    "selectLanguage": "Selecciona un idioma y el formato de fecha deseado",
+    "locationDescription": "Esta aplicación puede calcular la hora de la puesta de sol a través de tu posición. Puedes usar la localización automática o configurarla manualmente o no utilizar ninguna localización. Si no usas tu posición, la puesta de sol se colocará a las 6 pm. Puedes cambiar tu configuración a tu gusto.",
+    "selectLocationMethod": "Selecciona un método de localización"
+
+}
+  

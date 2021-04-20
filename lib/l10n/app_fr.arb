@@ -1,0 +1,52 @@
+{
+    "showOriginal": "true",
+    "appName": "Calendrier Badīʿ",
+    "dayDifference": "{count, plural, =0{Aujourd'hui }, =1{Demain}, other{Dans {count} jours}}",
+    "ayyamiha": "Ayyám-i-Há",
+    "begin": "De {begin}",
+    "end": "Jusque {end}",
+
+    "settingsTitle": "Paramètres",
+    "dateFormat": "Format de date",
+    "dateFormatFromIndex": "{count, plural, =0{an-mois-journée} =1{journée.mois.an} =2{mois/journée/an} other{{count} not set}}",
+    "locationSettingsTitle": "Méthode de localisation",
+    "locationSettingsMethod": "{index, plural, =0{Localisation automatique}, =1{Emplacement défini manuellement}, =other{N'utilisez pas la localisation}}",
+    "longitude": "Longitude",
+    "longitudeHelper": "Valeurs négatives pour l'Ouest.",
+    "latitude": "Latitude",
+    "latitudeHelper": "Valeurs négatives pour le Sud.",
+    "locationError": "La valeur est erronée. S'il vous plaît changer.",
+    "languageSettingsTitle": "Langue",
+
+    "feasts": "Fêtes",
+
+    "holyDayTab": "Jours fériés",
+    "upcoming": "Prochains jours saints et spéciaux",
+
+    "fullDate": "Date Badí‘",
+    "ok": "D'ACCORD",
+    "cancel": "ANNULER",
+    "selectADate": "Sélectionnez une date",
+    "specialDay": "Jour fériés et spécial:",
+    "periodOfFast": "Période de jeûne",
+    "sunset": "Coucher de soleil à {time}",
+    "sunrise": "Lever du soleil à {time}",
+    "dayAndMonth": "Le nom du jour est {day} du mois {month}",
+    "dayAndMonthTitle": "Nom du mois et du jour:",
+    "dayAndMonthExplanation": "Each of the 19 days of a month has a name. The names are the same as the month names- the first day of the month is the day Bahá and the last day of the month is the day ‘Alá’.",
+    "feastHint": "Le premier jour des mois. C'est un jour de fête.",
+    "dayOfTheWeek": "Le jour de la semaine est {day}.",
+    "weekDayTitle": "Jour de la semaine:",
+    "vahidTitle": "An, Wāḥid et Kull-i Šay:",
+    "vahidExplanation": "The Badí‘ Calendar defines Váḥid which is a period of 19 years. Each year in the Váḥid has a name. 19 Váḥids (361 years) are a Kull-i-Shay’.",
+    "vahid": "The year {year} in the Badi calendar is the year {yearInVahid} in the Váḥid {vahid} of the 1st Kull-i-Shay and has the name {yearName}.",
+    
+    "skip": "SAUTER",
+    "next": "PROCHAIN",
+    "fin": "FIN",
+    "selectLanguage": "Sélectionnez une langue et le format de date préféré",
+    "locationDescription": "This app can use your location to calculate the sunset time. You can either let the app use your device location, set the location manually, or don't use locations. If you don't use location, 6pm will be used as sunset time. You can change settings anytime.",
+    "selectLocationMethod": "Sélectionnez la méthode de localisation"
+
+}
+  

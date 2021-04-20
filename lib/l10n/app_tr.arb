@@ -1,0 +1,52 @@
+{
+    "showOriginal": "true",
+    "appName": "Bahai Takvimi",
+    "dayDifference": "{count, plural, =0{Bugün}, =1{Yarın}, other{{count} gün sonra}}",
+    "ayyamiha": "Ha Günleri",
+    "begin": "Nereden {begin}",
+    "end": "Kadar {end}",
+
+    "settingsTitle": "Ayarlar",
+    "dateFormat": "Biçim",
+    "dateFormatFromIndex": "{count, plural, =0{yıl-ay-gün} =1{gün.ay.yıl} =2{ay/gün/yıl} other{{count} not set}}",
+    "locationSettingsTitle": "Konum Yöntemi",
+    "locationSettingsMethod": "{index, plural, =0{Otomatik bul}, =1{Manuel olarak konum ayarla}, =other{Konumu kullanma}}",
+    "longitude": "Boylam",
+    "longitudeHelper": "Batı için negatif değerler.",
+    "latitude": "Enlem",
+    "latitudeHelper": "Güney için negatif değerler.",
+    "locationError": "Değer hatalı. Lütfen değiştir.",
+    "languageSettingsTitle": "Dil",
+
+    "feasts": "Ziyafetler",
+
+    "holyDayTab": "Kutsal Günler",
+    "upcoming": "Yaklaşan kutsal ve özel günler",
+
+    "fullDate": "Tam Tarih",
+    "ok": "iyi",
+    "cancel": "iptal",
+    "selectADate": "Bir tarih seçin",
+    "specialDay": "Kutsal ve özel gün:",
+    "periodOfFast": "Oruç dönemi",
+    "sunset": "Gün batımı {time}",
+    "sunrise": "Gün doğumu {time}",
+    "dayAndMonth": "Günün adı {day} ayın {month}",
+    "dayAndMonthTitle": "Ay ve Gün adı:",
+    "dayAndMonthExplanation": "Each of the 19 days of a month has a name. The names are the same as the month names- the first day of the month is the day Bahá and the last day of the month is the day ‘Alá’.",
+    "feastHint": "Ayın ilk günü. Bu bir bayram günü.",
+    "dayOfTheWeek": "Haftanın günü {day}.",
+    "weekDayTitle": "Hafta içi:",
+    "vahidTitle": "Yıl, Vahid, ve Külli-Şey:",
+    "vahidExplanation": "The Badí‘ Calendar defines Váḥid which is a period of 19 years. Each year in the Váḥid has a name. 19 Váḥids (361 years) are a Kull-i-Shay’.",
+    "vahid": "The year {year} in the Badi calendar is the year {yearInVahid} in the Váḥid {vahid} of the 1st Kull-i-Shay and has the name {yearName}.",
+    
+    "skip": "ATLA",
+    "next": "SONRAKİ",
+    "fin": "BİTİŞ",
+    "selectLanguage": "Bir dil ve tercih edilen tarih formatını seçin",
+    "locationDescription": "This app can use your location to calculate the sunset time. You can either let the app use your device location, set the location manually, or don't use locations. If you don't use location, 6pm will be used as sunset time. You can change settings anytime.",
+    "selectLocationMethod": "Konum yöntemini seçin"
+
+}
+  
