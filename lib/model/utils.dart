@@ -3,14 +3,12 @@ import 'package:intl/intl.dart';
 
 class Utils {
   static final twoDigitFormatter = NumberFormat('00');
-  static final twoDigitFormatterFa = NumberFormat('00', 'fa');
 
   static String fmtBadiDate(BadiDate badiDate,
-      {int? fmtIndex = 0, String ayyamIHa = '', String? language}) {
-    final f = language == 'fa' ? twoDigitFormatterFa : twoDigitFormatter;
+      {int? fmtIndex = 0, String ayyamIHa = ''}) {
     final year = badiDate.year;
-    final month = f.format(badiDate.month);
-    final day = f.format(badiDate.day);
+    final month = twoDigitFormatter.format(badiDate.month);
+    final day = twoDigitFormatter.format(badiDate.day);
     switch (fmtIndex) {
       case 1:
         final separator = '.';
@@ -31,13 +29,11 @@ class Utils {
     }
   }
 
-  static String fmtDateTime(DateTime date,
-      {int? fmtIndex = 0, String? language}) {
-    final f = language == 'fa' ? twoDigitFormatterFa : twoDigitFormatter;
+  static String fmtDateTime(DateTime date, {int? fmtIndex = 0}) {
     final year = date.year;
-    final month = f.format(date.month);
-    final day = f.format(date.day);
-    final time = '${f.format(date.hour)}:${f.format(date.minute)}';
+    final month = twoDigitFormatter.format(date.month);
+    final day = twoDigitFormatter.format(date.day);
+    final time = fmtTime(date);
 
     switch (fmtIndex) {
       case 1:
@@ -53,9 +49,8 @@ class Utils {
     }
   }
 
-  static String fmtTime(DateTime date, {String? language}) {
-    final f = language == 'fa' ? twoDigitFormatterFa : twoDigitFormatter;
-    return '${f.format(date.hour)}:${f.format(date.minute)}';
+  static String fmtTime(DateTime date) {
+    return '${twoDigitFormatter.format(date.hour)}:${twoDigitFormatter.format(date.minute)}';
   }
 
   /// returns the difference of the start date time of the BadiDate to now
@@ -64,6 +59,7 @@ class Utils {
   static int getDifference(BadiDate badiDate) {
     final difference = badiDate.startDateTime.difference(DateTime.now()).inDays;
     if (difference < 0) return 0;
-    return difference;
+    // diff in days just returns full day differences; therefore, we add 1
+    return difference + 1;
   }
 }

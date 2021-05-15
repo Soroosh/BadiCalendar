@@ -58,13 +58,13 @@ class FeastsState extends State<Feasts> {
         style: Theme.of(context).textTheme.subtitle1,
       ),
       Text(
-        Utils.fmtBadiDate(badiDate, fmtIndex: fmtIndex, language: language),
+        Utils.fmtBadiDate(badiDate, fmtIndex: fmtIndex),
       ),
-      Text(l10n?.begin(Utils.fmtDateTime(badiDate.startDateTime,
-              fmtIndex: fmtIndex, language: widget.config.language)) ??
+      Text(l10n?.begin(
+              Utils.fmtDateTime(badiDate.startDateTime, fmtIndex: fmtIndex)) ??
           ''),
-      Text(l10n?.end(Utils.fmtDateTime(badiDate.endDateTime,
-              fmtIndex: fmtIndex, language: widget.config.language)) ??
+      Text(l10n?.end(
+              Utils.fmtDateTime(badiDate.endDateTime, fmtIndex: fmtIndex)) ??
           ''),
       if (difference < 19) Text(l10n?.dayDifference(difference) ?? '')
     ]);

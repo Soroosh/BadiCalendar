@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Bahá’í Kalender",
-    "dayDifference": "{count, plural, =0{Heute}, =1{Morgen}, other{In {count} Tagen}}",
+    "dayDifference": "{count, plural, =0{Heute}, =1{In einem Tag}, other{In {count} Tagen}}",
     "ayyamiha": "Ayyám-i-Há",
     "begin": "Vom {begin}",
     "end": "Bis {end}",

@@ -50,13 +50,13 @@ class HolyDayState extends State<HolyDay> {
         holyDay,
         style: Theme.of(context).textTheme.subtitle1,
       ),
-      Text(Utils.fmtBadiDate(badiDate,
-          fmtIndex: widget.config.dateFormatIndex, language: language)),
+      Text(
+          Utils.fmtBadiDate(badiDate, fmtIndex: widget.config.dateFormatIndex)),
       Text(l10n?.begin(Utils.fmtDateTime(badiDate.startDateTime,
-              fmtIndex: widget.config.dateFormatIndex, language: language)) ??
+              fmtIndex: widget.config.dateFormatIndex)) ??
           ''),
       Text(l10n?.end(Utils.fmtDateTime(badiDate.endDateTime,
-              fmtIndex: widget.config.dateFormatIndex, language: language)) ??
+              fmtIndex: widget.config.dateFormatIndex)) ??
           ''),
       if (difference < 19) Text(l10n?.dayDifference(difference) ?? '')
     ]);
@@ -79,12 +79,10 @@ class HolyDayState extends State<HolyDay> {
         style: Theme.of(context).textTheme.subtitle1,
       ),
       Text(l10n?.begin(Utils.fmtDateTime(start.startDateTime,
-              fmtIndex: widget.config.dateFormatIndex,
-              language: widget.config.language)) ??
+              fmtIndex: widget.config.dateFormatIndex)) ??
           ''),
       Text((l10n?.end(Utils.fmtDateTime(badiDate.endDateTime,
-              fmtIndex: widget.config.dateFormatIndex,
-              language: widget.config.language)) ??
+              fmtIndex: widget.config.dateFormatIndex)) ??
           '')),
       if (difference < 19) Text(l10n?.dayDifference(difference) ?? '')
     ]);

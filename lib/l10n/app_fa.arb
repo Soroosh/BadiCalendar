@@ -1,0 +1,52 @@
+{
+    "showOriginal": "false",
+    "appName": "تقویم بهایی",
+    "dayDifference": "{count, plural, =0{امروز}, =1{در یک روز}, other{ در {count} روز }}",
+    "ayyamiha": "ايام الهاء",
+    "begin": "از {begin}",
+    "end": "تا {end}",
+
+    "settingsTitle": "تنظیم",
+    "dateFormat": "قالب",
+    "dateFormatFromIndex": "{count, plural, =0{سال-ماه-روز} =1{روز.ماه.سال} =2{ماه/روز/سال} other{{count} not set}}",
+    "locationSettingsTitle": "موقعیت",
+    "locationSettingsMethod": "{index, plural, =0{مکان یابی خودکار}, =1{مکان را به صورت دستی تنظیم کنید}, =other{از مکان استفاده نکنید}}",
+    "longitude": "عرض جغرافیایی",
+    "longitudeHelper": "ارزشهای منفی برای غرب",
+    "latitude": "عرض جغرافیایی",
+    "latitudeHelper": "مقادیر منفی برای جنوب.",
+    "locationError": "ارزش اشتباه است. لطفا عوض کنید",
+    "languageSettingsTitle": "زبان",
+
+    "feasts": "ضیافت",
+
+    "holyDayTab": "ایام متبرکه",
+    "upcoming": "روزهای مقدس و خاص آینده",
+
+    "fullDate": "تاریخ",
+    "ok": "خوب",
+    "cancel": "لغو",
+    "selectADate": "تاریخ را انتخاب کنید",
+    "specialDay": "روز مقدس و ویژه:",
+    "periodOfFast": "ایام روزه",
+    "sunset": "غروب {time}",
+    "sunrise": "طلوع آفتاب در {time}",
+    "dayAndMonth": "نام روز {day} ماه {month}",
+    "dayAndMonthTitle": "نام ماه و روز:",
+    "dayAndMonthExplanation": "هر ۱۹ روز یک ماه یک نام دارد. نام ها همان نام ماه ها هستند - اولین روز ماه ، روز بها و آخرین روز ماه ، روز علاء است",
+    "feastHint": "روز اول ماه است. این روز ضیافت است.",
+    "dayOfTheWeek": "روز هفته {day}.",
+    "weekDayTitle": "روز هفته",
+    "vahidTitle": "سال, واحد, و كل شيء:",
+    "vahidExplanation": "تقویم بهایی واحد را تعریف می کند که یک دوره ۱۹ ساله است. هر سال در واحد یک نام دارد. ۱۹ واحد (۳۶۱ سال) یک کل شی است.",
+    "vahid": "سال {year} در تقویم بهایی سال {yearInVahid} در واحد {vahid} اول کال شی است و نام آن سال {yearName} است",
+
+    "skip": "پرش",
+    "next": "بعد",
+    "fin": "تمام",
+    "selectLanguage": "یک زبان و قالب تاریخ را انتخاب کنید",
+    "locationDescription": "این برنامه می تواند از مکان شما برای محاسبه زمان غروب آفتاب استفاده کند. می توانید به برنامه اجازه دهید از مکان دستگاه شما استفاده کند ، مکان را به صورت دستی تنظیم کند یا از مکان استفاده نکند. اگر از مکان استفاده نکنید ، ساعت 6 عصر به عنوان زمان غروب آفتاب استفاده می شود. در هر زمان می توانید تنظیمات را تغییر دهید",
+    "selectLocationMethod": "روش مکان را انتخاب کنید"
+
+}
+   

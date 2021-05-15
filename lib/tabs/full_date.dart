@@ -165,12 +165,8 @@ class FullDateState extends State<FullDate> {
             l10n.periodOfFast,
             style: textTheme.subtitle1,
           ),
-        if (sunrise != null)
-          Text(l10n.sunrise(
-              Utils.fmtTime(sunrise, language: widget.config.language))),
-        if (sunset != null)
-          Text(l10n
-              .sunset(Utils.fmtTime(sunset, language: widget.config.language))),
+        if (sunrise != null) Text(l10n.sunrise(Utils.fmtTime(sunrise))),
+        if (sunset != null) Text(l10n.sunset(Utils.fmtTime(sunset))),
       ],
     );
   }
@@ -190,16 +186,12 @@ class FullDateState extends State<FullDate> {
     return ListView(
       children: <Widget>[
         Text(
-          Utils.fmtDateTime(_dateTime,
-              fmtIndex: widget.config.dateFormatIndex,
-              language: widget.config.language),
+          Utils.fmtDateTime(_dateTime, fmtIndex: widget.config.dateFormatIndex),
           style: textTheme.subtitle1,
         ),
         Text(
           Utils.fmtBadiDate(badiDate,
-              fmtIndex: widget.config.dateFormatIndex,
-              ayyamIHa: l10n.ayyamiha,
-              language: widget.config.language),
+              fmtIndex: widget.config.dateFormatIndex, ayyamIHa: l10n.ayyamiha),
           style: textTheme.subtitle1,
         ),
         _buildHolydayInfo(badiDate, l10n),

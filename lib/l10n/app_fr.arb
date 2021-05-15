@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Calendrier Badīʿ",
-    "dayDifference": "{count, plural, =0{Aujourd'hui }, =1{Demain}, other{Dans {count} jours}}",
+    "dayDifference": "{count, plural, =0{Aujourd'hui }, =1{Dans un jour}, other{Dans {count} jours}}",
     "ayyamiha": "Ayyám-i-Há",
     "begin": "De {begin}",
     "end": "Jusque {end}",
