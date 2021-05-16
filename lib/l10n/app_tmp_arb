@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Bahá’í Calendar",
-    "dayDifference": "{count, plural, =0{Today}, =1{Tomorrow}, other{In {count} days}}",
+    "dayDifference": "{count, plural, =0{Today}, =1{In one day}, other{In {count} days}}",
     "ayyamiha": "Ayyám-i-Há",
     "begin": "From {begin}",
     "end": "Till {end}",
@@ -46,7 +46,9 @@
     "fin": "FINISH",
     "selectLanguage": "Select a language and the preferred date format",
     "locationDescription": "This app can use your location to calculate the sunset time. You can either let the app use your device location, set the location manually, or don't use locations. If you don't use location, 6pm will be used as sunset time. You can change settings anytime.",
-    "selectLocationMethod": "Select location method"
-
+    "selectLocationMethod": "Select location method",
+    "darkModeTitle": "Dark Mode",
+    "faAvailable": "",
+    "darkModeDescription": "Dark mode is now used if it is set in your system settings."
 }
   

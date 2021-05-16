@@ -33,10 +33,6 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = ThemeData(
-      primarySwatch: Colors.blue,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-    );
     final tabController = DefaultTabController(
       length: 3,
       child: HomePage(_configurationProvider, onLanguageChange),
@@ -48,7 +44,13 @@ class MyAppState extends State<MyApp> {
     final locale = language;
     return MaterialApp(
       title: 'Badi-Calendar',
-      theme: themeData,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      highContrastTheme:
+          ThemeData.from(colorScheme: ColorScheme.highContrastLight()),
+      highContrastDarkTheme:
+          ThemeData.from(colorScheme: ColorScheme.highContrastDark()),
+      themeMode: ThemeMode.system,
       home: tabController,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

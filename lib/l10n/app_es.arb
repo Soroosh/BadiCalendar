@@ -46,7 +46,9 @@
     "fin": "FINALIZAR",
     "selectLanguage": "Selecciona un idioma y el formato de fecha deseado",
     "locationDescription": "Esta aplicación puede calcular la hora de la puesta de sol a través de tu posición. Puedes usar la localización automática o configurarla manualmente o no utilizar ninguna localización. Si no usas tu posición, la puesta de sol se colocará a las 6 pm. Puedes cambiar tu configuración a tu gusto.",
-    "selectLocationMethod": "Selecciona un método de localización"
-
+    "selectLocationMethod": "Selecciona un método de localización",
+    "darkModeTitle": "Modo nocturno<",
+    "faAvailable": "el idioma persa está disponible de nuevo:",
+    "darkModeDescription": "El modo nocturno se activa si está activo en tu configuración del teléfono."
 }
   

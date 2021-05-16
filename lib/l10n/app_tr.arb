@@ -46,7 +46,9 @@
     "fin": "BİTİŞ",
     "selectLanguage": "Bir dil ve tercih edilen tarih formatını seçin",
     "locationDescription": "This app can use your location to calculate the sunset time. You can either let the app use your device location, set the location manually, or don't use locations. If you don't use location, 6pm will be used as sunset time. You can change settings anytime.",
-    "selectLocationMethod": "Konum yöntemini seçin"
-
+    "selectLocationMethod": "Konum yöntemini seçin",
+    "darkModeTitle": "Dark Mode",
+    "faAvailable": "Persian is available again:",
+    "darkModeDescription": "Dark mode is now used if it is set in your system settings."
 }
   

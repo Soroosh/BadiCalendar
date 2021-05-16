@@ -46,6 +46,9 @@
     "fin": "FERTIG",
     "selectLanguage": "Stellen Sie die Sprache und gewünschte Datumsformat ein",
     "locationDescription": "Dieses App kann Ihr Standort verwenden um die Zeit des Sonnenuntergangs zu berechnen. Sie können entweder den Standort des Gerätes benutzten, Ihren Standort manuell einstellen, oder keinen Standort verwenden. Wenn sie keinen Standort verwenden, wird der Sonnenuntergang auf 18 Uhr geschätzt. Sie können die Einstellungen jederzeit ändern.",
-    "selectLocationMethod": "Stellen sie die gewünschte Positionierungsmethode ein"
+    "selectLocationMethod": "Stellen sie die gewünschte Positionierungsmethode ein",
+    "darkModeTitle": "Dunklemodus",
+    "faAvailable": "Persisch ist wieder verfügbar:",
+    "darkModeDescription": "Dunklemodus wird verwendet, wenn es in den Systemeinstellungen eingestellt ist."
 }
   

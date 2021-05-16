@@ -59,14 +59,15 @@ class IntroDialogState extends State<IntroDialog> {
     return Row(children: [
       Text(page),
       Spacer(),
-      TextButton(
-        onPressed: () {
-          widget._configurationProvider
-              .saveSeenDialogVersion(LASTEST_DIALOG_VERSION);
-          Navigator.of(context).pop();
-        },
-        child: Text(l10n.skip),
-      ),
+      if (!isLastPage)
+        TextButton(
+          onPressed: () {
+            widget._configurationProvider
+                .saveSeenDialogVersion(LASTEST_DIALOG_VERSION);
+            Navigator.of(context).pop();
+          },
+          child: Text(l10n.skip),
+        ),
       SizedBox(width: 32),
       TextButton(
         onPressed: () {
@@ -84,17 +85,27 @@ class IntroDialogState extends State<IntroDialog> {
   }
 
   Widget _buildTitle(AppLocalizations l10n) {
-    if (_currentPage == 1) {
-      return Text(l10n.selectLanguage);
+    switch (_currentPage) {
+      case 1:
+        return Text(l10n.selectLanguage);
+      case 2:
+        return Text(l10n.selectLocationMethod);
+      case 3:
+        return Text(l10n.darkModeTitle);
     }
-    return Text(l10n.selectLocationMethod);
+    return Container();
   }
 
   Widget _buildContent(AppLocalizations l10n) {
-    if (_currentPage == 1) {
-      return _buildLanguageAndDateFormat(l10n);
+    switch (_currentPage) {
+      case 1:
+        return _buildLanguageAndDateFormat(l10n);
+      case 2:
+        return _buildLocation(l10n);
+      case 3:
+        return _buildThemeAndFa(l10n);
     }
-    return _buildLocation(l10n);
+    return Container();
   }
 
   Widget _buildLanguageAndDateFormat(AppLocalizations l10n) {
@@ -119,6 +130,20 @@ class IntroDialogState extends State<IntroDialog> {
       children: [
         Text(l10n.locationDescription),
         LocationSetting(widget._configurationProvider),
+      ],
+    );
+  }
+
+  Widget _buildThemeAndFa(AppLocalizations l10n) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (_initPage > 1) Text(l10n.faAvailable),
+        if (_initPage > 1)
+          LanguageSetting(
+              widget._configurationProvider, widget.onLanguageChange),
+        SizedBox(height: 16),
+        Text(l10n.darkModeDescription),
       ],
     );
   }

@@ -3,7 +3,7 @@ import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum LocationMethod { AUTOMATIC, MANUEL, NONE }
-const LASTEST_DIALOG_VERSION = 2;
+const LASTEST_DIALOG_VERSION = 3;
 
 class Configuration {
   final double? latitude;

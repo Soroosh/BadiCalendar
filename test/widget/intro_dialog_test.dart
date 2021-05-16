@@ -40,6 +40,6 @@ void main() {
     expect(find.byType(SimpleDialog), findsOneWidget);
     // Verify tabs and settings.
     await tester.tap(find.byType(TextButton).first);
-    verify(mockProvider.saveSeenDialogVersion(2)).called(1);
+    verify(mockProvider.saveSeenDialogVersion(3)).called(1);
   });
 }
