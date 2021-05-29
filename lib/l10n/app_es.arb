@@ -31,6 +31,7 @@
     "periodOfFast": "Período de ayuno",
     "sunset": "Puesta de sol {time}",
     "sunrise": "Salida de sol {time}",
+    "noon": "Mediodía {time}",
     "dayAndMonth": "El nombre del día es {day} del mes {month}",
     "dayAndMonthTitle": "Nomnre del mes y del día:",
     "dayAndMonthExplanation": "Cada uno de los 19 días de un mes tiene un nombre. Los día del mes tienen los mismos nombres que los meses del año.- El primer día del mes es el día Bahá y el último día del mes es el día ‘Alá’.",

@@ -21,7 +21,7 @@
     "feasts": "19-Tage-Feste",
 
     "holyDayTab": "Feiertage",
-    "upcoming": "Die nächste Feiertage und besondere Tage",
+    "upcoming": "Die nächsten Feiertage und besondere Tage",
 
     "fullDate": "Datum",
     "ok": "OK",
@@ -31,6 +31,7 @@
     "periodOfFast": "Fastenzeit",
     "sunset": "Sonnenuntergang um {time}",
     "sunrise": "Sonnenaufgang um {time}",
+    "noon": "Mittag um {time}",
     "dayAndMonth": "Der Name des Tages ist {day} im Monat {month}",
     "dayAndMonthTitle": "Monats- und Tagesname:",
     "dayAndMonthExplanation": "Jedes der 19 Tage eines Monats hat einen Namen. Die Namen sind dieselben wie die Monatsnamen - der erste Tag des Monats ist der Tag Bahá und der letzte Tag des Monats ist der Tag ‘Alá’.",

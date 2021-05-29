@@ -18,4 +18,19 @@ void main() {
     await tester.pumpAndSettle(Duration(milliseconds: 10));
     expect(find.text('Select a date'), findsOneWidget);
   });
+
+  testWidgets('displays correct weekday', (WidgetTester tester) async {
+    await tester.pumpWidget(wrapWidget(FullDate(config: Configuration())));
+
+    await tester.tap(find.byIcon(Icons.calendar_today));
+    await tester.pump();
+    await tester.tap(find.byIcon(Icons.edit));
+    await tester.pump();
+    await tester.enterText(find.byType(TextField), '05/26/2021');
+    await tester.tap(find.text('OK'));
+    await tester.pumpAndSettle();
+
+    expect(
+        find.text('The day of the week is ‘Idál - Justice.'), findsOneWidget);
+  });
 }

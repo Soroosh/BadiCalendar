@@ -136,6 +136,13 @@
         "time": {}
       }    
     },
+    "noon": "Noon at {time}",
+    "@noon": {
+      "description" : "Noon note in the full date tab",
+      "placeholders": {
+        "time": {}
+      }    
+    },
     "dayAndMonth": "The name of the day is {day} of the month {month}",
     "@dayAndMonth": {
       "description" : "Day and month",

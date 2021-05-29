@@ -156,6 +156,7 @@ class FullDateState extends State<FullDate> {
         : null;
     final sunset = sunCalcTimes?.sunset?.toLocal();
     final sunrise = sunCalcTimes?.sunrise?.toLocal();
+    final noon = sunCalcTimes?.solarNoon?.toLocal();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,6 +167,7 @@ class FullDateState extends State<FullDate> {
             style: textTheme.subtitle1,
           ),
         if (sunrise != null) Text(l10n.sunrise(Utils.fmtTime(sunrise))),
+        if (noon != null) Text(l10n.noon(Utils.fmtTime(noon))),
         if (sunset != null) Text(l10n.sunset(Utils.fmtTime(sunset))),
       ],
     );

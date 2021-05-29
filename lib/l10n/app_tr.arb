@@ -31,6 +31,7 @@
     "periodOfFast": "Oruç dönemi",
     "sunset": "Gün batımı {time}",
     "sunrise": "Gün doğumu {time}",
+    "noon": "Öğle vakti {time}",
     "dayAndMonth": "Günün adı {day} ayın {month}",
     "dayAndMonthTitle": "Ay ve Gün adı:",
     "dayAndMonthExplanation": "Each of the 19 days of a month has a name. The names are the same as the month names- the first day of the month is the day Bahá and the last day of the month is the day ‘Alá’.",

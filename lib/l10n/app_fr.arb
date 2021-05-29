@@ -31,6 +31,7 @@
     "periodOfFast": "Période de jeûne",
     "sunset": "Coucher de soleil à {time}",
     "sunrise": "Lever du soleil à {time}",
+    "noon": "Midi {time}",
     "dayAndMonth": "Le nom du jour est {day} du mois {month}",
     "dayAndMonthTitle": "Nom du mois et du jour:",
     "dayAndMonthExplanation": "Each of the 19 days of a month has a name. The names are the same as the month names- the first day of the month is the day Bahá and the last day of the month is the day ‘Alá’.",
