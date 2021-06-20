@@ -12,19 +12,22 @@ class Utils {
     switch (fmtIndex) {
       case 1:
         final separator = '.';
-        if (badiDate.isAyyamIHa)
+        if (badiDate.isAyyamIHa) {
           return '$day$separator$ayyamIHa$separator$year';
+        }
         return '$day$separator$month$separator$year';
       case 2:
         final separator = '/';
-        if (badiDate.isAyyamIHa)
+        if (badiDate.isAyyamIHa) {
           return '$ayyamIHa$separator$day$separator$year';
+        }
         return '$month$separator$day$separator$year';
       case 0:
       default:
         final separator = '-';
-        if (badiDate.isAyyamIHa)
+        if (badiDate.isAyyamIHa) {
           return '$year$separator$ayyamIHa$separator$day';
+        }
         return '$year$separator$month$separator$day';
     }
   }

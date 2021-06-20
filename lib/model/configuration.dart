@@ -26,13 +26,13 @@ class Configuration {
   });
 
   Configuration withUpdatedValue({
-    newLatitude,
-    newLongitude,
-    newAltitude,
-    newLocationMethod,
-    newDateFormatIndex,
-    newLanguage,
-    newSeenDialogVersion,
+    double? newLatitude,
+    double? newLongitude,
+    double? newAltitude,
+    LocationMethod? newLocationMethod,
+    int? newDateFormatIndex,
+    String? newLanguage,
+    int? newSeenDialogVersion,
   }) {
     return Configuration(
         latitude: newLatitude ?? latitude,
@@ -55,7 +55,7 @@ class Configuration {
 
 class ConfigurationProvider {
   Configuration _configuration = Configuration();
-  ValueNotifier<Configuration> _notifier = ValueNotifier(Configuration());
+  final _notifier = ValueNotifier(Configuration());
 
   Future<Configuration> readFromSharedPreferences() async {
     // obtain shared preferences
@@ -199,7 +199,7 @@ class ConfigurationProvider {
     if (_configuration.locationMethod != LocationMethod.AUTOMATIC) {
       return;
     }
-    final Location location = new Location();
+    final Location location = Location();
     if (!await location.serviceEnabled()) {
       if (!await location.requestService()) {
         return;

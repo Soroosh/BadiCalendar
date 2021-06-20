@@ -24,13 +24,15 @@ class FeastsState extends State<Feasts> {
   final _now = DateTime.now();
   bool _hasScrolled = false;
 
+  @override
   void initState() {
     super.initState();
     _controller.addListener(() {
-      if (_controller.position.atEdge == _hasScrolled)
+      if (_controller.position.atEdge == _hasScrolled) {
         setState(() {
           _hasScrolled = !_controller.position.atEdge;
         });
+      }
     });
   }
 
@@ -82,14 +84,16 @@ class FeastsState extends State<Feasts> {
         latitude: widget.config.latitude,
         altitude: widget.config.altitude,
       );
-      if (badiDate.endDateTime.isAfter(_now))
+      if (badiDate.endDateTime.isAfter(_now)) {
         days.add(Text(
           f.format(year),
           style: Theme.of(context).textTheme.headline4,
         ));
+      }
       while (badiDate.year == year) {
-        if (_now.isBefore(badiDate.endDateTime))
+        if (_now.isBefore(badiDate.endDateTime)) {
           days.add(_buildItem(context, badiDate));
+        }
         badiDate = badiDate.getNextFeast();
       }
     } catch (_) {

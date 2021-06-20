@@ -24,13 +24,15 @@ class HolyDayState extends State<HolyDay> {
   final _now = DateTime.now();
   bool _hasScrolled = false;
 
+  @override
   void initState() {
     super.initState();
     _controller.addListener(() {
-      if (_controller.position.atEdge == _hasScrolled)
+      if (_controller.position.atEdge == _hasScrolled) {
         setState(() {
           _hasScrolled = !_controller.position.atEdge;
         });
+      }
     });
   }
 
@@ -110,12 +112,14 @@ class HolyDayState extends State<HolyDay> {
       }
       final lastAyyamIHa = badiDate.lastAyyamIHaDayOfYear;
       while (badiDate.year == year) {
-        if (_now.isBefore(badiDate.endDateTime))
+        if (_now.isBefore(badiDate.endDateTime)) {
           days.add(_buildItem(context, badiDate));
+        }
         badiDate = badiDate.nextHolyDate;
       }
-      if (_now.isBefore(lastAyyamIHa.endDateTime))
+      if (_now.isBefore(lastAyyamIHa.endDateTime)) {
         days.add(_buildAyyamIHa(context, lastAyyamIHa));
+      }
     } catch (_) {
       // continue
     }
