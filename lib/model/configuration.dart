@@ -3,7 +3,7 @@ import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum LocationMethod { AUTOMATIC, MANUEL, NONE }
-const LASTEST_DIALOG_VERSION = 3;
+const LASTEST_DIALOG_VERSION = 4;
 
 class Configuration {
   final double? latitude;
@@ -14,6 +14,7 @@ class Configuration {
   // String _dateFormat;
   final String? language;
   final int seenDialogVersion;
+  final bool hideSunsetInDates;
 
   Configuration({
     this.latitude,
@@ -23,6 +24,7 @@ class Configuration {
     this.language,
     this.seenDialogVersion = LASTEST_DIALOG_VERSION + 1,
     this.altitude,
+    this.hideSunsetInDates = false,
   });
 
   Configuration withUpdatedValue({
@@ -33,6 +35,7 @@ class Configuration {
     int? newDateFormatIndex,
     String? newLanguage,
     int? newSeenDialogVersion,
+    bool? newHideSunsetInDates,
   }) {
     return Configuration(
         latitude: newLatitude ?? latitude,
@@ -41,15 +44,18 @@ class Configuration {
         altitude: newAltitude ?? altitude,
         dateFormatIndex: newDateFormatIndex ?? dateFormatIndex,
         language: newLanguage ?? language,
+        hideSunsetInDates: newHideSunsetInDates ?? hideSunsetInDates,
         seenDialogVersion: newSeenDialogVersion ?? seenDialogVersion);
   }
 
   Configuration resetLocation() {
     return Configuration(
-        locationMethod: locationMethod,
-        dateFormatIndex: dateFormatIndex,
-        language: language,
-        seenDialogVersion: seenDialogVersion);
+      locationMethod: locationMethod,
+      dateFormatIndex: dateFormatIndex,
+      language: language,
+      seenDialogVersion: seenDialogVersion,
+      hideSunsetInDates: hideSunsetInDates,
+    );
   }
 }
 
@@ -88,7 +94,9 @@ class ConfigurationProvider {
         break;
     }
 
+    final hideSunsetInDates = prefs.getBool('hideSunsetInDates') ?? false;
     final seenDialogVersion = prefs.getInt('seenDialogVersion') ?? 0;
+
     _configuration = Configuration(
         latitude: latitude,
         longitude: longitude,
@@ -96,6 +104,7 @@ class ConfigurationProvider {
         dateFormatIndex: dateFormatIndex,
         language: language,
         locationMethod: locationMethod,
+        hideSunsetInDates: hideSunsetInDates,
         seenDialogVersion: seenDialogVersion);
     _notifier.value = _configuration;
     return _configuration;
@@ -172,6 +181,17 @@ class ConfigurationProvider {
     prefs.setInt('seenDialogVersion', version);
     _configuration =
         _configuration.withUpdatedValue(newSeenDialogVersion: version);
+    _notifier.value = _configuration;
+  }
+
+  Future<void> saveHideSunsetInDates(bool? value) async {
+    // obtain shared preferences
+    final prefs = await SharedPreferences.getInstance();
+
+    // set value
+    prefs.setBool('hideSunsetInDates', value ?? false);
+    _configuration =
+        _configuration.withUpdatedValue(newHideSunsetInDates: value);
     _notifier.value = _configuration;
   }
 

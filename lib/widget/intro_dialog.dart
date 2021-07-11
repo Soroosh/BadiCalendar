@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'date_format_setting.dart';
+import 'general_settings.dart';
 import 'language_setting.dart';
 
 class IntroDialog extends StatefulWidget {
@@ -92,6 +93,8 @@ class IntroDialogState extends State<IntroDialog> {
         return Text(l10n.selectLocationMethod);
       case 3:
         return Text(l10n.darkModeTitle);
+      case 4:
+        return Text(l10n.hideSunsetTimesTitle);
     }
     return Container();
   }
@@ -104,6 +107,8 @@ class IntroDialogState extends State<IntroDialog> {
         return _buildLocation(l10n);
       case 3:
         return _buildThemeAndFa(l10n);
+      case 4:
+        return _buildHideSunsetTimes(l10n);
     }
     return Container();
   }
@@ -144,6 +149,16 @@ class IntroDialogState extends State<IntroDialog> {
               widget._configurationProvider, widget.onLanguageChange),
         SizedBox(height: 16),
         Text(l10n.darkModeDescription),
+      ],
+    );
+  }
+
+  Widget _buildHideSunsetTimes(AppLocalizations l10n) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(l10n.hideSunsetTimesDescription),
+        HideSunsetTimesSetting(widget._configurationProvider),
       ],
     );
   }

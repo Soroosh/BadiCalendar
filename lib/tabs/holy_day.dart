@@ -1,6 +1,5 @@
 import 'package:badi_calendar/model/configuration.dart';
 import 'package:badi_calendar/model/names.dart';
-import 'package:badi_calendar/model/utils.dart';
 import 'package:badi_calendar/widget/date_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -43,29 +42,18 @@ class HolyDayState extends State<HolyDay> {
   }
 
   Widget _buildItem(BuildContext context, BadiDate badiDate) {
-    final l10n = AppLocalizations.of(context);
     final language = Localizations.localeOf(context).languageCode;
     final holyDay = HOLY_DAYS[language]?[badiDate.holyDay] ?? '';
-    final difference = Utils.getDifference(badiDate);
-    return DateCard(children: [
-      Text(
-        holyDay,
-        style: Theme.of(context).textTheme.subtitle1,
-      ),
-      Text(
-          Utils.fmtBadiDate(badiDate, fmtIndex: widget.config.dateFormatIndex)),
-      Text(l10n?.begin(Utils.fmtDateTime(badiDate.startDateTime,
-              fmtIndex: widget.config.dateFormatIndex)) ??
-          ''),
-      Text(l10n?.end(Utils.fmtDateTime(badiDate.endDateTime,
-              fmtIndex: widget.config.dateFormatIndex)) ??
-          ''),
-      if (difference < 19) Text(l10n?.dayDifference(difference) ?? '')
-    ]);
+    return DateCard(
+      title: holyDay,
+      date: badiDate,
+      dateFormatIndex: widget.config.dateFormatIndex,
+      hideSunsetTimes: widget.config.hideSunsetInDates,
+    );
   }
 
   Widget _buildAyyamIHa(BuildContext context, BadiDate badiDate) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final start = BadiDate(
       year: badiDate.year,
       day: 1,
@@ -74,20 +62,13 @@ class HolyDayState extends State<HolyDay> {
       latitude: widget.config.latitude,
       altitude: widget.config.altitude,
     );
-    final difference = Utils.getDifference(start);
-    return DateCard(children: [
-      Text(
-        l10n?.ayyamiha ?? '',
-        style: Theme.of(context).textTheme.subtitle1,
-      ),
-      Text(l10n?.begin(Utils.fmtDateTime(start.startDateTime,
-              fmtIndex: widget.config.dateFormatIndex)) ??
-          ''),
-      Text((l10n?.end(Utils.fmtDateTime(badiDate.endDateTime,
-              fmtIndex: widget.config.dateFormatIndex)) ??
-          '')),
-      if (difference < 19) Text(l10n?.dayDifference(difference) ?? '')
-    ]);
+    return DateCard(
+      title: l10n.ayyamiha,
+      date: badiDate,
+      ayyamIHaStart: start,
+      dateFormatIndex: widget.config.dateFormatIndex,
+      hideSunsetTimes: widget.config.hideSunsetInDates,
+    );
   }
 
   Widget _buildYear(BuildContext context, int year) {

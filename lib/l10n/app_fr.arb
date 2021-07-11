@@ -7,6 +7,7 @@
     "end": "Jusque {end}",
 
     "settingsTitle": "Paramètres",
+    "hideSunsetInDates": "Masquer les heures de coucher du soleil",
     "dateFormat": "Format de date",
     "dateFormatFromIndex": "{count, plural, =0{an-mois-journée} =1{journée.mois.an} =2{mois/journée/an} other{{count} not set}}",
     "locationSettingsTitle": "Méthode de localisation",
@@ -50,6 +51,8 @@
     "selectLocationMethod": "Sélectionnez la méthode de localisation",
     "darkModeTitle": "Dark Mode",
     "faAvailable": "Persian is available again:",
-    "darkModeDescription": "Dark mode is now used if dark mode is set in your system settings."
+    "darkModeDescription": "Dark mode is now used if dark mode is set in your system settings.",
+    "hideSunsetTimesTitle": "Début de journée",
+    "hideSunsetTimesDescription": "Une journée du calendrier Badi commence au coucher du soleil. Si vous souhaitez omettre les heures de coucher du soleil pour un affichage simplifié, cochez la case suivante."
 }
   

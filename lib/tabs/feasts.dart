@@ -1,6 +1,5 @@
 import 'package:badi_calendar/model/configuration.dart';
 import 'package:badi_calendar/model/names.dart';
-import 'package:badi_calendar/model/utils.dart';
 import 'package:badi_calendar/widget/date_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -43,9 +42,7 @@ class FeastsState extends State<Feasts> {
   }
 
   Widget _buildItem(BuildContext context, BadiDate badiDate) {
-    final difference = Utils.getDifference(badiDate);
     final l10n = AppLocalizations.of(context);
-    final fmtIndex = widget.config.dateFormatIndex;
     final language = Localizations.localeOf(context).languageCode;
     final monthOriginal = l10n?.showOriginal != "false"
         ? '${MONTH_NAMES[badiDate.month]} - '
@@ -54,22 +51,12 @@ class FeastsState extends State<Feasts> {
         MONTH_NAME_TRANSLATIONS[language]?[badiDate.month] ?? '';
     final month = '$monthOriginal$monthTranslation';
 
-    return DateCard(children: [
-      Text(
-        month,
-        style: Theme.of(context).textTheme.subtitle1,
-      ),
-      Text(
-        Utils.fmtBadiDate(badiDate, fmtIndex: fmtIndex),
-      ),
-      Text(l10n?.begin(
-              Utils.fmtDateTime(badiDate.startDateTime, fmtIndex: fmtIndex)) ??
-          ''),
-      Text(l10n?.end(
-              Utils.fmtDateTime(badiDate.endDateTime, fmtIndex: fmtIndex)) ??
-          ''),
-      if (difference < 19) Text(l10n?.dayDifference(difference) ?? '')
-    ]);
+    return DateCard(
+      title: month,
+      date: badiDate,
+      dateFormatIndex: widget.config.dateFormatIndex,
+      hideSunsetTimes: widget.config.hideSunsetInDates,
+    );
   }
 
   Widget _buildYear(BuildContext context, int year) {

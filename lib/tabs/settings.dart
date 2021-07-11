@@ -1,5 +1,6 @@
 import 'package:badi_calendar/model/configuration.dart';
 import 'package:badi_calendar/widget/date_format_setting.dart';
+import 'package:badi_calendar/widget/general_settings.dart';
 import 'package:badi_calendar/widget/language_setting.dart';
 import 'package:badi_calendar/widget/location_setting.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,8 @@ class Settings extends StatelessWidget {
   const Settings(this._configurationProvider, this.onLanguageChange, {Key? key})
       : super(key: key);
 
-  Widget _buildSingleSetting(
-      BuildContext context, Widget setting, String title) {
+  Widget _buildSettingGroup(
+      BuildContext context, List<Widget> settings, String title) {
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +23,7 @@ class Settings extends StatelessWidget {
           title,
           style: theme.textTheme.headline6,
         ),
-        setting,
+        ...settings,
         SizedBox(height: 10),
         Divider(),
         SizedBox(height: 10),
@@ -43,19 +44,22 @@ class Settings extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 20),
           child: ListView(
             children: <Widget>[
-              _buildSingleSetting(
+              _buildSettingGroup(
                 context,
-                LocationSetting(_configurationProvider),
+                [LocationSetting(_configurationProvider)],
                 l10n.locationSettingsTitle,
               ),
-              _buildSingleSetting(
+              _buildSettingGroup(
                 context,
-                LanguageSetting(_configurationProvider, onLanguageChange),
+                [LanguageSetting(_configurationProvider, onLanguageChange)],
                 l10n.languageSettingsTitle,
               ),
-              _buildSingleSetting(
+              _buildSettingGroup(
                 context,
-                DateFormatSetting(_configurationProvider),
+                [
+                  DateFormatSetting(_configurationProvider),
+                  HideSunsetTimesSetting(_configurationProvider),
+                ],
                 l10n.dateFormat,
               ),
             ],

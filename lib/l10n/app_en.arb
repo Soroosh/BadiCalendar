@@ -37,6 +37,10 @@
     "@settingsTitle": {
       "description": "Settings title"
     },
+    "hideSunsetInDates": "Hide sunset times",
+    "@hideSunsetInDates": {
+      "description": "Label for the hide sunset setting"
+    },
     "dateFormat": "Date format",
     "@dateFormat": {
       "description": "Label for date format selector"
@@ -228,5 +232,13 @@
     "darkModeDescription": "Dark mode is now used if it is set in your system settings.",
     "@darkModeDescription": {
       "description" : "Introducing for the dark mode"
+    },
+    "hideSunsetTimesTitle": "Start of the day",
+    "@hideSunsetTimesTitle": {
+      "description" : "Title for the hide sunset times settings"
+    },
+    "hideSunsetTimesDescription": "A day in the Badi calendar starts at sunset. If you like to omit sunset times for a simplified display, check the following checkbox.",
+    "@hideSunsetTimesDescription": {
+      "description" : "Introducing for the hide sunset times settings"
     }
 }
