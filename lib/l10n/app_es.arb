@@ -7,6 +7,7 @@
     "end": "Hasta {end}",
 
     "settingsTitle": "Configuración",
+    "hideSunsetInDates": "Ocultar la hora de la puesta de sol",
     "dateFormat": "Formato de fecha",
     "dateFormatFromIndex": "{count, plural, =0{aaa-mm-dd} =1{dd.mm.aaa} =2{mm/dd/aaa} other{{count} not set}}",
     "locationSettingsTitle": "método de localización",
@@ -50,6 +51,8 @@
     "selectLocationMethod": "Selecciona un método de localización",
     "darkModeTitle": "Modo nocturno<",
     "faAvailable": "el idioma persa está disponible de nuevo:",
-    "darkModeDescription": "El modo nocturno se activa si está activo en tu configuración del teléfono."
+    "darkModeDescription": "El modo nocturno se activa si está activo en tu configuración del teléfono.",
+    "hideSunsetTimesTitle": "Inicio del día",
+    "hideSunsetTimesDescription": "En el calendario Badí el día comienza con la puesta de sol. Si prefieres mostrar el inicio del día a a la medianoche, escoge la siguiente opción."
 }
   

@@ -34,4 +34,14 @@ void main() {
 
     expect(Utils.fmtTime(date), equals('03:04'));
   });
+
+  test('fmtDate', () {
+    final date = DateTime(2021, 1, 2, 3, 4, 5);
+
+    expect(Utils.fmtDate(date), equals('2021-01-02'));
+
+    expect(Utils.fmtDate(date, fmtIndex: 1), equals('02.01.2021'));
+
+    expect(Utils.fmtDate(date, fmtIndex: 2), equals('01/02/2021'));
+  });
 }

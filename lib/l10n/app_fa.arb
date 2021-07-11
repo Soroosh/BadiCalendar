@@ -7,6 +7,7 @@
     "end": "تا {end}",
 
     "settingsTitle": "تنظیم",
+    "hideSunsetInDates": "زمانهای غروب آفتاب را مخفی کنید",
     "dateFormat": "قالب",
     "dateFormatFromIndex": "{count, plural, =0{سال-ماه-روز} =1{روز.ماه.سال} =2{ماه/روز/سال} other{{count} not set}}",
     "locationSettingsTitle": "موقعیت",
@@ -50,6 +51,8 @@
     "selectLocationMethod": "روش مکان را انتخاب کنید",
     "darkModeTitle": "تم تاریک",
     "faAvailable": "",
-    "darkModeDescription": "اگر تم تاریک در تنظیمات سیستم شما تنظیم شود ، اکنون از تم تاریک استفاده می شود."
+    "darkModeDescription": "اگر تم تاریک در تنظیمات سیستم شما تنظیم شود ، اکنون از تم تاریک استفاده می شود.",
+    "hideSunsetTimesTitle": "شروع روز",
+    "hideSunsetTimesDescription": "روز در تقویم بهایی از غروب خورشید آغاز می شود. اگر می خواهید زمان غروب آفتاب را برای نمایش ساده حذف کنید کادر تأیید زیر را علامت بزنید"
 }
    

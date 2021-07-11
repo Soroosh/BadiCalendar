@@ -33,22 +33,28 @@ class Utils {
   }
 
   static String fmtDateTime(DateTime date, {int? fmtIndex = 0}) {
+    final dateString = fmtDate(date, fmtIndex: fmtIndex);
+    final time = fmtTime(date);
+
+    return '$dateString $time';
+  }
+
+  static String fmtDate(DateTime date, {int? fmtIndex = 0}) {
     final year = date.year;
     final month = twoDigitFormatter.format(date.month);
     final day = twoDigitFormatter.format(date.day);
-    final time = fmtTime(date);
 
     switch (fmtIndex) {
       case 1:
         final separator = '.';
-        return '$day$separator$month$separator$year $time';
+        return '$day$separator$month$separator$year';
       case 2:
         final separator = '/';
-        return '$month$separator$day$separator$year $time';
+        return '$month$separator$day$separator$year';
       case 0:
       default:
         final separator = '-';
-        return '$year$separator$month$separator$day $time';
+        return '$year$separator$month$separator$day';
     }
   }
 
