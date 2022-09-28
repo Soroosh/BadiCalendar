@@ -45,33 +45,52 @@ class DateCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     if (ayyamIHaStart != null) {
       return hideSunsetTimes
-          ? Text(l10n.begin(Utils.fmtDate(ayyamIHaStart!.endDateTime,
-              fmtIndex: dateFormatIndex)))
-          : Text(l10n.begin(Utils.fmtDateTime(ayyamIHaStart!.startDateTime,
-              fmtIndex: dateFormatIndex)));
+          ? Text(l10n.begin(Utils.fmtDate(
+              ayyamIHaStart!.endDateTime,
+              fmtIndex: dateFormatIndex,
+              language: l10n.localeName,
+            )))
+          : Text(l10n.begin(Utils.fmtDateTime(
+              ayyamIHaStart!.startDateTime,
+              fmtIndex: dateFormatIndex,
+              language: l10n.localeName,
+            )));
     }
     return hideSunsetTimes
         ? Container()
-        : Text(l10n.begin(
-            Utils.fmtDateTime(date.startDateTime, fmtIndex: dateFormatIndex)));
+        : Text(l10n.begin(Utils.fmtDateTime(
+            date.startDateTime,
+            fmtIndex: dateFormatIndex,
+            language: l10n.localeName,
+          )));
   }
 
   Widget _buildEndDate(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     if (!hideSunsetTimes) {
-      return Text(l10n
-          .end(Utils.fmtDateTime(date.endDateTime, fmtIndex: dateFormatIndex)));
+      return Text(l10n.end(Utils.fmtDateTime(
+        date.endDateTime,
+        fmtIndex: dateFormatIndex,
+        language: l10n.localeName,
+      )));
     }
     return ayyamIHaStart == null
-        ? Text(Utils.fmtDate(date.endDateTime, fmtIndex: dateFormatIndex))
-        : Text(l10n
-            .end(Utils.fmtDate(date.endDateTime, fmtIndex: dateFormatIndex)));
+        ? Text(Utils.fmtDate(
+            date.endDateTime,
+            fmtIndex: dateFormatIndex,
+            language: l10n.localeName,
+          ))
+        : Text(l10n.end(Utils.fmtDate(
+            date.endDateTime,
+            fmtIndex: dateFormatIndex,
+            language: l10n.localeName,
+          )));
   }
 
   @override
   Widget build(BuildContext context) {
-    final difference = Utils.getDifference(ayyamIHaStart ?? date);
     final l10n = AppLocalizations.of(context)!;
+    final remaining = Utils.getRemainingDaysString(ayyamIHaStart ?? date, l10n);
 
     return _GeneralDateCard(
       [
@@ -80,7 +99,7 @@ class DateCard extends StatelessWidget {
           Text(Utils.fmtBadiDate(date, fmtIndex: dateFormatIndex)),
         _buildStartDate(context),
         _buildEndDate(context),
-        if (difference < 19) Text(l10n.dayDifference(difference))
+        if (remaining != null) Text(remaining)
       ],
     );
   }

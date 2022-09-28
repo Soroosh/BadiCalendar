@@ -1,7 +1,7 @@
 {
     "showOriginal": "false",
     "appName": "تقویم بهایی",
-    "dayDifference": "{count, plural, =0{امروز}, =1{در یک روز}, other{ در {count} روز }}",
+    "dayDifference": "{count, plural, =0{امروز}, =1{فردا}, other{ در {count} روز }}",
     "ayyamiha": "ايام الهاء",
     "begin": "از {begin}",
     "end": "تا {end}",
@@ -55,4 +55,3 @@
     "hideSunsetTimesTitle": "شروع روز",
     "hideSunsetTimesDescription": "روز در تقویم بهایی از غروب خورشید آغاز می شود. اگر می خواهید زمان غروب آفتاب را برای نمایش ساده حذف کنید کادر تأیید زیر را علامت بزنید"
 }
-   

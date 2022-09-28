@@ -188,7 +188,11 @@ class FullDateState extends State<FullDate> {
     return ListView(
       children: <Widget>[
         Text(
-          Utils.fmtDateTime(_dateTime, fmtIndex: widget.config.dateFormatIndex),
+          Utils.fmtDateTime(
+            _dateTime,
+            fmtIndex: widget.config.dateFormatIndex,
+            language: widget.config.language,
+          ),
           style: textTheme.subtitle1,
         ),
         Text(

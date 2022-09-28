@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Calendario Bahá’í",
-    "dayDifference": "{count, plural, =0{Hoy}, =1{En un día}, other{En {count} días}}",
+    "dayDifference": "{count, plural, =0{Hoy}, =1{Mañana}, other{En {count} días}}",
     "ayyamiha": "Días de Há",
     "begin": "De {begin}",
     "end": "Hasta {end}",
@@ -42,7 +42,7 @@
     "vahidTitle": "Año, Vahid, and Kull-i-Shay:",
     "vahidExplanation": "El calendario Badí‘ Calendar define un Váḥid como un período de 19 años. Cada año en el Váḥid tiene un nombre. 19 Váḥids (361 años) forman un Kull-i-Shay’.",
     "vahid": "El año {year} en el calendario badí {yearInVahid} en el Váḥid {vahid} del primer Kull-i-Shay y se llama {yearName}.",
-    
+
     "skip": "OMITIR",
     "next": "SIGUIENTE",
     "fin": "FINALIZAR",
@@ -55,4 +55,3 @@
     "hideSunsetTimesTitle": "Inicio del día",
     "hideSunsetTimesDescription": "En el calendario Badí el día comienza con la puesta de sol. Si prefieres mostrar el inicio del día a a la medianoche, escoge la siguiente opción."
 }
-  

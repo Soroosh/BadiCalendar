@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
-  badi_date: ^1.0.2
+  badi_date: ^1.0.3
   dart_suncalc: ^0.2.1
   flutter:
     sdk: flutter
