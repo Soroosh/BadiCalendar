@@ -49,17 +49,22 @@ void main() {
   });
 
   test('getRemainingDaysString', () {
-    final initialDate = DateTime.now().subtract(Duration(hours: 6));
+    final initialDate = DateTime.now();
     final l10n = AppLocalizationsEn();
     for (int i = 0; i < 18; i++) {
       final expected = l10n.dayDifference(i);
-      final date = initialDate.add(Duration(days: i));
+      final date = initialDate.add(Duration(days: i, minutes: 1));
       final badiDate = BadiDate.fromDate(date);
       final result = Utils.getRemainingDaysString(badiDate, l10n);
-      expect(result, expected);
+      expect(
+        result,
+        expected,
+        reason: '$i: $date, ${Utils.getDifferenceToNow(badiDate)}',
+      );
     }
-    final date = initialDate.add(Duration(days: 19));
+    final date = initialDate.add(Duration(days: 19, minutes: 1));
     final badiDate = BadiDate.fromDate(date);
-    expect(Utils.getRemainingDaysString(badiDate, l10n), null);
+    expect(Utils.getRemainingDaysString(badiDate, l10n), null,
+        reason: '19: ${DateTime.now()}, $date');
   });
 }
