@@ -1,5 +1,6 @@
 import 'package:badi_calendar/model/utils.dart';
 import 'package:badi_date/badi_date.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations_en.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -22,11 +23,13 @@ void main() {
   test('fmtDateTime', () {
     final date = DateTime(2021, 1, 2, 3, 4, 5);
 
-    expect(Utils.fmtDateTime(date), equals('2021-01-02 03:04'));
+    expect(Utils.fmtDateTime(date), equals('Sat, 2021-01-02 03:04'));
 
-    expect(Utils.fmtDateTime(date, fmtIndex: 1), equals('02.01.2021 03:04'));
+    expect(
+        Utils.fmtDateTime(date, fmtIndex: 1), equals('Sat, 02.01.2021 03:04'));
 
-    expect(Utils.fmtDateTime(date, fmtIndex: 2), equals('01/02/2021 03:04'));
+    expect(
+        Utils.fmtDateTime(date, fmtIndex: 2), equals('Sat, 01/02/2021 03:04'));
   });
 
   test('fmtTime', () {
@@ -38,10 +41,30 @@ void main() {
   test('fmtDate', () {
     final date = DateTime(2021, 1, 2, 3, 4, 5);
 
-    expect(Utils.fmtDate(date), equals('2021-01-02'));
+    expect(Utils.fmtDate(date), equals('Sat, 2021-01-02'));
 
-    expect(Utils.fmtDate(date, fmtIndex: 1), equals('02.01.2021'));
+    expect(Utils.fmtDate(date, fmtIndex: 1), equals('Sat, 02.01.2021'));
 
-    expect(Utils.fmtDate(date, fmtIndex: 2), equals('01/02/2021'));
+    expect(Utils.fmtDate(date, fmtIndex: 2), equals('Sat, 01/02/2021'));
+  });
+
+  test('getRemainingDaysString', () {
+    final initialDate = DateTime.now();
+    final l10n = AppLocalizationsEn();
+    for (int i = 0; i < 18; i++) {
+      final expected = l10n.dayDifference(i);
+      final date = initialDate.add(Duration(days: i, minutes: 1));
+      final badiDate = BadiDate.fromDate(date);
+      final result = Utils.getRemainingDaysString(badiDate, l10n);
+      expect(
+        result,
+        expected,
+        reason: '$i: $date, ${Utils.getDifferenceToNow(badiDate)}',
+      );
+    }
+    final date = initialDate.add(Duration(days: 19, minutes: 1));
+    final badiDate = BadiDate.fromDate(date);
+    expect(Utils.getRemainingDaysString(badiDate, l10n), null,
+        reason: '19: ${DateTime.now()}, $date');
   });
 }

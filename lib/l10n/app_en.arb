@@ -1,244 +1,244 @@
 {
     "showOriginal": "true",
     "@showOriginal": {
-      "description" : "Should also the original text be shown."
+        "description": "Should also the original text be shown."
     },
     "appName": "Bahá’í Calendar",
     "@appName": {
-      "description": "The name of the app"
-    },    
-    "dayDifference": "{count, plural, =0{Today}, =1{In one day}, other{In {count} days}}",
+        "description": "The name of the app"
+    },
+    "dayDifference": "{count, plural, =0{Today}, =1{Tomorrow}, other{In {count} days}}",
     "@dayDifference": {
-      "description" : "The difference in days",
-      "placeholders": {
-          "count": {}
-      }
+        "description": "The difference in days",
+        "placeholders": {
+            "count": {}
+        }
     },
     "ayyamiha": "Ayyám-i-Há",
     "@ayyamiha": {
-      "description" : "Ayyam-i-Ha"
+        "description": "Ayyam-i-Ha"
     },
     "begin": "From {begin}",
     "@begin": {
-      "description" : "Begin date",
-      "placeholders": {
-        "begin": {}
-      }
+        "description": "Begin date",
+        "placeholders": {
+            "begin": {}
+        }
     },
     "end": "Till {end}",
     "@end": {
-      "description" : "End date",
-      "placeholders": {
-        "end": {}
-      }
+        "description": "End date",
+        "placeholders": {
+            "end": {}
+        }
     },
 
     "settingsTitle": "Settings",
     "@settingsTitle": {
-      "description": "Settings title"
+        "description": "Settings title"
     },
     "hideSunsetInDates": "Hide sunset times",
     "@hideSunsetInDates": {
-      "description": "Label for the hide sunset setting"
+        "description": "Label for the hide sunset setting"
     },
     "dateFormat": "Date format",
     "@dateFormat": {
-      "description": "Label for date format selector"
+        "description": "Label for date format selector"
     },
     "dateFormatFromIndex": "{count, plural, =0{year-month-day} =1{day.month.year} =2{month/day/year} other{{count} not set}}",
     "@dateFormatFromIndex": {
-      "description" : "Radio labels",
-      "placeholders": {
-        "count": {}
-      }
+        "description": "Radio labels",
+        "placeholders": {
+            "count": {}
+        }
     },
     "locationSettingsTitle": "Location Method",
     "@locationSettingsTitle": {
-      "description" : "Title for the location section in the settings"
+        "description": "Title for the location section in the settings"
     },
     "locationSettingsMethod": "{index, plural, =0{Auto locate}, =1{Manually set location}, =other{Do not use location}}",
-    "@locationSettingsMethod": { 
-      "description" : "Radio title for location method",
-      "placeholders": {
-        "index": {}
-      }
+    "@locationSettingsMethod": {
+        "description": "Radio title for location method",
+        "placeholders": {
+            "index": {}
+        }
     },
     "longitude": "Longitude",
     "@longitude": {
-      "description" : "longitude"
+        "description": "longitude"
     },
     "longitudeHelper": "Decimal value. Negative values for West.",
     "@longitudeHelper": {
-      "description" : "hint text for the longitude input"
+        "description": "hint text for the longitude input"
     },
     "latitude": "Latitude",
     "@latitude": {
-      "description" : "Latitude"
+        "description": "Latitude"
     },
     "latitudeHelper": "Decimal value. Negative values for South.",
     "@latitudeHelper": {
-      "description" : "hint text for the latitude input"
+        "description": "hint text for the latitude input"
     },
     "locationError": "Value is erroneous. Please change.",
     "@locationError": {
-      "description" : "hint text for the false location input"
-    },    
+        "description": "hint text for the false location input"
+    },
     "languageSettingsTitle": "Language",
     "@languageSettingsTitle": {
-      "description" : "Title for the language section in the settings"
+        "description": "Title for the language section in the settings"
     },
 
     "feasts": "Feasts",
     "@feasts": {
-      "description": "Tab bar text for the Feasts tab"
+        "description": "Tab bar text for the Feasts tab"
     },
 
     "holyDayTab": "Holy Days",
     "@holyDayTab": {
-      "description": "Tab bar text for the Holy Days tab"
+        "description": "Tab bar text for the Holy Days tab"
     },
     "upcoming": "Upcoming Holy and special days",
     "@upcoming": {
-      "description": "Text for the Holy Day tab"
+        "description": "Text for the Holy Day tab"
     },
 
     "fullDate": "Date",
     "@fullDate": {
-      "description": "Tab bar text for the full date tab"
+        "description": "Tab bar text for the full date tab"
     },
     "ok": "OK",
     "@ok": {
-      "description" : "Confirm"
+        "description": "Confirm"
     },
     "cancel": "CANCEL",
     "@cancel": {
-      "description" : "Disapprove"
+        "description": "Disapprove"
     },
     "selectADate": "Select a date",
     "@selectADate": {
-      "description" : "Calendar picker helper text"
+        "description": "Calendar picker helper text"
     },
     "specialDay": "Holy and special day:",
     "@specialDay": {
-      "description" : "Holy day note in the full date tab"
+        "description": "Holy day note in the full date tab"
     },
     "periodOfFast": "Period of fast",
     "@periodOfFast": {
-      "description" : "Fast note in the full date tab"
+        "description": "Fast note in the full date tab"
     },
     "sunset": "Sunset at {time}",
     "@sunset": {
-      "description" : "Sunset note in the full date tab",
-      "placeholders": {
-        "time": {}
-      }   
+        "description": "Sunset note in the full date tab",
+        "placeholders": {
+            "time": {}
+        }
     },
     "sunrise": "Sunrise at {time}",
     "@sunrise": {
-      "description" : "Sunrise note in the full date tab",
-      "placeholders": {
-        "time": {}
-      }    
+        "description": "Sunrise note in the full date tab",
+        "placeholders": {
+            "time": {}
+        }
     },
     "noon": "Noon at {time}",
     "@noon": {
-      "description" : "Noon note in the full date tab",
-      "placeholders": {
-        "time": {}
-      }    
+        "description": "Noon note in the full date tab",
+        "placeholders": {
+            "time": {}
+        }
     },
     "dayAndMonth": "The name of the day is {day} of the month {month}",
     "@dayAndMonth": {
-      "description" : "Day and month",
-      "placeholders": {
-        "month": {},
-        "day": {}
-      } 
+        "description": "Day and month",
+        "placeholders": {
+            "month": {},
+            "day": {}
+        }
     },
     "dayAndMonthTitle": "Month and Day name:",
     "@dayAndMonthTitle": {
-      "description" : "Day and month title"
+        "description": "Day and month title"
     },
     "feastHint": "It's the first day of the month. This is a feast day.",
     "@feastHint": {
-      "description" : "Hint that it's a feast day"
-    },    
+        "description": "Hint that it's a feast day"
+    },
     "dayAndMonthExplanation": "Each of the 19 days of a month has a name. The names are the same as the month names- the first day of the month is the day Bahá and the last day of the month is the day ‘Alá’.",
     "@dayAndMonthExplanation": {
-      "description" : "Explanation on Day names"
+        "description": "Explanation on Day names"
     },
     "dayOfTheWeek": "The day of the week is {day}.",
     "@dayOfTheWeek": {
-      "description" : "Day of the week",
-      "placeholders": {
-        "day": {}
-      } 
+        "description": "Day of the week",
+        "placeholders": {
+            "day": {}
+        }
     },
     "weekDayTitle": "Weekday:",
     "@weekDayTitle": {
-      "description" : "Weekday title"
+        "description": "Weekday title"
     },
     "vahidTitle": "Year, Vahid, and Kull-i_Shay:",
     "@vahidTitle": {
-      "description" : "Vahid and Kull-i_Shay title"
+        "description": "Vahid and Kull-i_Shay title"
     },
     "vahidExplanation": "The Badí‘ Calendar defines Váḥid which is a period of 19 years. Each year in the Váḥid has a name. 19 Váḥids (361 years) are a Kull-i-Shay’.",
     "@vahidExplanation": {
-      "description" : "Explanation of Vahid and Kull-i-Shay, and year name"
+        "description": "Explanation of Vahid and Kull-i-Shay, and year name"
     },
     "vahid": "The year {year} in the Badi calendar is the year {yearInVahid} in the Váḥid {vahid} of the 1st Kull-i-Shay and has the name {yearName}.",
     "@vahid": {
-      "description" : "Vahid and Kull-i-Shay of the date",
-      "placeholders": {
-        "vahid": {},
-        "yearInVahid": {},
-        "yearName": {},
-        "year": {}
-      } 
-    }, 
+        "description": "Vahid and Kull-i-Shay of the date",
+        "placeholders": {
+            "vahid": {},
+            "yearInVahid": {},
+            "yearName": {},
+            "year": {}
+        }
+    },
 
     "skip": "SKIP",
     "@skip": {
-      "description" : "Skip button text"
-    },   
+        "description": "Skip button text"
+    },
     "next": "NEXT",
     "@next": {
-      "description" : "Next button text"
-    },    
+        "description": "Next button text"
+    },
     "fin": "FINISH",
     "@fin": {
-      "description" : "Finish button text"
-    },     
+        "description": "Finish button text"
+    },
     "selectLanguage": "Select a language and the preferred date format",
     "@selectLanguage": {
-      "description" : "Title for the language and date format section dialog"
+        "description": "Title for the language and date format section dialog"
     },
     "selectLocationMethod": "Select location method",
     "@selectLocationMethod": {
-      "description" : "Title for the location method section dialog"
+        "description": "Title for the location method section dialog"
     },
     "locationDescription": "This app can use your location to calculate the sunset time. You can either let the app use your device location, set the location manually, or don't use locations. If you don't use location, 6pm will be used as sunset time. You can change the settings anytime.",
     "@locationDescription": {
-      "description" : "Explanation on why to use location"
+        "description": "Explanation on why to use location"
     },
     "darkModeTitle": "Dark Mode",
     "@darkModeTitle": {
-      "description" : "Title for the dark mode dialog"
+        "description": "Title for the dark mode dialog"
     },
     "faAvailable": "Persian is available again:",
     "@faAvailable": {
-      "description" : "Announcing that FA is back"
+        "description": "Announcing that FA is back"
     },
     "darkModeDescription": "Dark mode is now used if it is set in your system settings.",
     "@darkModeDescription": {
-      "description" : "Introducing for the dark mode"
+        "description": "Introducing for the dark mode"
     },
     "hideSunsetTimesTitle": "Start of the day",
     "@hideSunsetTimesTitle": {
-      "description" : "Title for the hide sunset times settings"
+        "description": "Title for the hide sunset times settings"
     },
     "hideSunsetTimesDescription": "A day in the Badi calendar starts at sunset. If you like to omit sunset times for a simplified display, check the following checkbox.",
     "@hideSunsetTimesDescription": {
-      "description" : "Introducing for the hide sunset times settings"
+        "description": "Introducing for the hide sunset times settings"
     }
 }

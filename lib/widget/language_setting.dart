@@ -28,7 +28,7 @@ class LanguageSetting extends StatelessWidget {
                 elevation: 16,
                 underline: Container(
                   height: 2,
-                  color: theme.accentColor,
+                  color: theme.colorScheme.secondary,
                 ),
                 onChanged: (String? newValue) {
                   if (newValue == null) return;

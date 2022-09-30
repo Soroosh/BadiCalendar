@@ -3,6 +3,7 @@ import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum LocationMethod { AUTOMATIC, MANUEL, NONE }
+
 const LASTEST_DIALOG_VERSION = 4;
 
 class Configuration {

@@ -1,4 +1,6 @@
+import 'package:badi_calendar/model/names.dart';
 import 'package:badi_date/badi_date.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class Utils {
@@ -32,29 +34,39 @@ class Utils {
     }
   }
 
-  static String fmtDateTime(DateTime date, {int? fmtIndex = 0}) {
-    final dateString = fmtDate(date, fmtIndex: fmtIndex);
+  static String fmtDateTime(
+    DateTime date, {
+    int? fmtIndex = 0,
+    String? language,
+  }) {
+    final dateString = fmtDate(date, fmtIndex: fmtIndex, language: language);
     final time = fmtTime(date);
 
     return '$dateString $time';
   }
 
-  static String fmtDate(DateTime date, {int? fmtIndex = 0}) {
+  static String fmtDate(
+    DateTime date, {
+    int? fmtIndex = 0,
+    String? language,
+  }) {
     final year = date.year;
     final month = twoDigitFormatter.format(date.month);
     final day = twoDigitFormatter.format(date.day);
+    final lang = language?.isEmpty ?? true ? 'en' : language;
+    final weekday = WEEKDAYS_GREGORIAN[lang]?[date.weekday] ?? '';
 
     switch (fmtIndex) {
       case 1:
         final separator = '.';
-        return '$day$separator$month$separator$year';
+        return '$weekday, $day$separator$month$separator$year';
       case 2:
         final separator = '/';
-        return '$month$separator$day$separator$year';
+        return '$weekday, $month$separator$day$separator$year';
       case 0:
       default:
         final separator = '-';
-        return '$year$separator$month$separator$day';
+        return '$weekday, $year$separator$month$separator$day';
     }
   }
 
@@ -63,12 +75,21 @@ class Utils {
   }
 
   /// returns the difference of the start date time of the BadiDate to now
-  /// difference is in days
-  /// if difference is <0 0 is returned
-  static int getDifference(BadiDate badiDate) {
-    final difference = badiDate.startDateTime.difference(DateTime.now()).inDays;
-    if (difference < 0) return 0;
-    // diff in days just returns full day differences; therefore, we add 1
-    return difference + 1;
+  static Duration getDifferenceToNow(BadiDate badiDate) =>
+      badiDate.startDateTime.difference(DateTime.now());
+
+  /// returns a text with remaining days from now to badiDate
+  static String? getRemainingDaysString(
+    BadiDate badiDate,
+    AppLocalizations l10n,
+  ) {
+    final difference = getDifferenceToNow(badiDate);
+    if (difference > Duration(days: 18)) {
+      return null;
+    }
+    if (difference.isNegative) {
+      return l10n.dayDifference(0);
+    }
+    return l10n.dayDifference(difference.inDays + 1);
   }
 }

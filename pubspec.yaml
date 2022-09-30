@@ -18,25 +18,25 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 3.2.0+20
 
 environment:
-  sdk: ">=2.13.3 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
+  badi_date: ^1.0.3
+  dart_suncalc: ^0.2.1
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
-  dart_suncalc: ^0.2.1
-  badi_date: ^1.0.1
-  location: ^4.3.0
-  shared_preferences: ^2.0.6
+  location: ^4.4.0
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: 5.0.10
-  flutter_launcher_icons: ^0.9.0
-  lints: ^1.0.1
+  flutter_launcher_icons: ^0.10.0
+  lints: ^2.0.0
+  mockito: 5.3.1
 
 flutter_icons:
   android: "launcher_icon"
