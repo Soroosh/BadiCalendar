@@ -45,6 +45,7 @@ class HolyDayState extends State<HolyDay> {
     final language = Localizations.localeOf(context).languageCode;
     final holyDay = HOLY_DAYS[language]?[badiDate.holyDay] ?? '';
     return DateCard(
+      key: Key('HolyDay_${badiDate.year}_$holyDay'),
       title: holyDay,
       date: badiDate,
       dateFormatIndex: widget.config.dateFormatIndex,
@@ -63,6 +64,7 @@ class HolyDayState extends State<HolyDay> {
       altitude: widget.config.altitude,
     );
     return DateCard(
+      key: Key('HolyDay_${badiDate.year}_ayyamiha'),
       title: l10n.ayyamiha,
       date: badiDate,
       ayyamIHaStart: start,
@@ -86,10 +88,14 @@ class HolyDayState extends State<HolyDay> {
       if (badiDate.endDateTime.isAfter(_now)) {
         days.add(Text(
           f.format(year),
+          key: Key('HolyDaysYear$year'),
           style: Theme.of(context).textTheme.headline4,
         ));
       } else {
-        days.add(Text(AppLocalizations.of(context)?.upcoming ?? ''));
+        days.add(Text(
+          AppLocalizations.of(context)?.upcoming ?? '',
+          key: Key('HolyDaysExplanation'),
+        ));
       }
       final lastAyyamIHa = badiDate.lastAyyamIHaDayOfYear;
       while (badiDate.year == year) {
@@ -134,13 +140,16 @@ class HolyDayState extends State<HolyDay> {
       altitude: widget.config.altitude,
     );
     return Stack(children: [
-      ListView.builder(
-        padding: EdgeInsets.all(10),
-        controller: _controller,
-        itemCount: BadiDate.LAST_YEAR_SUPPORTED - badiNow.year,
-        itemBuilder: (BuildContext context, int index) {
-          return _buildYear(context, badiNow.year + index);
-        },
+      SelectionArea(
+        child: ListView.builder(
+          key: Key('HolyDayListView'),
+          padding: EdgeInsets.all(10),
+          controller: _controller,
+          itemCount: BadiDate.LAST_YEAR_SUPPORTED - badiNow.year,
+          itemBuilder: (BuildContext context, int index) {
+            return _buildYear(context, badiNow.year + index);
+          },
+        ),
       ),
       Positioned(
         bottom: 25,

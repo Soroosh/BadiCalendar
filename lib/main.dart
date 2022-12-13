@@ -106,7 +106,7 @@ class HomePageState extends State<HomePage> {
     final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n?.appName ?? ''),
+        title: SelectableText(l10n?.appName ?? ''),
         bottom: TabBar(
           tabs: [
             Tab(text: l10n?.fullDate ?? ''),
