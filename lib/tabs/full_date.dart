@@ -222,7 +222,9 @@ class FullDateState extends State<FullDate> {
     return Stack(children: [
       Padding(
         padding: EdgeInsets.all(20),
-        child: _buildDateInfo(),
+        child: SelectionArea(
+          child: _buildDateInfo(),
+        ),
       ),
       Positioned(
         bottom: 25,

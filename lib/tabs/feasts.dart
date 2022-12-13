@@ -52,6 +52,7 @@ class FeastsState extends State<Feasts> {
     final month = '$monthOriginal$monthTranslation';
 
     return DateCard(
+      key: Key('Feast_${badiDate.year}_${badiDate.month}'),
       title: month,
       date: badiDate,
       dateFormatIndex: widget.config.dateFormatIndex,
@@ -73,6 +74,7 @@ class FeastsState extends State<Feasts> {
       );
       if (badiDate.endDateTime.isAfter(_now)) {
         days.add(Text(
+          key: Key('FeastYear$year'),
           f.format(year),
           style: Theme.of(context).textTheme.headline4,
         ));
@@ -116,7 +118,9 @@ class FeastsState extends State<Feasts> {
       altitude: widget.config.altitude,
     );
     return Stack(children: [
-      ListView.builder(
+      SelectionArea(
+        child: ListView.builder(
+          key: Key('FeastListView'),
           controller: _controller,
           padding: EdgeInsets.all(10),
           itemCount: 19 * (BadiDate.LAST_YEAR_SUPPORTED - today.year),
@@ -127,7 +131,9 @@ class FeastsState extends State<Feasts> {
             } catch (_) {
               return Container();
             }
-          }),
+          },
+        ),
+      ),
       Positioned(
         bottom: 25,
         right: 25,

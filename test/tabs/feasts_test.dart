@@ -12,8 +12,8 @@ void main() {
     // Verify tabs and settings.
     expect(find.byType(DateCard), findsWidgets);
     expect(find.byIcon(Icons.arrow_upward), findsNothing);
-    final gesture = await tester.startGesture(Offset(0, 300));
-    await gesture.moveBy(Offset(0, -300));
+    await tester.drag(
+        find.byKey(Key('FeastListView')), const Offset(0.0, -600));
     await tester.pump();
     expect(find.byIcon(Icons.arrow_upward), findsOneWidget);
     await tester.tap(find.byType(FloatingActionButton));

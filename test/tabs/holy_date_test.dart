@@ -14,8 +14,8 @@ void main() {
     expect(find.byType(DateCard), findsWidgets);
     expect(find.text('Upcoming Holy and special days'), findsOneWidget);
     expect(find.byIcon(Icons.arrow_upward), findsNothing);
-    final gesture = await tester.startGesture(Offset(0, 300));
-    await gesture.moveBy(Offset(0, -300));
+    await tester.drag(
+        find.byKey(Key('HolyDayListView')), const Offset(0.0, -600));
     await tester.pump();
     expect(find.byIcon(Icons.arrow_upward), findsOneWidget);
     await tester.tap(find.byType(FloatingActionButton));
