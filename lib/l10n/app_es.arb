@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Calendario Bahá’í",
-    "dayDifference": "{count, plural, =0{Hoy}, =1{Mañana}, other{En {count} días}}",
+    "dayDifference": "{count, plural, =0{Hoy} =1{Mañana} other{En {count} días}}",
     "ayyamiha": "Días de Há",
     "begin": "De {begin}",
     "end": "Hasta {end}",
@@ -11,7 +11,7 @@
     "dateFormat": "Formato de fecha",
     "dateFormatFromIndex": "{count, plural, =0{aaa-mm-dd} =1{dd.mm.aaa} =2{mm/dd/aaa} other{{count} not set}}",
     "locationSettingsTitle": "método de localización",
-    "locationSettingsMethod": "{index, plural, =0{localización automática}, =1{localización manual}, =other{No usar localización}}",
+    "locationSettingsMethod": "{index, plural, =0{localización automática} =1{localización manual} other{No usar localización}}",
     "longitude": "Longitud",
     "longitudeHelper": "Cifra decimal. Cifras negativas para Oeste.",
     "latitude": "Latitude",

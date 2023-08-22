@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Bahai Takvimi",
-    "dayDifference": "{count, plural, =0{Bugün}, =1{Yarın}, other{{count} gün sonra}}",
+    "dayDifference": "{count, plural, =0{Bugün} =1{Yarın} other{{count} gün sonra}}",
     "ayyamiha": "Ha Günleri",
     "begin": "Nereden {begin}",
     "end": "Kadar {end}",
@@ -11,7 +11,7 @@
     "dateFormat": "Biçim",
     "dateFormatFromIndex": "{count, plural, =0{yıl-ay-gün} =1{gün.ay.yıl} =2{ay/gün/yıl} other{{count} not set}}",
     "locationSettingsTitle": "Konum Yöntemi",
-    "locationSettingsMethod": "{index, plural, =0{Otomatik bul}, =1{Manuel olarak konum ayarla}, =other{Konumu kullanma}}",
+    "locationSettingsMethod": "{index, plural, =0{Otomatik bul} =1{Manuel olarak konum ayarla} other{Konumu kullanma}}",
     "longitude": "Boylam",
     "longitudeHelper": "Batı için negatif değerler.",
     "latitude": "Enlem",

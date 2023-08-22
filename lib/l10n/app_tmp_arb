@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Bahá’í Calendar",
-    "dayDifference": "{count, plural, =0{Today}, =1{Tomorrow}, other{In {count} days}}",
+    "dayDifference": "{count, plural, =0{Today} =1{Tomorrow} other{In {count} days}}",
     "ayyamiha": "Ayyám-i-Há",
     "begin": "From {begin}",
     "end": "Till {end}",
@@ -11,7 +11,7 @@
     "dateFormat": "Date format",
     "dateFormatFromIndex": "{count, plural, =0{year-month-day} =1{day.month.year} =2{month/day/year} other{{count} not set}}",
     "locationSettingsTitle": "Location Method",
-    "locationSettingsMethod": "{index, plural, =0{Auto locate}, =1{Manually set location}, =other{Do not use location}}",
+    "locationSettingsMethod": "{index, plural, =0{Auto locate} =1{Manually set location} other{Do not use location}}",
     "longitude": "Longitude",
     "longitudeHelper": "Decimal value. Negative values for West.",
     "latitude": "Latitude",

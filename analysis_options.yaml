@@ -4,9 +4,6 @@ analyzer:
   exclude: [build/**]
   language:
     strict-raw-types: true
-  strong-mode:
-    implicit-casts: false
-
 linter:
   rules:
     constant_identifier_names: false

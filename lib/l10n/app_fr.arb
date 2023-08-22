@@ -1,7 +1,7 @@
 {
     "showOriginal": "true",
     "appName": "Calendrier Badīʿ",
-    "dayDifference": "{count, plural, =0{Aujourd'hui }, =1{Demain}, other{Dans {count} jours}}",
+    "dayDifference": "{count, plural, =0{Aujourd'hui } =1{Demain} other{Dans {count} jours}}",
     "ayyamiha": "Ayyám-i-Há",
     "begin": "De {begin}",
     "end": "Jusque {end}",
@@ -11,7 +11,7 @@
     "dateFormat": "Format de date",
     "dateFormatFromIndex": "{count, plural, =0{an-mois-journée} =1{journée.mois.an} =2{mois/journée/an} other{{count} not set}}",
     "locationSettingsTitle": "Méthode de localisation",
-    "locationSettingsMethod": "{index, plural, =0{Localisation automatique}, =1{Emplacement défini manuellement}, =other{N'utilisez pas la localisation}}",
+    "locationSettingsMethod": "{index, plural, =0{Localisation automatique} =1{Emplacement défini manuellement} other{N'utilisez pas la localisation}}",
     "longitude": "Longitude",
     "longitudeHelper": "Valeurs négatives pour l'Ouest.",
     "latitude": "Latitude",

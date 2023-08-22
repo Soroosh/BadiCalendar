@@ -1,7 +1,7 @@
 {
     "showOriginal": "false",
     "appName": "تقویم بهایی",
-    "dayDifference": "{count, plural, =0{امروز}, =1{فردا}, other{ در {count} روز }}",
+    "dayDifference": "{count, plural, =0{امروز} =1{فردا} other{ در {count} روز }}",
     "ayyamiha": "ايام الهاء",
     "begin": "از {begin}",
     "end": "تا {end}",
@@ -11,7 +11,7 @@
     "dateFormat": "قالب",
     "dateFormatFromIndex": "{count, plural, =0{سال-ماه-روز} =1{روز.ماه.سال} =2{ماه/روز/سال} other{{count} not set}}",
     "locationSettingsTitle": "موقعیت",
-    "locationSettingsMethod": "{index, plural, =0{مکان یابی خودکار}, =1{مکان را به صورت دستی تنظیم کنید}, =other{از مکان استفاده نکنید}}",
+    "locationSettingsMethod": "{index, plural, =0{مکان یابی خودکار} =1{مکان را به صورت دستی تنظیم کنید} other{از مکان استفاده نکنید}}",
     "longitude": "عرض جغرافیایی",
     "longitudeHelper": "ارزشهای منفی برای غرب",
     "latitude": "عرض جغرافیایی",

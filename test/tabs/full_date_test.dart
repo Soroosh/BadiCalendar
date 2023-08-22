@@ -12,7 +12,7 @@ void main() {
     // Verify tabs and settings.
     expect(find.text('Weekday:'), findsOneWidget);
     expect(find.text('Month and Day name:'), findsOneWidget);
-    expect(find.text('Year, Vahid, and Kull-i_Shay:'), findsOneWidget);
+    expect(find.text('Year, Vahid, and Kull-i-Shay:'), findsOneWidget);
     expect(find.byIcon(Icons.calendar_today), findsOneWidget);
     await tester.tap(find.byType(FloatingActionButton));
     await tester.pumpAndSettle(Duration(milliseconds: 10));

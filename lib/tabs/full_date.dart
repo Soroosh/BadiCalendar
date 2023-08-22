@@ -223,8 +223,8 @@ class FullDateState extends State<FullDate> {
       Padding(
         padding: EdgeInsets.all(20),
         child: SelectionArea(
-          child: _buildDateInfo(),
-        ),
+            child: _buildDateInfo(),
+            selectionControls: MaterialTextSelectionControls()),
       ),
       Positioned(
         bottom: 25,
