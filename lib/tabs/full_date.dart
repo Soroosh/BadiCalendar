@@ -57,11 +57,11 @@ class FullDateState extends State<FullDate> {
         _sizedBox(),
         Text(
           l10n.specialDay,
-          style: textTheme.subtitle1,
+          style: textTheme.headlineMedium,
         ),
         Text(
           holyDay,
-          style: textTheme.bodyText1,
+          style: textTheme.bodyLarge,
         ),
       ],
     );
@@ -78,11 +78,11 @@ class FullDateState extends State<FullDate> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text(
         l10n.weekDayTitle,
-        style: textTheme.subtitle1,
+        style: textTheme.titleMedium,
       ),
       Text(
         l10n.dayOfTheWeek(day),
-        style: textTheme.bodyText1,
+        style: textTheme.bodyLarge,
       ),
     ]);
   }
@@ -106,13 +106,13 @@ class FullDateState extends State<FullDate> {
       children: [
         Text(
           l10n.dayAndMonthTitle,
-          style: textTheme.subtitle1,
+          style: textTheme.titleMedium,
         ),
         if (badiDate.day == 1) Text(l10n.feastHint),
-        Text(l10n.dayAndMonthExplanation, style: textTheme.caption),
+        Text(l10n.dayAndMonthExplanation, style: textTheme.bodySmall),
         Text(
           l10n.dayAndMonth(month, day),
-          style: textTheme.bodyText1,
+          style: textTheme.bodyLarge,
         ),
       ],
     );
@@ -132,16 +132,16 @@ class FullDateState extends State<FullDate> {
       children: [
         Text(
           l10n.vahidTitle,
-          style: textTheme.subtitle1,
+          style: textTheme.titleMedium,
         ),
         Text(
           l10n.vahidExplanation,
-          style: textTheme.caption,
+          style: textTheme.bodySmall,
         ),
         Text(
             l10n.vahid(badiDate.vahid, badiDate.yearInVahid, yearInVahid,
                 badiDate.year),
-            style: textTheme.subtitle2)
+            style: textTheme.titleSmall)
       ],
     );
   }
@@ -164,7 +164,7 @@ class FullDateState extends State<FullDate> {
         if (badiDate.isPeriodOfFast)
           Text(
             l10n.periodOfFast,
-            style: textTheme.subtitle1,
+            style: textTheme.titleMedium,
           ),
         if (sunrise != null) Text(l10n.sunrise(Utils.fmtTime(sunrise))),
         if (noon != null) Text(l10n.noon(Utils.fmtTime(noon))),
@@ -193,12 +193,12 @@ class FullDateState extends State<FullDate> {
             fmtIndex: widget.config.dateFormatIndex,
             language: widget.config.language,
           ),
-          style: textTheme.subtitle1,
+          style: textTheme.titleMedium,
         ),
         Text(
           Utils.fmtBadiDate(badiDate,
               fmtIndex: widget.config.dateFormatIndex, ayyamIHa: l10n.ayyamiha),
-          style: textTheme.subtitle1,
+          style: textTheme.titleMedium,
         ),
         _buildHolydayInfo(badiDate, l10n),
         _sizedBox(),

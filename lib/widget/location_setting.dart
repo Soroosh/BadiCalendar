@@ -89,7 +89,7 @@ class LocationSettingState extends State<LocationSetting> {
                   _saveLongitude(_longitudeController.text);
                 }
               }),
-          Text(l10n?.longitudeHelper ?? '', style: theme.textTheme.caption),
+          Text(l10n?.longitudeHelper ?? '', style: theme.textTheme.bodySmall),
           SizedBox(height: 5),
           Focus(
             child: TextField(
@@ -107,7 +107,7 @@ class LocationSettingState extends State<LocationSetting> {
               }
             },
           ),
-          Text(l10n?.latitudeHelper ?? '', style: theme.textTheme.caption),
+          Text(l10n?.latitudeHelper ?? '', style: theme.textTheme.bodySmall),
         ]));
   }
 

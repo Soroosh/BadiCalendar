@@ -94,7 +94,7 @@ class DateCard extends StatelessWidget {
 
     return _GeneralDateCard(
       [
-        Text(title, style: Theme.of(context).textTheme.subtitle1),
+        Text(title, style: Theme.of(context).textTheme.titleMedium),
         if (ayyamIHaStart == null)
           Text(Utils.fmtBadiDate(date, fmtIndex: dateFormatIndex)),
         _buildStartDate(context),

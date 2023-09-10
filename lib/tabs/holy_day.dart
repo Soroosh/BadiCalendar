@@ -89,7 +89,7 @@ class HolyDayState extends State<HolyDay> {
         days.add(Text(
           f.format(year),
           key: Key('HolyDaysYear$year'),
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ));
       } else {
         days.add(Text(

@@ -21,7 +21,7 @@ class Settings extends StatelessWidget {
       children: [
         Text(
           title,
-          style: theme.textTheme.headline6,
+          style: theme.textTheme.titleLarge,
         ),
         ...settings,
         SizedBox(height: 10),

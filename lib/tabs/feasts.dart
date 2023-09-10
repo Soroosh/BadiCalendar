@@ -76,7 +76,7 @@ class FeastsState extends State<Feasts> {
         days.add(Text(
           key: Key('FeastYear$year'),
           f.format(year),
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ));
       }
       while (badiDate.year == year) {

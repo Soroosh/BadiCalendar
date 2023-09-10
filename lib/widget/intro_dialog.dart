@@ -120,10 +120,10 @@ class IntroDialogState extends State<IntroDialog> {
       children: [
         Text(
           l10n.languageSettingsTitle,
-          style: theme.textTheme.subtitle1,
+          style: theme.textTheme.titleMedium,
         ),
         LanguageSetting(widget._configurationProvider, widget.onLanguageChange),
-        Text(l10n.dateFormat, style: theme.textTheme.subtitle1),
+        Text(l10n.dateFormat, style: theme.textTheme.titleMedium),
         DateFormatSetting(widget._configurationProvider),
       ],
     );
