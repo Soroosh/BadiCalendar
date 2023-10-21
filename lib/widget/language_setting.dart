@@ -8,8 +8,7 @@ class LanguageSetting extends StatelessWidget {
   final void Function(String) onLanguageChange;
 
   const LanguageSetting(this._configurationProvider, this.onLanguageChange,
-      {Key? key})
-      : super(key: key);
+      {super.key});
 
   @override
   Widget build(BuildContext context) {

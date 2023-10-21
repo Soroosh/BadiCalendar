@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class _GeneralDateCard extends StatelessWidget {
   final List<Widget> children;
 
-  const _GeneralDateCard(this.children, {Key? key}) : super(key: key);
+  const _GeneralDateCard(this.children);
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +38,8 @@ class DateCard extends StatelessWidget {
     required this.dateFormatIndex,
     this.hideSunsetTimes = false,
     this.ayyamIHaStart,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   Widget _buildStartDate(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;

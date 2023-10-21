@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 class Feasts extends StatefulWidget {
   final Configuration config;
 
-  const Feasts({Key? key, required this.config}) : super(key: key);
+  const Feasts({super.key, required this.config});
 
   @override
   State<StatefulWidget> createState() {

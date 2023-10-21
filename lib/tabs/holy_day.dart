@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 class HolyDay extends StatefulWidget {
   final Configuration config;
 
-  const HolyDay({Key? key, required this.config}) : super(key: key);
+  const HolyDay({super.key, required this.config});
 
   @override
   State<StatefulWidget> createState() {

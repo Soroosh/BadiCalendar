@@ -10,7 +10,7 @@ import 'package:badi_date/badi_date.dart';
 class FullDate extends StatefulWidget {
   final Configuration config;
 
-  const FullDate({Key? key, required this.config}) : super(key: key);
+  const FullDate({super.key, required this.config});
 
   @override
   State<StatefulWidget> createState() {
@@ -57,7 +57,7 @@ class FullDateState extends State<FullDate> {
         _sizedBox(),
         Text(
           l10n.specialDay,
-          style: textTheme.headlineMedium,
+          style: textTheme.titleMedium,
         ),
         Text(
           holyDay,

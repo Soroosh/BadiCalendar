@@ -10,8 +10,8 @@ class Settings extends StatelessWidget {
   final ConfigurationProvider _configurationProvider;
   final void Function(String) onLanguageChange;
 
-  const Settings(this._configurationProvider, this.onLanguageChange, {Key? key})
-      : super(key: key);
+  const Settings(this._configurationProvider, this.onLanguageChange,
+      {super.key});
 
   Widget _buildSettingGroup(
       BuildContext context, List<Widget> settings, String title) {

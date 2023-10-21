@@ -15,8 +15,8 @@ class IntroDialog extends StatefulWidget {
   const IntroDialog(
     this._configurationProvider,
     this.onLanguageChange, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<StatefulWidget> createState() {
