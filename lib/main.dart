@@ -69,8 +69,7 @@ class MyAppState extends State<MyApp> {
 class HomePage extends StatefulWidget {
   final ConfigurationProvider _configurationProvider;
   final void Function(String language) onLanguageChange;
-  HomePage(this._configurationProvider, this.onLanguageChange, {Key? key})
-      : super(key: key);
+  HomePage(this._configurationProvider, this.onLanguageChange, {super.key});
 
   @override
   HomePageState createState() => HomePageState();

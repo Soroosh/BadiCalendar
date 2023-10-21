@@ -5,8 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class LocationSetting extends StatefulWidget {
   final ConfigurationProvider _configurationProvider;
 
-  const LocationSetting(this._configurationProvider, {Key? key})
-      : super(key: key);
+  const LocationSetting(this._configurationProvider, {super.key});
 
   @override
   State<StatefulWidget> createState() {

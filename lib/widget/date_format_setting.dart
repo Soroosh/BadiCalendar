@@ -5,8 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class DateFormatSetting extends StatelessWidget {
   final ConfigurationProvider _configurationProvider;
 
-  const DateFormatSetting(this._configurationProvider, {Key? key})
-      : super(key: key);
+  const DateFormatSetting(this._configurationProvider, {super.key});
 
   void _saveDateFormatIndex(int? value) {
     if (value == null) return;

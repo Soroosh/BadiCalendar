@@ -5,8 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HideSunsetTimesSetting extends StatelessWidget {
   final ConfigurationProvider _configurationProvider;
 
-  const HideSunsetTimesSetting(this._configurationProvider, {Key? key})
-      : super(key: key);
+  const HideSunsetTimesSetting(this._configurationProvider, {super.key});
 
   @override
   Widget build(BuildContext context) {
