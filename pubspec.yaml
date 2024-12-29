@@ -3,7 +3,7 @@ description: A Baha'i Calendar App.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -15,42 +15,46 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 3.4.1+23
+version: 3.5.0+24
 
 environment:
-  sdk: ">=3.1.0 <4.0.0"
+  sdk: ">=3.6.0 <4.0.0"
 
 dependencies:
-  badi_date: ^1.0.4
-  cupertino_icons: ^1.0.6
-  dart_suncalc: ^0.2.1
+  badi_date: ">=1.0.4 <2.0.0"
+  cupertino_icons: ">=1.0.8 <2.0.0"
+  dart_suncalc: ">=0.2.1 <1.0.0"
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.18.1
-  location: ^5.0.3
-  shared_preferences: ^2.2.0
+  intl: ">=0.19.0 <1.0.0"
+  location: ">=7.0.1 <8.0.0"
+  shared_preferences: ">=2.3.4 <3.0.0"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.13.1
-  lints: ^3.0.0
-  mockito: ^5.4.2
+  flutter_launcher_icons: ">=0.14.2 <1.0.0"
+  lints: ">=5.1.1 <6.0.0"
+  mockito: ">=5.4.5 <6.0.0"
 
-flutter_icons:
+flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon/ic_launcher.png"
+  web:
+    generate: true
+    image_path: "assets/icon/ic_launcher.png"
+    background_color: "#000"
+    theme_color: "#fff"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
-  generate: true 
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
