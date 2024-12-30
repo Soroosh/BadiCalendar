@@ -1,4 +1,4 @@
-import 'package:badi_calendar/tabs/settings.dart';
+import 'package:badi_calendar/pages/settings.dart';
 import 'package:badi_calendar/widget/date_format_setting.dart';
 import 'package:badi_calendar/widget/general_settings.dart';
 import 'package:badi_calendar/widget/language_setting.dart';
