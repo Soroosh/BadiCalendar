@@ -24,7 +24,7 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.calendar_today));
     await tester.pump();
-    await tester.tap(find.byIcon(Icons.edit));
+    await tester.tap(find.byIcon(Icons.edit_outlined));
     await tester.pump();
     await tester.enterText(find.byType(TextField), '05/26/2021');
     await tester.tap(find.text('OK'));
