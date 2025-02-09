@@ -56,10 +56,68 @@ class HolyDayState extends State<HolyDay> {
         : Container();
   }
 
+  Widget _buildYear(BuildContext context, int year) {
+    final List<Widget> days = [];
+    var f = NumberFormat("###", widget.config.language);
+    try {
+      BadiDate badiDate = BadiDate(
+        year: year,
+        month: 1,
+        day: 1,
+        longitude: widget.config.longitude,
+        latitude: widget.config.latitude,
+        altitude: widget.config.altitude,
+      );
+      if (badiDate.endDateTime.isAfter(_now)) {
+        days.add(Text(
+          f.format(year),
+          key: Key('HolyDaysYear$year'),
+          style: Theme.of(context).textTheme.headlineMedium,
+        ));
+      } else {
+        days.add(Text(
+          AppLocalizations.of(context)?.upcoming ?? '',
+          key: Key('HolyDaysExplanation'),
+        ));
+      }
+      final lastAyyamIHa = badiDate.lastAyyamIHaDayOfYear;
+      while (badiDate.year == year) {
+        if (_now.isBefore(badiDate.endDateTime)) {
+          days.add(HolyDayCard(config: widget.config, badiDate: badiDate));
+        }
+        badiDate = badiDate.nextHolyDate;
+      }
+      if (_now.isBefore(lastAyyamIHa.endDateTime)) {
+        days.add(AyyamIHaCard(config: widget.config, badiDate: lastAyyamIHa));
+      }
+    } catch (_) {
+      // continue
+    }
+    return Column(
+      children: days,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final badiNow = BadiDate.fromDate(
+      _now,
+      longitude: widget.config.longitude,
+      latitude: widget.config.latitude,
+      altitude: widget.config.altitude,
+    );
     return Stack(children: [
-      HolyDayList(config: widget.config, controller: _controller, now: _now),
+      SelectionArea(
+        child: ListView.builder(
+          key: Key('HolyDayListView'),
+          padding: EdgeInsets.all(10),
+          controller: _controller,
+          itemCount: BadiDate.LAST_YEAR_SUPPORTED - badiNow.year,
+          itemBuilder: (BuildContext context, int index) {
+            return _buildYear(context, badiNow.year + index);
+          },
+        ),
+      ),
       Positioned(
         bottom: 25,
         right: 25,
@@ -69,18 +127,18 @@ class HolyDayState extends State<HolyDay> {
   }
 }
 
-class HolyDayList extends StatelessWidget {
+class HolyDayCard extends StatelessWidget {
   final Configuration config;
-  final ScrollController controller;
-  final DateTime now;
+  final BadiDate badiDate;
 
-  const HolyDayList(
-      {super.key,
-      required this.config,
-      required this.controller,
-      required this.now});
+  const HolyDayCard({
+    super.key,
+    required this.config,
+    required this.badiDate,
+  });
 
-  Widget _buildItem(BuildContext context, BadiDate badiDate) {
+  @override
+  Widget build(BuildContext context) {
     final language = Localizations.localeOf(context).languageCode;
     final holyDay = HOLY_DAYS[language]?[badiDate.holyDay] ?? '';
     return DateCard(
@@ -91,8 +149,20 @@ class HolyDayList extends StatelessWidget {
       hideSunsetTimes: config.hideSunsetInDates,
     );
   }
+}
 
-  Widget _buildAyyamIHa(BuildContext context, BadiDate badiDate) {
+class AyyamIHaCard extends StatelessWidget {
+  final Configuration config;
+  final BadiDate badiDate;
+
+  const AyyamIHaCard({
+    super.key,
+    required this.config,
+    required this.badiDate,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final start = BadiDate(
       year: badiDate.year,
@@ -109,69 +179,6 @@ class HolyDayList extends StatelessWidget {
       ayyamIHaStart: start,
       dateFormatIndex: config.dateFormatIndex,
       hideSunsetTimes: config.hideSunsetInDates,
-    );
-  }
-
-  Widget _buildYear(BuildContext context, int year) {
-    final List<Widget> days = [];
-    var f = NumberFormat("###", config.language);
-    try {
-      BadiDate badiDate = BadiDate(
-        year: year,
-        month: 1,
-        day: 1,
-        longitude: config.longitude,
-        latitude: config.latitude,
-        altitude: config.altitude,
-      );
-      if (badiDate.endDateTime.isAfter(now)) {
-        days.add(Text(
-          f.format(year),
-          key: Key('HolyDaysYear$year'),
-          style: Theme.of(context).textTheme.headlineMedium,
-        ));
-      } else {
-        days.add(Text(
-          AppLocalizations.of(context)?.upcoming ?? '',
-          key: Key('HolyDaysExplanation'),
-        ));
-      }
-      final lastAyyamIHa = badiDate.lastAyyamIHaDayOfYear;
-      while (badiDate.year == year) {
-        if (now.isBefore(badiDate.endDateTime)) {
-          days.add(_buildItem(context, badiDate));
-        }
-        badiDate = badiDate.nextHolyDate;
-      }
-      if (now.isBefore(lastAyyamIHa.endDateTime)) {
-        days.add(_buildAyyamIHa(context, lastAyyamIHa));
-      }
-    } catch (_) {
-      // continue
-    }
-    return Column(
-      children: days,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final badiNow = BadiDate.fromDate(
-      now,
-      longitude: config.longitude,
-      latitude: config.latitude,
-      altitude: config.altitude,
-    );
-    return SelectionArea(
-      child: ListView.builder(
-        key: Key('HolyDayListView'),
-        padding: EdgeInsets.all(10),
-        controller: controller,
-        itemCount: BadiDate.LAST_YEAR_SUPPORTED - badiNow.year,
-        itemBuilder: (BuildContext context, int index) {
-          return _buildYear(context, badiNow.year + index);
-        },
-      ),
     );
   }
 }

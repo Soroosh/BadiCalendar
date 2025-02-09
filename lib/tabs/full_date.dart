@@ -7,6 +7,8 @@ import 'package:dart_suncalc/suncalc.dart';
 
 import 'package:badi_date/badi_date.dart';
 
+const MAX_WIDTH = 600.0;
+
 class FullDate extends StatefulWidget {
   final Configuration config;
 
@@ -21,13 +23,50 @@ class FullDate extends StatefulWidget {
 class FullDateState extends State<FullDate> {
   DateTime _dateTime = DateTime.now();
 
-  Widget _buildCalendarPicker(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      Padding(
+        padding: EdgeInsets.all(20),
+        child: SelectionArea(
+          child: FullDateList(
+            config: widget.config,
+            dateTime: _dateTime,
+          ),
+        ),
+      ),
+      Positioned(
+        bottom: 25,
+        right: 25,
+        child:
+            FloatingDatePicker(dateTime: _dateTime, onDatePicked: onDatePicked),
+      ),
+    ]);
+  }
+
+  void onDatePicked(DateTime newDate) {
+    setState(() {
+      _dateTime = DateTime(newDate.year, newDate.month, newDate.day,
+          _dateTime.hour, _dateTime.minute);
+    });
+  }
+}
+
+class FloatingDatePicker extends StatelessWidget {
+  final DateTime dateTime;
+  final void Function(DateTime newDate) onDatePicked;
+
+  const FloatingDatePicker(
+      {super.key, required this.dateTime, required this.onDatePicked});
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     return FloatingActionButton(
       onPressed: () async {
         final newDate = await showDatePicker(
           context: context,
-          initialDate: _dateTime,
+          initialDate: dateTime,
           firstDate: DateTime(1844, 5, 23),
           lastDate: DateTime(1844 + BadiDate.LAST_YEAR_SUPPORTED, 3, 19),
           confirmText: l10n?.ok,
@@ -35,18 +74,30 @@ class FullDateState extends State<FullDate> {
           helpText: l10n?.selectADate,
           locale: Localizations.localeOf(context),
         );
-        if (newDate != null && newDate != _dateTime) {
-          setState(() {
-            _dateTime = DateTime(newDate.year, newDate.month, newDate.day,
-                _dateTime.hour, _dateTime.minute);
-          });
+        if (newDate != null && newDate != dateTime) {
+          onDatePicked(newDate);
         }
       },
       child: Icon(Icons.calendar_today),
     );
   }
+}
 
-  Widget _buildHolydayInfo(BadiDate badiDate, AppLocalizations l10n) {
+class FullDateList extends StatelessWidget {
+  final Configuration config;
+  final DateTime dateTime;
+  final bool asSliver;
+  final Widget? datePicker;
+
+  const FullDateList(
+      {super.key,
+      required this.config,
+      required this.dateTime,
+      this.datePicker,
+      this.asSliver = false});
+
+  Widget _buildHolydayInfo(
+      BuildContext context, BadiDate badiDate, AppLocalizations l10n) {
     if (badiDate.holyDay == null) return Container();
     final textTheme = Theme.of(context).textTheme;
     final language = Localizations.localeOf(context).languageCode;
@@ -67,9 +118,10 @@ class FullDateState extends State<FullDate> {
     );
   }
 
-  Widget _buildDayOfTheWeek(BadiDate badiDate, AppLocalizations l10n) {
+  Widget _buildDayOfTheWeek(
+      BuildContext context, BadiDate badiDate, AppLocalizations l10n) {
     final textTheme = Theme.of(context).textTheme;
-    final dayIndex = _dateTime.weekday;
+    final dayIndex = dateTime.weekday;
     final dayOriginal =
         l10n.showOriginal != "false" ? '${WEEK_DAY[dayIndex]} - ' : '';
     final language = Localizations.localeOf(context).languageCode;
@@ -87,7 +139,8 @@ class FullDateState extends State<FullDate> {
     ]);
   }
 
-  Widget _buildMonthAndDay(BadiDate badiDate, AppLocalizations l10n) {
+  Widget _buildMonthAndDay(
+      BuildContext context, BadiDate badiDate, AppLocalizations l10n) {
     final textTheme = Theme.of(context).textTheme;
     final language = Localizations.localeOf(context).languageCode;
     final dayOriginal =
@@ -109,7 +162,10 @@ class FullDateState extends State<FullDate> {
           style: textTheme.titleMedium,
         ),
         if (badiDate.day == 1) Text(l10n.feastHint),
-        Text(l10n.dayAndMonthExplanation, style: textTheme.bodySmall),
+        Container(
+          constraints: BoxConstraints(maxWidth: MAX_WIDTH),
+          child: Text(l10n.dayAndMonthExplanation, style: textTheme.bodySmall),
+        ),
         Text(
           l10n.dayAndMonth(month, day),
           style: textTheme.bodyLarge,
@@ -118,7 +174,8 @@ class FullDateState extends State<FullDate> {
     );
   }
 
-  Widget _buildVahidAndYear(BadiDate badiDate, AppLocalizations l10n) {
+  Widget _buildVahidAndYear(
+      BuildContext context, BadiDate badiDate, AppLocalizations l10n) {
     final textTheme = Theme.of(context).textTheme;
     final yearOriginal = l10n.showOriginal != "false"
         ? '${YEAR_NAMES[badiDate.yearInVahid]} - '
@@ -134,25 +191,32 @@ class FullDateState extends State<FullDate> {
           l10n.vahidTitle,
           style: textTheme.titleMedium,
         ),
-        Text(
-          l10n.vahidExplanation,
-          style: textTheme.bodySmall,
+        Container(
+          constraints: BoxConstraints(maxWidth: MAX_WIDTH),
+          child: Text(
+            l10n.vahidExplanation,
+            style: textTheme.bodySmall,
+          ),
         ),
-        Text(
-            l10n.vahid(badiDate.vahid, badiDate.yearInVahid, yearInVahid,
-                badiDate.year),
-            style: textTheme.titleSmall)
+        Container(
+          constraints: BoxConstraints(maxWidth: MAX_WIDTH),
+          child: Text(
+              l10n.vahid(badiDate.vahid, badiDate.yearInVahid, yearInVahid,
+                  badiDate.year),
+              style: textTheme.titleSmall),
+        ),
       ],
     );
   }
 
-  Widget _buildSunsetAndRiseInfo(BadiDate badiDate, AppLocalizations l10n) {
+  Widget _buildSunsetAndRiseInfo(
+      BuildContext context, BadiDate badiDate, AppLocalizations l10n) {
     final textTheme = Theme.of(context).textTheme;
-    final lng = widget.config.longitude;
-    final lat = widget.config.latitude;
+    final lng = config.longitude;
+    final lat = config.latitude;
     final sunCalcTimes = lat != null && lng != null
-        ? SunCalc.getTimes(_dateTime.toUtc(),
-            lat: lat, lng: lng, height: widget.config.altitude ?? 0)
+        ? SunCalc.getTimes(dateTime.toUtc(),
+            lat: lat, lng: lng, height: config.altitude ?? 0)
         : null;
     final sunset = sunCalcTimes?.sunset?.toLocal();
     final sunrise = sunCalcTimes?.sunrise?.toLocal();
@@ -173,64 +237,68 @@ class FullDateState extends State<FullDate> {
     );
   }
 
-  Widget _buildDateInfo() {
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     if (l10n == null) {
       return Container();
     }
     final textTheme = Theme.of(context).textTheme;
     final BadiDate badiDate = BadiDate.fromDate(
-      _dateTime,
-      longitude: widget.config.longitude,
-      latitude: widget.config.latitude,
-      altitude: widget.config.altitude,
+      dateTime,
+      longitude: config.longitude,
+      latitude: config.latitude,
+      altitude: config.altitude,
     );
+    final content = [
+      Text(
+        Utils.fmtDateTime(
+          dateTime,
+          fmtIndex: config.dateFormatIndex,
+          language: config.language,
+        ),
+        style: textTheme.titleMedium,
+      ),
+      Text(
+        Utils.fmtBadiDate(badiDate,
+            fmtIndex: config.dateFormatIndex, ayyamIHa: l10n.ayyamiha),
+        style: textTheme.titleMedium,
+      ),
+      _buildHolydayInfo(context, badiDate, l10n),
+      _sizedBox(),
+      _buildSunsetAndRiseInfo(context, badiDate, l10n),
+      _sizedBox(),
+      _buildDayOfTheWeek(context, badiDate, l10n),
+      _sizedBox(),
+      _buildMonthAndDay(context, badiDate, l10n),
+      _sizedBox(),
+      _buildVahidAndYear(context, badiDate, l10n),
+    ];
+    if (asSliver) {
+      final datePickerButton = datePicker;
+      return SliverList.list(
+        key: Key('full-date'),
+        children: [
+          _sizedBox(32),
+          ...content,
+          _sizedBox(32),
+          if (datePickerButton != null)
+            Container(
+              padding: EdgeInsets.only(bottom: 32, left: 640),
+              width: MAX_WIDTH,
+              alignment: Alignment.centerLeft,
+              child: datePickerButton,
+            ),
+        ],
+      );
+    }
     return ListView(
-      children: <Widget>[
-        Text(
-          Utils.fmtDateTime(
-            _dateTime,
-            fmtIndex: widget.config.dateFormatIndex,
-            language: widget.config.language,
-          ),
-          style: textTheme.titleMedium,
-        ),
-        Text(
-          Utils.fmtBadiDate(badiDate,
-              fmtIndex: widget.config.dateFormatIndex, ayyamIHa: l10n.ayyamiha),
-          style: textTheme.titleMedium,
-        ),
-        _buildHolydayInfo(badiDate, l10n),
-        _sizedBox(),
-        _buildSunsetAndRiseInfo(badiDate, l10n),
-        _sizedBox(),
-        _buildDayOfTheWeek(badiDate, l10n),
-        _sizedBox(),
-        _buildMonthAndDay(badiDate, l10n),
-        _sizedBox(),
-        _buildVahidAndYear(badiDate, l10n),
-      ],
+      key: Key('full-date'),
+      children: content,
     );
   }
 
   Widget _sizedBox([double height = 16]) {
     return SizedBox(height: height);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(children: [
-      Padding(
-        padding: EdgeInsets.all(20),
-        child: SelectionArea(
-            child: _buildDateInfo(),
-            selectionControls: MaterialTextSelectionControls()),
-      ),
-      Positioned(
-        bottom: 25,
-        right: 25,
-        child: _buildCalendarPicker(context),
-      ),
-    ]);
   }
 }

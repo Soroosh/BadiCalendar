@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:badi_calendar/model/utils.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+const DATE_CARD_WIDTH = 256.0;
+
 class _GeneralDateCard extends StatelessWidget {
   final List<Widget> children;
 
@@ -15,7 +17,7 @@ class _GeneralDateCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8))),
       child: Container(
-        width: 256,
+        width: DATE_CARD_WIDTH,
         padding: EdgeInsets.all(8),
         child: Column(children: children),
       ),
