@@ -1,7 +1,7 @@
+import 'package:badi_calendar/l10n/app_localizations.dart';
 import 'package:badi_date/badi_date.dart';
 import 'package:flutter/material.dart';
 import 'package:badi_calendar/model/utils.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const DATE_CARD_WIDTH = 256.0;
 
