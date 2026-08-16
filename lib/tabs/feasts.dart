@@ -1,8 +1,8 @@
+import 'package:badi_calendar/l10n/app_localizations.dart';
 import 'package:badi_calendar/model/configuration.dart';
 import 'package:badi_calendar/model/names.dart';
 import 'package:badi_calendar/widget/date_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:badi_date/badi_date.dart';
 import 'package:intl/intl.dart';
@@ -19,7 +19,7 @@ class Feasts extends StatefulWidget {
 }
 
 class FeastsState extends State<Feasts> {
-  final ScrollController _controller = ScrollController();
+  final _controller = ScrollController();
   final _now = DateTime.now();
   bool _hasScrolled = false;
 
@@ -41,23 +41,19 @@ class FeastsState extends State<Feasts> {
     _controller.dispose();
   }
 
-  Widget _buildItem(BuildContext context, BadiDate badiDate) {
-    final l10n = AppLocalizations.of(context);
-    final language = Localizations.localeOf(context).languageCode;
-    final monthOriginal = l10n?.showOriginal != "false"
-        ? '${MONTH_NAMES[badiDate.month]} - '
-        : '';
-    final monthTranslation =
-        MONTH_NAME_TRANSLATIONS[language]?[badiDate.month] ?? '';
-    final month = '$monthOriginal$monthTranslation';
-
-    return DateCard(
-      key: Key('Feast_${badiDate.year}_${badiDate.month}'),
-      title: month,
-      date: badiDate,
-      dateFormatIndex: widget.config.dateFormatIndex,
-      hideSunsetTimes: widget.config.hideSunsetInDates,
-    );
+  Widget _buildFAB(BuildContext context) {
+    return _hasScrolled
+        ? FloatingActionButton(
+            onPressed: () {
+              _controller.animateTo(
+                0,
+                duration: Duration(seconds: 1),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: Icon(Icons.arrow_upward),
+          )
+        : Container();
   }
 
   Widget _buildYear(BuildContext context, int year) {
@@ -81,7 +77,7 @@ class FeastsState extends State<Feasts> {
       }
       while (badiDate.year == year) {
         if (_now.isBefore(badiDate.endDateTime)) {
-          days.add(_buildItem(context, badiDate));
+          days.add(FeastCard(config: widget.config, badiDate: badiDate));
         }
         badiDate = badiDate.getNextFeast();
       }
@@ -93,25 +89,9 @@ class FeastsState extends State<Feasts> {
     );
   }
 
-  Widget _buildFAB(BuildContext context) {
-    return _hasScrolled
-        ? FloatingActionButton(
-            onPressed: () {
-              _controller.animateTo(
-                0,
-                duration: Duration(seconds: 1),
-                curve: Curves.easeInOut,
-              );
-            },
-            tooltip: 'Increment',
-            child: Icon(Icons.arrow_upward),
-          )
-        : Container();
-  }
-
   @override
   Widget build(BuildContext context) {
-    BadiDate today = BadiDate.fromDate(
+    final today = BadiDate.fromDate(
       _now,
       longitude: widget.config.longitude,
       latitude: widget.config.latitude,
@@ -140,5 +120,35 @@ class FeastsState extends State<Feasts> {
         child: _buildFAB(context),
       ),
     ]);
+  }
+}
+
+class FeastCard extends StatelessWidget {
+  final Configuration config;
+  final BadiDate badiDate;
+
+  const FeastCard({
+    super.key,
+    required this.config,
+    required this.badiDate,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final language = Localizations.localeOf(context).languageCode;
+    final monthOriginal = l10n?.showOriginal != "false"
+        ? '${MONTH_NAMES[badiDate.month]} - '
+        : '';
+    final monthTranslation =
+        MONTH_NAME_TRANSLATIONS[language]?[badiDate.month] ?? '';
+    final month = '$monthOriginal$monthTranslation';
+    return DateCard(
+      key: Key('Feast_${badiDate.year}_${badiDate.month}'),
+      title: month,
+      date: badiDate,
+      dateFormatIndex: config.dateFormatIndex,
+      hideSunsetTimes: config.hideSunsetInDates,
+    );
   }
 }

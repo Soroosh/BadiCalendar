@@ -1,8 +1,8 @@
+import 'package:badi_calendar/l10n/app_localizations.dart';
 import 'package:badi_calendar/model/configuration.dart';
 import 'package:badi_calendar/model/names.dart';
 import 'package:badi_calendar/widget/date_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:badi_date/badi_date.dart';
 import 'package:intl/intl.dart';
@@ -41,36 +41,19 @@ class HolyDayState extends State<HolyDay> {
     _controller.dispose();
   }
 
-  Widget _buildItem(BuildContext context, BadiDate badiDate) {
-    final language = Localizations.localeOf(context).languageCode;
-    final holyDay = HOLY_DAYS[language]?[badiDate.holyDay] ?? '';
-    return DateCard(
-      key: Key('HolyDay_${badiDate.year}_$holyDay'),
-      title: holyDay,
-      date: badiDate,
-      dateFormatIndex: widget.config.dateFormatIndex,
-      hideSunsetTimes: widget.config.hideSunsetInDates,
-    );
-  }
-
-  Widget _buildAyyamIHa(BuildContext context, BadiDate badiDate) {
-    final l10n = AppLocalizations.of(context)!;
-    final start = BadiDate(
-      year: badiDate.year,
-      day: 1,
-      ayyamIHa: true,
-      longitude: widget.config.longitude,
-      latitude: widget.config.latitude,
-      altitude: widget.config.altitude,
-    );
-    return DateCard(
-      key: Key('HolyDay_${badiDate.year}_ayyamiha'),
-      title: l10n.ayyamiha,
-      date: badiDate,
-      ayyamIHaStart: start,
-      dateFormatIndex: widget.config.dateFormatIndex,
-      hideSunsetTimes: widget.config.hideSunsetInDates,
-    );
+  Widget _buildFAB(BuildContext context) {
+    return _hasScrolled
+        ? FloatingActionButton(
+            onPressed: () {
+              _controller.animateTo(
+                0,
+                duration: Duration(seconds: 1),
+                curve: Curves.easeInOut,
+              );
+            },
+            child: Icon(Icons.arrow_upward),
+          )
+        : Container();
   }
 
   Widget _buildYear(BuildContext context, int year) {
@@ -100,12 +83,12 @@ class HolyDayState extends State<HolyDay> {
       final lastAyyamIHa = badiDate.lastAyyamIHaDayOfYear;
       while (badiDate.year == year) {
         if (_now.isBefore(badiDate.endDateTime)) {
-          days.add(_buildItem(context, badiDate));
+          days.add(HolyDayCard(config: widget.config, badiDate: badiDate));
         }
         badiDate = badiDate.nextHolyDate;
       }
       if (_now.isBefore(lastAyyamIHa.endDateTime)) {
-        days.add(_buildAyyamIHa(context, lastAyyamIHa));
+        days.add(AyyamIHaCard(config: widget.config, badiDate: lastAyyamIHa));
       }
     } catch (_) {
       // continue
@@ -113,22 +96,6 @@ class HolyDayState extends State<HolyDay> {
     return Column(
       children: days,
     );
-  }
-
-  Widget _buildFAB(BuildContext context) {
-    return _hasScrolled
-        ? FloatingActionButton(
-            onPressed: () {
-              _controller.animateTo(
-                0,
-                duration: Duration(seconds: 1),
-                curve: Curves.easeInOut,
-              );
-            },
-            tooltip: 'Increment',
-            child: Icon(Icons.arrow_upward),
-          )
-        : Container();
   }
 
   @override
@@ -157,5 +124,61 @@ class HolyDayState extends State<HolyDay> {
         child: _buildFAB(context),
       ),
     ]);
+  }
+}
+
+class HolyDayCard extends StatelessWidget {
+  final Configuration config;
+  final BadiDate badiDate;
+
+  const HolyDayCard({
+    super.key,
+    required this.config,
+    required this.badiDate,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final language = Localizations.localeOf(context).languageCode;
+    final holyDay = HOLY_DAYS[language]?[badiDate.holyDay] ?? '';
+    return DateCard(
+      key: Key('HolyDay_${badiDate.year}_$holyDay'),
+      title: holyDay,
+      date: badiDate,
+      dateFormatIndex: config.dateFormatIndex,
+      hideSunsetTimes: config.hideSunsetInDates,
+    );
+  }
+}
+
+class AyyamIHaCard extends StatelessWidget {
+  final Configuration config;
+  final BadiDate badiDate;
+
+  const AyyamIHaCard({
+    super.key,
+    required this.config,
+    required this.badiDate,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final start = BadiDate(
+      year: badiDate.year,
+      day: 1,
+      ayyamIHa: true,
+      longitude: config.longitude,
+      latitude: config.latitude,
+      altitude: config.altitude,
+    );
+    return DateCard(
+      key: Key('HolyDay_${badiDate.year}_ayyamiha'),
+      title: l10n.ayyamiha,
+      date: badiDate,
+      ayyamIHaStart: start,
+      dateFormatIndex: config.dateFormatIndex,
+      hideSunsetTimes: config.hideSunsetInDates,
+    );
   }
 }

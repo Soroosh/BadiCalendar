@@ -1,6 +1,6 @@
+import 'package:badi_calendar/l10n/app_localizations.dart';
 import 'package:badi_calendar/model/names.dart';
 import 'package:badi_date/badi_date.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class Utils {

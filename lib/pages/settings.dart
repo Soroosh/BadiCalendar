@@ -1,10 +1,10 @@
+import 'package:badi_calendar/l10n/app_localizations.dart';
 import 'package:badi_calendar/model/configuration.dart';
 import 'package:badi_calendar/widget/date_format_setting.dart';
 import 'package:badi_calendar/widget/general_settings.dart';
 import 'package:badi_calendar/widget/language_setting.dart';
 import 'package:badi_calendar/widget/location_setting.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settings extends StatelessWidget {
   final ConfigurationProvider _configurationProvider;
