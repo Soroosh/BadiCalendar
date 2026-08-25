@@ -117,23 +117,25 @@ class LocationSettingState extends State<LocationSetting> {
       valueListenable: widget._configurationProvider.listenToConfiguration,
       builder:
           (BuildContext context, Configuration configuration, Widget? widget) {
-        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          for (final method in LocationMethod.values)
-            Column(children: [
-              ListTile(
-                onTap: () => _saveLocationMethod(method),
-                title: Text(l10n?.locationSettingsMethod(method.index) ?? ''),
-                leading: Radio(
-                  groupValue: configuration.locationMethod,
-                  onChanged: _saveLocationMethod,
-                  value: method,
+        return RadioGroup(
+          onChanged: _saveLocationMethod,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            for (final method in LocationMethod.values)
+              Column(children: [
+                ListTile(
+                  onTap: () => _saveLocationMethod(method),
+                  title: Text(l10n?.locationSettingsMethod(method.index) ?? ''),
+                  leading: Radio(
+                    value: method,
+                  ),
                 ),
-              ),
-              if (configuration.locationMethod == LocationMethod.MANUEL &&
-                  method == LocationMethod.MANUEL)
-                _buildLocationInput(configuration),
-            ]),
-        ]);
+                if (configuration.locationMethod == LocationMethod.MANUEL &&
+                    method == LocationMethod.MANUEL)
+                  _buildLocationInput(configuration),
+              ]),
+          ]),
+        );
       },
     );
   }
