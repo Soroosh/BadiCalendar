@@ -19,20 +19,21 @@ class DateFormatSetting extends StatelessWidget {
         valueListenable: _configurationProvider.listenToConfiguration,
         builder: (BuildContext context, Configuration configuration,
             Widget? widget) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (final i in [0, 1, 2])
-                ListTile(
-                  onTap: () => _saveDateFormatIndex(i),
-                  title: Text(l10n?.dateFormatFromIndex(i) ?? ''),
-                  leading: Radio(
-                    groupValue: configuration.dateFormatIndex,
-                    onChanged: _saveDateFormatIndex,
-                    value: i,
+          return RadioGroup(
+            onChanged: _saveDateFormatIndex,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (final i in [0, 1, 2])
+                  ListTile(
+                    onTap: () => _saveDateFormatIndex(i),
+                    title: Text(l10n?.dateFormatFromIndex(i) ?? ''),
+                    leading: Radio(
+                      value: i,
+                    ),
                   ),
-                ),
-            ],
+              ],
+            ),
           );
         });
   }
