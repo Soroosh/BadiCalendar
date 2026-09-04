@@ -31,7 +31,8 @@ class LocationSettingState extends State<LocationSetting> {
         widget._configurationProvider.configuration.longitude?.toString() ?? '';
     _latitudeController.text =
         widget._configurationProvider.configuration.latitude?.toString() ?? '';
-    _locationMethod = widget._configurationProvider.configuration.locationMethod;
+    _locationMethod =
+        widget._configurationProvider.configuration.locationMethod;
   }
 
   void _saveLocationMethod(LocationMethod? value) {
