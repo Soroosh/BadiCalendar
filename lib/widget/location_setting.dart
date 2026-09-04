@@ -16,6 +16,7 @@ class LocationSetting extends StatefulWidget {
 class LocationSettingState extends State<LocationSetting> {
   final _longitudeController = TextEditingController();
   final _latitudeController = TextEditingController();
+  LocationMethod _locationMethod = LocationMethod.NONE;
   bool _longitudeHasError = false;
   bool _latitudeHasError = false;
 
@@ -30,13 +31,16 @@ class LocationSettingState extends State<LocationSetting> {
         widget._configurationProvider.configuration.longitude?.toString() ?? '';
     _latitudeController.text =
         widget._configurationProvider.configuration.latitude?.toString() ?? '';
+    _locationMethod = widget._configurationProvider.configuration.locationMethod;
   }
 
   void _saveLocationMethod(LocationMethod? value) {
     if (value == null) return;
     widget._configurationProvider.changeLocationMethod(value);
     if (value == LocationMethod.MANUEL) setFields();
-    setState(() {});
+    setState(() {
+      _locationMethod = value;
+    });
   }
 
   void _saveLatitude(String value) {
@@ -119,6 +123,7 @@ class LocationSettingState extends State<LocationSetting> {
           (BuildContext context, Configuration configuration, Widget? widget) {
         return RadioGroup(
           onChanged: _saveLocationMethod,
+          groupValue: _locationMethod,
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             for (final method in LocationMethod.values)

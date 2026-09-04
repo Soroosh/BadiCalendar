@@ -21,6 +21,7 @@ class DateFormatSetting extends StatelessWidget {
             Widget? widget) {
           return RadioGroup(
             onChanged: _saveDateFormatIndex,
+            groupValue: _configurationProvider.configuration.dateFormatIndex,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
